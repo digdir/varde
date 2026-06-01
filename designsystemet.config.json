@@ -58,6 +58,19 @@
         },
         "neutral": "#203040"
       }
+    },
+    "norge": {
+      "colors": {
+        "main": {
+          "priavate": "#0c8444",
+          "business": "#17a9ff"
+        },
+        "support": {
+          "help": "#5210a5"
+        },
+        "neutral": "#1E2B3C"
+      },
+      "borderRadius": 4
     }
   }
 }
