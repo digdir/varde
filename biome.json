@@ -9,7 +9,15 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false
+    "ignoreUnknown": false,
+    "includes": [
+      "**/*",
+      "!.vscode",
+      "!.github",
+      "!.changeset",
+      "!**/design-tokens/*",
+      "!**/design-tokens-build/*"
+    ]
   },
   "formatter": {
     "enabled": true,
