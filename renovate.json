@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["local>digdir/renovate-config"],
+  "rangeStrategy": "bump",
+  "ignoreDeps": [],
+  "customManagers": [
+    {
+      "customType": "jsonata",
+      "fileFormat": "yaml",
+      "managerFilePatterns": ["/pnpm-workspace.yaml$/"],
+      "matchStrings": ["{ 'currentValue': useNodeVersion }"],
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node"
+    },
+    {
+      "customType": "jsonata",
+      "fileFormat": "json",
+      "managerFilePatterns": ["/^package.json$/"],
+      "matchStrings": [
+        "engines.runtime[name = 'node'].{ 'currentValue': version }"
+      ],
+      "datasourceTemplate": "node-version",
+      "depNameTemplate": "node"
+    }
+  ]
+}

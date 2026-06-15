@@ -1,0 +1,11 @@
+packages:
+  - packages/*
+  - apps/*
+allowBuilds:
+  "@biomejs/biome": true
+blockExoticSubdeps: true
+injectWorkspacePackages: true
+minimumReleaseAge: 4320 # Matches renovate
+minimumReleaseAgeExclude:
+  - "@digdir/*"
+useNodeVersion: "24.16.0"

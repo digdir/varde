@@ -1,0 +1,94 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.0/schema.json",
+  "assist": {
+    "actions": { "source": { "organizeImports": "on" } }
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "includes": ["**/*"],
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "linter": {
+    "enabled": true,
+    "includes": ["**/*"],
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noNoninteractiveElementToInteractiveRole": "off",
+        "useValidAnchor": "off",
+        "useButtonType": "off",
+        "useValidAriaRole": "off",
+        "useValidAriaValues": "off",
+        "useMediaCaption": "off",
+        "useKeyWithClickEvents": "off",
+        "noNoninteractiveTabindex": "off",
+        "useAriaPropsForRole": "off"
+      },
+      "correctness": {
+        "useUniqueElementIds": "off",
+        "useExhaustiveDependencies": "off"
+      },
+      "style": {
+        "useTemplate": "off",
+        "noUnusedTemplateLiteral": "off",
+        "noParameterAssign": "off",
+        "useNumberNamespace": "off",
+        "useSelfClosingElements": "off",
+        "useAsConstAssertion": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useSingleVarDeclarator": "error",
+        "noInferrableTypes": "error",
+        "noUselessElse": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off",
+        "noUnknownAtRules": "off",
+        "noTsIgnore": "off"
+      },
+      "complexity": {
+        "noImportantStyles": "off"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "enabled": true,
+      "jsxQuoteStyle": "single",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single"
+    },
+    "parser": {
+      "cssModules": true
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
+    }
+  }
+}

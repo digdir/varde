@@ -1,207 +1,9 @@
----
-lockfileVersion: '9.0'
-
-importers:
-
-  .:
-    configDependencies: {}
-    packageManagerDependencies:
-      '@pnpm/exe':
-        specifier: ^11.1.3
-        version: 11.5.0
-      pnpm:
-        specifier: ^11.1.3
-        version: 11.5.0
-
-packages:
-
-  '@pnpm/exe@11.5.0':
-    resolution: {integrity: sha512-4hzOXq1HHrNPjwI8k1rt7Ot/Yrdx1JX3pn/L/M95ii1gid1Q6ZK6dVg4+gbSgUdPsYmYDZ4/Yfc0A7vd5C0ndg==}
-    hasBin: true
-
-  '@pnpm/linux-arm64@11.5.0':
-    resolution: {integrity: sha512-NV9HdzzCB0epuI9LqZZeTaqjH3OweNQSQCS76GzEkFxJHS9e5Gvu7tgex91gxVL7bCZ+R4yr/3d3yexBFtr2ug==}
-    cpu: [arm64]
-    os: [linux]
-
-  '@pnpm/linux-x64@11.5.0':
-    resolution: {integrity: sha512-vH83rRx4iPk/bwm9pBVCn+5hXbcQI66I/4zk6Vc09SusJgTqOdbN4U6VhMcGIqSEdr901ksYGCyIbMv7f6Guew==}
-    cpu: [x64]
-    os: [linux]
-
-  '@pnpm/linuxstatic-arm64@11.5.0':
-    resolution: {integrity: sha512-2nOnMW1rSwGv22q2yZz1HlGT3ly/Ij8wUlX0NB4n+Krx7nETRHA3MgWsbkVejxHknDcTulRVudAghuX9rgrXcw==}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
-  '@pnpm/linuxstatic-x64@11.5.0':
-    resolution: {integrity: sha512-ONOC1Mg0JusHtjzkRlre9di1QO+GAjy4HP7jMjDx21yGhrSheNdUweTXbekMH1EflRd19kTU6d8M3zewJFPtVg==}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
-  '@pnpm/macos-arm64@11.5.0':
-    resolution: {integrity: sha512-od0ALdTxs4A7s5vAH5q2l2phzCJb98+PVOW1rq7BGpWGeYxQ+EwvL+vq0KaO6iLsn/eVVoncCkgZ/k6QNYuTgw==}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@pnpm/win-arm64@11.5.0':
-    resolution: {integrity: sha512-9HqbI80FjVVqFx4+EPxYYNfeP9Sx69W6kYqUDvOJn9G7RJ/2NNNQ898cVHTMpXlW1/PrMEcijmdpa/NjZIrWiQ==}
-    cpu: [arm64]
-    os: [win32]
-
-  '@pnpm/win-x64@11.5.0':
-    resolution: {integrity: sha512-Q89CQqFGAsWmfvHZs5Kbbar45q3GBYtfAdPUCiVMVNJoLi3dsBS2LCvUq8ak3AufkFDaJBpvhaFcDP2M1NXr3A==}
-    cpu: [x64]
-    os: [win32]
-
-  '@reflink/reflink-darwin-arm64@0.1.19':
-    resolution: {integrity: sha512-ruy44Lpepdk1FqDz38vExBY/PVUsjxZA+chd9wozjUH9JjuDT/HEaQYA6wYN9mf041l0yLVar6BCZuWABJvHSA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [darwin]
-
-  '@reflink/reflink-darwin-x64@0.1.19':
-    resolution: {integrity: sha512-By85MSWrMZa+c26TcnAy8SDk0sTUkYlNnwknSchkhHpGXOtjNDUOxJE9oByBnGbeuIE1PiQsxDG3Ud+IVV9yuA==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [darwin]
-
-  '@reflink/reflink-linux-arm64-gnu@0.1.19':
-    resolution: {integrity: sha512-7P+er8+rP9iNeN+bfmccM4hTAaLP6PQJPKWSA4iSk2bNvo6KU6RyPgYeHxXmzNKzPVRcypZQTpFgstHam6maVg==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [glibc]
-
-  '@reflink/reflink-linux-arm64-musl@0.1.19':
-    resolution: {integrity: sha512-37iO/Dp6m5DDaC2sf3zPtx/hl9FV3Xze4xoYidrxxS9bgP3S8ALroxRK6xBG/1TtfXKTvolvp+IjrUU6ujIGmA==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [linux]
-    libc: [musl]
-
-  '@reflink/reflink-linux-x64-gnu@0.1.19':
-    resolution: {integrity: sha512-jbI8jvuYCaA3MVUdu8vLoLAFqC+iNMpiSuLbxlAgg7x3K5bsS8nOpTRnkLF7vISJ+rVR8W+7ThXlXlUQ93ulkw==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [glibc]
-
-  '@reflink/reflink-linux-x64-musl@0.1.19':
-    resolution: {integrity: sha512-e9FBWDe+lv7QKAwtKOt6A2W/fyy/aEEfr0g6j/hWzvQcrzHCsz07BNQYlNOjTfeytrtLU7k449H1PI95jA4OjQ==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [linux]
-    libc: [musl]
-
-  '@reflink/reflink-win32-arm64-msvc@0.1.19':
-    resolution: {integrity: sha512-09PxnVIQcd+UOn4WAW73WU6PXL7DwGS6wPlkMhMg2zlHHG65F3vHepOw06HFCq+N42qkaNAc8AKIabWvtk6cIQ==}
-    engines: {node: '>= 10'}
-    cpu: [arm64]
-    os: [win32]
-
-  '@reflink/reflink-win32-x64-msvc@0.1.19':
-    resolution: {integrity: sha512-E//yT4ni2SyhwP8JRjVGWr3cbnhWDiPLgnQ66qqaanjjnMiu3O/2tjCPQXlcGc/DEYofpDc9fvhv6tALQsMV9w==}
-    engines: {node: '>= 10'}
-    cpu: [x64]
-    os: [win32]
-
-  '@reflink/reflink@0.1.19':
-    resolution: {integrity: sha512-DmCG8GzysnCZ15bres3N5AHCmwBwYgp0As6xjhQ47rAUTUXxJiK+lLUxaGsX3hd/30qUpVElh05PbGuxRPgJwA==}
-    engines: {node: '>= 10'}
-
-  detect-libc@2.1.2:
-    resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
-    engines: {node: '>=8'}
-
-  pnpm@11.5.0:
-    resolution: {integrity: sha512-2/zE+Bz0hZev1Lw5H/3xLBHxqfuDo5W/prCi2cwv2P/rr9scy9UpYyFT95OQTCYVt/Cf4aNFRz/Rw1hFFyqOsQ==}
-    engines: {node: '>=22.13'}
-    hasBin: true
-
-snapshots:
-
-  '@pnpm/exe@11.5.0':
-    dependencies:
-      '@reflink/reflink': 0.1.19
-      detect-libc: 2.1.2
-    optionalDependencies:
-      '@pnpm/linux-arm64': 11.5.0
-      '@pnpm/linux-x64': 11.5.0
-      '@pnpm/linuxstatic-arm64': 11.5.0
-      '@pnpm/linuxstatic-x64': 11.5.0
-      '@pnpm/macos-arm64': 11.5.0
-      '@pnpm/win-arm64': 11.5.0
-      '@pnpm/win-x64': 11.5.0
-
-  '@pnpm/linux-arm64@11.5.0':
-    optional: true
-
-  '@pnpm/linux-x64@11.5.0':
-    optional: true
-
-  '@pnpm/linuxstatic-arm64@11.5.0':
-    optional: true
-
-  '@pnpm/linuxstatic-x64@11.5.0':
-    optional: true
-
-  '@pnpm/macos-arm64@11.5.0':
-    optional: true
-
-  '@pnpm/win-arm64@11.5.0':
-    optional: true
-
-  '@pnpm/win-x64@11.5.0':
-    optional: true
-
-  '@reflink/reflink-darwin-arm64@0.1.19':
-    optional: true
-
-  '@reflink/reflink-darwin-x64@0.1.19':
-    optional: true
-
-  '@reflink/reflink-linux-arm64-gnu@0.1.19':
-    optional: true
-
-  '@reflink/reflink-linux-arm64-musl@0.1.19':
-    optional: true
-
-  '@reflink/reflink-linux-x64-gnu@0.1.19':
-    optional: true
-
-  '@reflink/reflink-linux-x64-musl@0.1.19':
-    optional: true
-
-  '@reflink/reflink-win32-arm64-msvc@0.1.19':
-    optional: true
-
-  '@reflink/reflink-win32-x64-msvc@0.1.19':
-    optional: true
-
-  '@reflink/reflink@0.1.19':
-    optionalDependencies:
-      '@reflink/reflink-darwin-arm64': 0.1.19
-      '@reflink/reflink-darwin-x64': 0.1.19
-      '@reflink/reflink-linux-arm64-gnu': 0.1.19
-      '@reflink/reflink-linux-arm64-musl': 0.1.19
-      '@reflink/reflink-linux-x64-gnu': 0.1.19
-      '@reflink/reflink-linux-x64-musl': 0.1.19
-      '@reflink/reflink-win32-arm64-msvc': 0.1.19
-      '@reflink/reflink-win32-x64-msvc': 0.1.19
-
-  detect-libc@2.1.2: {}
-
-  pnpm@11.5.0: {}
-
----
 lockfileVersion: '9.0'
 
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
+  injectWorkspacePackages: true
 
 importers:
 
@@ -210,11 +12,72 @@ importers:
       '@digdir/designsystemet':
         specifier: ^1.15.0
         version: 1.15.0(tslib@2.8.1)
+    devDependencies:
+      '@biomejs/biome':
+        specifier: 2.4.16
+        version: 2.4.16
 
 packages:
 
-  '@bundled-es-modules/deepmerge@4.3.1':
-    resolution: {integrity: sha512-Rk453EklPUPC3NRWc3VUNI/SSUjdBaFoaQvFRmNBNtMHVtOFD5AntiWg5kEE1hqcPqedYFDzxE3ZcMYPcA195w==}
+  '@biomejs/biome@2.4.16':
+    resolution: {integrity: sha512-x9ajFh1zChVybCiM3TN6OD4phAqLgtPZjFrZF+aTMYCPjwBO+k529TX7PPsAqtGNLeV4UgzwQnowEgS7bGmzcA==}
+    engines: {node: '>=14.21.3'}
+    hasBin: true
+
+  '@biomejs/cli-darwin-arm64@2.4.16':
+    resolution: {integrity: sha512-wxPvu4XOA85YJk9ixSWUmq/QBHbid85BISbOAqqBM/5xQpPk9ayjk5375tOlSC0BeCwNSbPFafQBm+vBumXq0A==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@biomejs/cli-darwin-x64@2.4.16':
+    resolution: {integrity: sha512-xFCqGPwYusQJp4N4NJLi1XJiZqjwFdjhT+KqtNy+Ug3qgfczqnTa6MSDvxJF6TkuDLoYJItMapz6tAf7kCekFw==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@biomejs/cli-linux-arm64-musl@2.4.16':
+    resolution: {integrity: sha512-oYxnW0ARfJkr72ezzF2OR8N/rtkgLUQeYtF8cFhVswbknHxtTcmzSsanVJP8yQKnGpGpc2ck6c5zLvHahL6Cbg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@biomejs/cli-linux-arm64@2.4.16':
+    resolution: {integrity: sha512-2kFb4//jxfZaP6D+Rj5VkHkxgyD9EoRAVBEQb8PKRv+s4NO2zYNJKXFaJmK1CmhufJOWEfpHKaRbOja7qjmdhQ==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@biomejs/cli-linux-x64-musl@2.4.16':
+    resolution: {integrity: sha512-iHDS+MCM65DPqWGu+ECC3uoALyj2H7F4nVUPxIPjz/PIl94EUu+EDfGZDzFP+NY1EOPVt9NQvwFqq7HdMmowdg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@biomejs/cli-linux-x64@2.4.16':
+    resolution: {integrity: sha512-NbcBbi/nJqn5baae6wqRXdS7Gadf2uRpehSh6vMSYpG8OhkXl/Xg8aorWrJ+9VWqAT5ml90alLvorkpMW0nBwQ==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@biomejs/cli-win32-arm64@2.4.16':
+    resolution: {integrity: sha512-0rgImMsNb5v/chhkIFe3wu7PEFClS6RBAYUijGL9UsYN3PanSaoK24HSSuSJb1pYbYYVjzAyZTl3gtjJ84BM8A==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@biomejs/cli-win32-x64@2.4.16':
+    resolution: {integrity: sha512-Kp85jgoBHa05gix6UIRjfCDiUV3w/8VIdZ247VyyO2gEjaw12WEVhdIjlxp/AMzXxqxQwbxNTDVZ3Mwd2RG5rw==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [win32]
+
+  '@bundled-es-modules/deepmerge@4.3.2':
+    resolution: {integrity: sha512-q8doe7ndrY2IolUOFIn0A0++JBX38pMhN7kFhTF4cnjIcILf6X6H2yWczInyv8ZFdR0lrE8088X8XS5efxXz8A==}
 
   '@bundled-es-modules/glob@13.0.6':
     resolution: {integrity: sha512-x9nR2e1pt8LF0yLPC6yz/aUoiN7qJJwZ1znLxIXCxGyH+8BI+yO/sklBdn1+QbUyWXQBM+CjfZz3IhqtgIoDVg==}
@@ -274,50 +137,50 @@ packages:
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-core@4.57.3':
-    resolution: {integrity: sha512-IvO50vkGydDZwS1e9rz/JXEtCCt9XvqxoGI6FlrVIvVm4/HpygMKW4ETtREWtMTsN5CLJ9FR6GuCduoQPZLBiw==}
+  '@jsonjoy.com/fs-core@4.57.7':
+    resolution: {integrity: sha512-GDKuYHjP7vAI1kjBo73V+STKr9XIMZknW/xirpRW/EcShX0IKSev/ALafeRfC8Q331nodrXUFu04PugPB0MAhw==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-fsa@4.57.3':
-    resolution: {integrity: sha512-JlIDGUWPl7Y6zl+/ISnZuh8z2aMr/xoR66D18zlaVAuL192CvlNJEzOlzp27x4P52HRtDnCSOk6f59vTsmp5vw==}
+  '@jsonjoy.com/fs-fsa@4.57.7':
+    resolution: {integrity: sha512-1rWsah2nZtRbNeP+c61QcfGfVrJXBmBD0Hm7Akvv4C9MKEasXnbiOS//iH3T3HwUSSBATGrfSp0Xi8nlNhATeQ==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-builtins@4.57.3':
-    resolution: {integrity: sha512-JAI3PqNuY8BR7ovy4h0bADLrqJLIcUauONNZfyTxUnj3Wf3tpTYe39eJ6z7FzYyA+tdMt33VpiQQUikGr3QOBw==}
+  '@jsonjoy.com/fs-node-builtins@4.57.7':
+    resolution: {integrity: sha512-LWqfY1m+uAosjwM1RrKhMkUnP9jcq1RUczHsNO779ovm1E9v8I/pmj04eBAcoBjhC7ltcPbNFGyRJ5JqSJ7Jdg==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-to-fsa@4.57.3':
-    resolution: {integrity: sha512-uZGxyC0zDmcmW5bfHd4YivAZ54BLlbF9G0K5rBaksI/tZdJSGM7/AC+1TY7yvFu0Wc6gUHR7mFwf6SbQ3J1BTQ==}
+  '@jsonjoy.com/fs-node-to-fsa@4.57.7':
+    resolution: {integrity: sha512-9T0zC9LKcAWXDoTLRdLMoJ0seOvJ5bgDKq1tSBoQAFQpPDstQUeV1Oe7PLypdu7F2D3ddRstmwgeNUEN/VaZ4Q==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-utils@4.57.3':
-    resolution: {integrity: sha512-quCil8AvfcOxob4pn0drGdcQWpkPVgkt9q1+EjeyXXT40/L3l5lvYrr6hR8LmHu0eg+DNNaUwqjLT6Hr7V4sdQ==}
+  '@jsonjoy.com/fs-node-utils@4.57.7':
+    resolution: {integrity: sha512-jjWSDOsfcog2cZnUCwX5AHmlIq6b6wx5Pz/2LAcNjJ62Rajwg89Fy7ubN+lDHew0/1reLDa9Z5urybYadhh37g==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node@4.57.3':
-    resolution: {integrity: sha512-089gZoKvbeOsT2jeBaVKSz91oFXQWFG7a62sMY6gVMHnoWbyGzTb6OVUP/V7G3wLQLJ555BEsHt8SD1nj1dgaQ==}
+  '@jsonjoy.com/fs-node@4.57.7':
+    resolution: {integrity: sha512-xhnyeyEVTiIOibFvda/5n89nChMLCPKHHM2WQ+GGDf6+U/IrQBW3Qx6x+Uq1bkDbxBkybLOdIGoBtVBrE8Nngg==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-print@4.57.3':
-    resolution: {integrity: sha512-ITwaLZpGIqD9jHndwMvDFZDIvbVzGRsJZDQ5HKln0vyMculu1c1nb7zbEBgY8BVSBZ9S2xO138OWIBGeRsrF3Q==}
+  '@jsonjoy.com/fs-print@4.57.7':
+    resolution: {integrity: sha512-mFM4P4Gjq0QQHkLnXzPYPEMFrAoe6a5Myedgb6+CmL+nGd3MKvTxYPuD7N1dLIH9RBy1fLdzxd80qvuK8xrx3Q==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-snapshot@4.57.3':
-    resolution: {integrity: sha512-wdNaG2DxCtvj9lKldAnEV3ycYPEpk+p2cP2lHD1qdxkoQGlWUtQverqvG9KZSkm6BHFha4PP6XRZbpARNfHRxA==}
+  '@jsonjoy.com/fs-snapshot@4.57.7':
+    resolution: {integrity: sha512-1GS3+plfm2giB3PqokiqyydyqYTPLcCQIKSkp0TdMNRh3KVk7rqRM6U785FLlVRG7XLmkc0KWr215OY+22K3QA==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
@@ -619,8 +482,8 @@ packages:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
-  memfs@4.57.3:
-    resolution: {integrity: sha512-dlvqataP1zUOlfj6pv9wgCSC5pRIooNntXgdLfR7FWlcKi1p8fMfJADtHp/+8Dhu5JFvMHNh7L0QVcuaaBKqqA==}
+  memfs@4.57.7:
+    resolution: {integrity: sha512-YZPphUQZSRGk6ddPlsNuMbztrLwsbUATFNZcqKscSbSJZ4g0+Y3vSZLJ/rfnGZaB1FFhC7SrywZXev6i8lnHgg==}
     peerDependencies:
       tslib: '2'
 
@@ -697,8 +560,8 @@ packages:
     resolution: {integrity: sha512-FfR8sjd4em2T6fb3I2MwAJU7HWVMr9zba+enmQeeWFfCbm+UOC/0X4DS8XtpUTMwWMGbjKYP7xjfNekzyGmB3A==}
     engines: {node: ^10 || ^12 || >=14}
 
-  prettier@3.8.3:
-    resolution: {integrity: sha512-7igPTM53cGHMW8xWuVTydi2KO233VFiTNyF5hLJqpilHfmn8C8gPf+PS7dUT64YcXFbiMGZxS9pCSxL/Dxm/Jw==}
+  prettier@3.8.4:
+    resolution: {integrity: sha512-N2MylSdi48+5N/6S5j+maeHbUSIzzZ5uOcX5Hm4QpV8Dkb1HFjfAKTKX6yNPJQD9AhcT3ifHNB66tWTTJDi11Q==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -749,8 +612,8 @@ packages:
     resolution: {integrity: sha512-WPS/HvHQTYnHisLo9McqBHOJk2FkHO/tlpvldyrnem4aeQp4hai3gythswg6p01oSoTl58rcpiFAjF2br2Ak2A==}
     engines: {node: '>= 0.4'}
 
-  side-channel@1.1.0:
-    resolution: {integrity: sha512-ZX99e6tRweoUXqR+VBrslhda51Nh5MTQwou5tnUDgbtyM0dBgmhEDtWGP/xbKn6hqfPRHujUNwz5fy/wbbhnpw==}
+  side-channel@1.1.1:
+    resolution: {integrity: sha512-6x6dK6zJdpTzF4sQeNYxwtvBzf6Eg4GtlesS94HOvTudUeyK2WXAaIfmDgsyslYrRBeFIlsi54AYsFGUuhmvrQ==}
     engines: {node: '>= 0.4'}
 
   source-map-js@1.2.1:
@@ -763,8 +626,8 @@ packages:
   string_decoder@1.3.0:
     resolution: {integrity: sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==}
 
-  style-dictionary@5.4.2:
-    resolution: {integrity: sha512-Mienm46H28PWnydBiLFN7nR1QXqTO2FA+Aa/W7jcBJV8N0QGDDTfPQbb10TqwRybdY0rvp1G4pjdVM2HklGI0g==}
+  style-dictionary@5.4.4:
+    resolution: {integrity: sha512-Sd7dkEOLn33EpvlMyS8ykUu0us2EIFUqsysf4DSwZQ46nqQkZ2Q9o5mozu8cSizj3t7E220HaPk7EV1O7LjvDQ==}
     engines: {node: '>=22.0.0'}
     hasBin: true
 
@@ -800,8 +663,8 @@ packages:
   util@0.12.5:
     resolution: {integrity: sha512-kZf/K6hEIrWHI6XqOFUiiMa+79wE/D8Q+NCNAWclkyg3b4d2k7s0QGepNjiABc+aR3N1PAyHL7p6UcLY6LmrnA==}
 
-  which-typed-array@1.1.21:
-    resolution: {integrity: sha512-zbRA8cVm6io/d5W8uIe2hblzN76/Wm3v/yiythQvr+dpBWeqhPSWIDNj4zOyHi4zKbMK6DN34Xsr9jPHJERAEw==}
+  which-typed-array@1.1.22:
+    resolution: {integrity: sha512-fvO4ExWMFsqyhG3AiPAObMuY1lxaqgYcxbc49CNdWDDECOJNgQyvsOWVwbZc+qf3rzRtxojBK+CMEv0Ld5CYpw==}
     engines: {node: '>= 0.4'}
 
   zod-validation-error@5.0.0:
@@ -815,7 +678,42 @@ packages:
 
 snapshots:
 
-  '@bundled-es-modules/deepmerge@4.3.1':
+  '@biomejs/biome@2.4.16':
+    optionalDependencies:
+      '@biomejs/cli-darwin-arm64': 2.4.16
+      '@biomejs/cli-darwin-x64': 2.4.16
+      '@biomejs/cli-linux-arm64': 2.4.16
+      '@biomejs/cli-linux-arm64-musl': 2.4.16
+      '@biomejs/cli-linux-x64': 2.4.16
+      '@biomejs/cli-linux-x64-musl': 2.4.16
+      '@biomejs/cli-win32-arm64': 2.4.16
+      '@biomejs/cli-win32-x64': 2.4.16
+
+  '@biomejs/cli-darwin-arm64@2.4.16':
+    optional: true
+
+  '@biomejs/cli-darwin-x64@2.4.16':
+    optional: true
+
+  '@biomejs/cli-linux-arm64-musl@2.4.16':
+    optional: true
+
+  '@biomejs/cli-linux-arm64@2.4.16':
+    optional: true
+
+  '@biomejs/cli-linux-x64-musl@2.4.16':
+    optional: true
+
+  '@biomejs/cli-linux-x64@2.4.16':
+    optional: true
+
+  '@biomejs/cli-win32-arm64@2.4.16':
+    optional: true
+
+  '@biomejs/cli-win32-x64@2.4.16':
+    optional: true
+
+  '@bundled-es-modules/deepmerge@4.3.2':
     dependencies:
       deepmerge: 4.3.1
 
@@ -834,7 +732,7 @@ snapshots:
       assert: 2.1.0
       buffer: 6.0.3
       events: 3.3.0
-      memfs: 4.57.3(tslib@2.8.1)
+      memfs: 4.57.7(tslib@2.8.1)
       path: 0.12.7
       stream: 0.0.3
       util: 0.12.5
@@ -855,7 +753,7 @@ snapshots:
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
       '@digdir/designsystemet-types': 1.15.0
-      '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.2(tslib@2.8.1))
+      '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.4(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
       commander: 14.0.3
@@ -865,7 +763,7 @@ snapshots:
       picocolors: 1.1.1
       postcss: 8.5.15
       ramda: 0.32.0
-      style-dictionary: 5.4.2(tslib@2.8.1)
+      style-dictionary: 5.4.4(tslib@2.8.1)
       zod: 4.4.3
       zod-validation-error: 5.0.0(zod@4.4.3)
     transitivePeerDependencies:
@@ -895,58 +793,58 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-core@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-core@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
       thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-fsa@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-fsa@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-core': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
       thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-builtins@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-builtins@4.57.7(tslib@2.8.1)':
     dependencies:
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-to-fsa@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-to-fsa@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-fsa': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-fsa': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-utils@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-utils@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-core': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-print': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-snapshot': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-print': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-snapshot': 4.57.7(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
       thingies: 2.6.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-print@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-print@4.57.7(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
       tree-dump: 1.1.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-snapshot@4.57.3(tslib@2.8.1)':
+  '@jsonjoy.com/fs-snapshot@4.57.7(tslib@2.8.1)':
     dependencies:
       '@jsonjoy.com/buffers': 17.67.0(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
       '@jsonjoy.com/json-pack': 17.67.0(tslib@2.8.1)
       '@jsonjoy.com/util': 17.67.0(tslib@2.8.1)
       tslib: 2.8.1
@@ -1010,15 +908,15 @@ snapshots:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.20.1
 
-  '@tokens-studio/sd-transforms@2.0.3(style-dictionary@5.4.2(tslib@2.8.1))':
+  '@tokens-studio/sd-transforms@2.0.3(style-dictionary@5.4.4(tslib@2.8.1))':
     dependencies:
-      '@bundled-es-modules/deepmerge': 4.3.1
+      '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/postcss-calc-ast-parser': 0.1.6
       '@tokens-studio/types': 0.5.2
       colorjs.io: 0.5.2
       expr-eval-fork: 3.0.3
       is-mergeable-object: 1.1.1
-      style-dictionary: 5.4.2(tslib@2.8.1)
+      style-dictionary: 5.4.4(tslib@2.8.1)
 
   '@tokens-studio/types@0.5.2': {}
 
@@ -1241,7 +1139,7 @@ snapshots:
 
   is-typed-array@1.1.15:
     dependencies:
-      which-typed-array: 1.1.21
+      which-typed-array: 1.1.22
 
   json5@2.2.3: {}
 
@@ -1249,16 +1147,16 @@ snapshots:
 
   math-intrinsics@1.1.0: {}
 
-  memfs@4.57.3(tslib@2.8.1):
+  memfs@4.57.7(tslib@2.8.1):
     dependencies:
-      '@jsonjoy.com/fs-core': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-fsa': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-to-fsa': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-print': 4.57.3(tslib@2.8.1)
-      '@jsonjoy.com/fs-snapshot': 4.57.3(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-fsa': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-to-fsa': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-print': 4.57.7(tslib@2.8.1)
+      '@jsonjoy.com/fs-snapshot': 4.57.7(tslib@2.8.1)
       '@jsonjoy.com/json-pack': 1.21.0(tslib@2.8.1)
       '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
@@ -1331,7 +1229,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.1
 
-  prettier@3.8.3: {}
+  prettier@3.8.4: {}
 
   process@0.11.10: {}
 
@@ -1339,7 +1237,7 @@ snapshots:
 
   qs@6.15.2:
     dependencies:
-      side-channel: 1.1.0
+      side-channel: 1.1.1
 
   queue-microtask@1.2.3: {}
 
@@ -1388,7 +1286,7 @@ snapshots:
       object-inspect: 1.13.4
       side-channel-map: 1.0.1
 
-  side-channel@1.1.0:
+  side-channel@1.1.1:
     dependencies:
       es-errors: 1.3.0
       object-inspect: 1.13.4
@@ -1406,9 +1304,9 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  style-dictionary@5.4.2(tslib@2.8.1):
+  style-dictionary@5.4.4(tslib@2.8.1):
     dependencies:
-      '@bundled-es-modules/deepmerge': 4.3.1
+      '@bundled-es-modules/deepmerge': 4.3.2
       '@bundled-es-modules/glob': 13.0.6
       '@bundled-es-modules/memfs': 4.17.0(tslib@2.8.1)
       '@zip.js/zip.js': 2.8.26
@@ -1419,7 +1317,7 @@ snapshots:
       is-plain-obj: 4.1.0
       json5: 2.2.3
       path-unified: 0.2.0
-      prettier: 3.8.3
+      prettier: 3.8.4
       tinycolor2: 1.6.0
     transitivePeerDependencies:
       - tslib
@@ -1455,9 +1353,9 @@ snapshots:
       is-arguments: 1.2.0
       is-generator-function: 1.1.2
       is-typed-array: 1.1.15
-      which-typed-array: 1.1.21
+      which-typed-array: 1.1.22
 
-  which-typed-array@1.1.21:
+  which-typed-array@1.1.22:
     dependencies:
       available-typed-arrays: 1.0.7
       call-bind: 1.0.9
