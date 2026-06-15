@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tokens": "designsystemet tokens create && designsystemet tokens build"
+    "tokens": "designsystemet tokens create && designsystemet tokens build",
+    "lint": "biome lint"
   },
   "keywords": [],
   "author": "",
