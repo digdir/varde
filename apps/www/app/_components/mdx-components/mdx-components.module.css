@@ -1,0 +1,28 @@
+.heading {
+  scroll-margin-top: calc(var(--header-height, 75px) + var(--ds-size-4));
+}
+
+/* The anchor link appended to headings by rehype-autolink-headings. */
+.heading :global(a) {
+  text-decoration: none;
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-block: var(--ds-size-4);
+}
+
+.pre {
+  overflow-x: auto;
+  padding: var(--ds-size-4);
+  border-radius: var(--ds-border-radius-md, 8px);
+  background: var(--ds-color-neutral-surface-tinted, #f3f4f6);
+  border: 1px solid var(--ds-color-neutral-border-subtle, #e5e7eb);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin-block: var(--ds-size-4);
+}
+
+.pre code {
+  font-family: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+}

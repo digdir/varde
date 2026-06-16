@@ -1,15 +1,74 @@
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+:root {
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --header-height: 75px;
+  --content-inline-padding: clamp(1rem, 0.27rem + 2.4vw, 1.75rem);
+  --page-spacing-top: clamp(2rem, 1rem + 3vw, 3.5rem);
+  --page-spacing-bottom: clamp(3rem, 2rem + 2vw, 3.5rem);
+  --sidebar-left-width: clamp(240px, 18vw, 300px);
+  --sidebar-right-width: clamp(220px, 16vw, 280px);
+  --max-content-width: 1300px;
+  --long-content-width: 950px;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+  @media screen and (max-width: 600px) {
+    --header-height: 68px;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  background: var(--ds-color-neutral-background-default, #fff);
+  color: var(--ds-color-neutral-text-default, #1e2b3c);
+}
+
+/* Outer content layout used on all pages. */
+.l-content-container {
+  width: 100%;
+  max-width: calc(
+    var(--max-content-width) +
+    (var(--content-inline-padding) * 2)
+  );
+  margin: 0 auto;
+  padding-inline: var(--content-inline-padding);
+  display: grid;
+
+  /* Two-column layout when a left sidebar is present. */
+  &:has(.l-sidebar-left) {
+    max-width: 1920px;
+    grid-template-columns: var(--sidebar-left-width) minmax(0, 1fr);
+    column-gap: clamp(48px, 6vw, 110px);
+
+    @media screen and (max-width: 958px) {
+      display: block;
+    }
+  }
+}
+
+/* Spacing + inline elements for rendered MDX content. */
+.u-rich-text {
+  > * + * {
+    margin-block-start: var(--ds-size-4, 1rem);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  :not(pre) > code {
+    font-family: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+    font-size: 0.9em;
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    background: var(--ds-color-neutral-surface-tinted, #f3f4f6);
   }
 }

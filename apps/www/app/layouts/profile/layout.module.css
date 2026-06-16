@@ -1,0 +1,4 @@
+.content {
+  min-width: 0;
+  padding-block: var(--page-spacing-top, 2rem) var(--page-spacing-bottom, 3rem);
+}

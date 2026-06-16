@@ -1,0 +1,116 @@
+.page {
+  max-width: calc(
+    var(--max-content-width, 1300px) +
+    (var(--content-inline-padding, 1rem) * 2)
+  );
+  margin: 0 auto;
+  padding: var(--page-spacing-top, 2rem) var(--content-inline-padding, 1rem)
+    var(--page-spacing-bottom, 3rem);
+}
+
+.intro {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto var(--ds-size-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-3);
+}
+
+.lead {
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ds-size-6);
+}
+
+@media screen and (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--ds-size-4);
+  height: 100%;
+  min-height: 240px;
+  padding: var(--ds-size-7);
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--ds-color-neutral-text-default);
+  background: color-mix(
+    in srgb,
+    var(--identity-color) 12%,
+    var(--ds-color-neutral-background-default, #fff)
+  );
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+  overflow: hidden;
+  cursor: pointer;
+
+  & a {
+    color: inherit;
+  }
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.08);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+  flex: 1 1 55%;
+  min-width: 0;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+}
+
+.cardDescription {
+  color: var(--ds-color-neutral-text-subtle);
+  max-width: 32ch;
+}
+
+.cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-size-2);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.illustration {
+  flex: 0 0 auto;
+  width: clamp(130px, 38%, 200px);
+  height: auto;
+  align-self: center;
+}
+
+@media screen and (max-width: 480px) {
+  .illustration {
+    display: none;
+  }
+}
+
+.help {
+  text-align: center;
+  margin-top: var(--ds-size-10);
+  color: var(--ds-color-neutral-text-subtle);
+}

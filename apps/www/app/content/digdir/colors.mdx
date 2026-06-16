@@ -1,0 +1,31 @@
+---
+title: Farger
+sidebar_title: Farger
+description: Fargepaletten for Digdir-profilen.
+category: Styling
+order: 1
+published: true
+---
+
+Digdir-profilen bruker en egen fargepalett bygget med Designsystemet sine
+fargetokens.
+
+## Hovedfarger
+
+| Token  | Verdi   | Beskrivelse  |
+| ------ | ------- | ------------ |
+| accent | #0062BA | Hovedfarge   |
+| brand1 | #F45F63 | Støttefarge  |
+| brand2 | #E5AA20 | Støttefarge  |
+| brand3 | #1E98F5 | Støttefarge  |
+
+## Bruk i CSS
+
+Fargene er tilgjengelige som CSS-variabler:
+
+```css
+.my-element {
+  background: var(--ds-color-accent-base-default);
+  color: var(--ds-color-accent-base-contrast-default);
+}
+```
