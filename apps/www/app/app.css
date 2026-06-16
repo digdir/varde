@@ -34,7 +34,10 @@ body {
 /* Outer content layout used on all pages. */
 .l-content-container {
   width: 100%;
-  max-width: calc(var(--max-content-width) + (var(--content-inline-padding) * 2));
+  max-width: calc(
+    var(--max-content-width) +
+    (var(--content-inline-padding) * 2)
+  );
   margin: 0 auto;
   padding-inline: var(--content-inline-padding);
   display: grid;

@@ -60,7 +60,7 @@ export const TableOfContents = ({
       {filteredItems.length > 1 && (
         <>
           <Paragraph data-size='sm' asChild>
-            <h2>On this page</h2>
+            <h2>På denne siden</h2>
           </Paragraph>
           <ol>
             {filteredItems.map((item) => (

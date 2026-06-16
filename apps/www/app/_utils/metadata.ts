@@ -1,4 +1,4 @@
-export const SITE_NAME = 'Varden';
+export const SITE_NAME = 'Varde';
 
 export interface PageMetadata {
   title: string;
@@ -10,6 +10,6 @@ export interface PageMetadata {
  * Kept intentionally small – extend with og/twitter tags as needed.
  */
 export const generateMetadata = ({ title, description }: PageMetadata) => [
-  { title: `${title} – ${SITE_NAME}` },
+  { title: `${title} - ${SITE_NAME}` },
   ...(description ? [{ name: 'description', content: description }] : []),
 ];

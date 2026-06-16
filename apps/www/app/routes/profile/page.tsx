@@ -46,24 +46,22 @@ export default function Page({
   loaderData: { code, frontmatter, toc },
 }: Route.ComponentProps) {
   return (
-    <article className={classes.page}>
+    <div className={classes.page}>
       <header className={classes.header}>
         <Heading level={1} data-size='lg'>
           {frontmatter.title}
         </Heading>
         {frontmatter.description && (
-          <Paragraph data-size='lg' className={classes.description}>
+          <Paragraph data-size='lg' className={classes.ingress}>
             {frontmatter.description}
           </Paragraph>
         )}
       </header>
-      <div className={classes.body}>
-        <div className={cl(classes.content, 'u-rich-text')}>
-          <MDXComponents code={code} />
-        </div>
-        <TableOfContents items={toc} className={classes.toc} />
+      <TableOfContents items={toc} className={classes.toc} />
+      <div className={cl(classes.article, 'u-rich-text')}>
+        <MDXComponents code={code} />
       </div>
-    </article>
+    </div>
   );
 }
 

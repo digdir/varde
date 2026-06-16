@@ -55,10 +55,7 @@ export default function Home() {
                         {profile.name}
                       </RRLink>
                     </Heading>
-                    <Paragraph
-                      data-size='sm'
-                      className={classes.cardDescription}
-                    >
+                    <Paragraph className={classes.cardDescription}>
                       {profile.description}
                     </Paragraph>
                   </div>

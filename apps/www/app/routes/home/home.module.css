@@ -92,8 +92,6 @@
   display: inline-flex;
   align-items: center;
   gap: var(--ds-size-2);
-  font-weight: 600;
-  font-size: 0.9375rem;
 }
 
 .illustration {

@@ -44,7 +44,7 @@ export default function RootLayout() {
           </div>
         </div>
       </header>
-      <main id='main'>
+      <main id='main' className={classes.main}>
         <Outlet />
       </main>
     </>

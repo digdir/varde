@@ -38,3 +38,15 @@
   align-items: center;
   gap: var(--ds-size-2);
 }
+
+.main {
+  /* Fill the viewport below the (sticky) header so short pages don't leave a gap. */
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - var(--header-height, 75px));
+}
+
+/* Let whatever the route renders (the content container) stretch to fill. */
+.main > * {
+  flex: 1 0 auto;
+}
