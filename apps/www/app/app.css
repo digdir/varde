@@ -16,6 +16,7 @@
   --sidebar-right-width: clamp(220px, 16vw, 280px);
   --max-content-width: 1300px;
   --long-content-width: 950px;
+  --short-content-width: 700px;
 
   @media screen and (max-width: 600px) {
     --header-height: 68px;
@@ -33,10 +34,7 @@ body {
 /* Outer content layout used on all pages. */
 .l-content-container {
   width: 100%;
-  max-width: calc(
-    var(--max-content-width) +
-    (var(--content-inline-padding) * 2)
-  );
+  max-width: calc(var(--max-content-width) + (var(--content-inline-padding) * 2));
   margin: 0 auto;
   padding-inline: var(--content-inline-padding);
   display: grid;
@@ -53,22 +51,124 @@ body {
   }
 }
 
-/* Spacing + inline elements for rendered MDX content. */
+/*
+ * Typography + spacing for rendered MDX content. Mirrors the rhythm used by
+ * designsystemet.no: a readable measure for prose, generous space above
+ * headings, and tinted inline code.
+ */
 .u-rich-text {
-  > * + * {
-    margin-block-start: var(--ds-size-4, 1rem);
+  & > *:first-child {
+    margin-top: 0;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  & > *:last-child {
+    margin-bottom: 0;
   }
 
-  :not(pre) > code {
-    font-family: ui-monospace, 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+  /* Constrain prose to a comfortable measure; let media/blocks run wider. */
+  & > * {
+    max-width: var(--short-content-width);
+  }
+
+  & > :where(div, figure, table, img, video, pre, iframe) {
+    max-width: var(--long-content-width);
+  }
+
+  & > p {
+    margin-bottom: var(--ds-size-6);
+    text-wrap: pretty;
+  }
+
+  & > h2,
+  & > h3,
+  & > h4,
+  & > h5,
+  & > h6 {
+    scroll-margin-top: calc(var(--header-height) + var(--ds-size-4));
+  }
+
+  & > h2 {
+    margin-top: var(--ds-size-10);
+    margin-bottom: var(--ds-size-4);
+  }
+
+  & > h3 {
+    margin-top: var(--ds-size-9);
+    margin-bottom: var(--ds-size-3);
+  }
+
+  & > h4,
+  & > h5,
+  & > h6 {
+    margin-top: var(--ds-size-8);
+    margin-bottom: var(--ds-size-3);
+  }
+
+  & > :where(div, table, figure) {
+    margin-block: var(--ds-size-8);
+  }
+
+  & > ul,
+  & > ol {
+    padding-left: var(--ds-size-5);
+    margin-bottom: var(--ds-size-5);
+    margin-top: calc(var(--ds-size-2) * -1);
+  }
+
+  & > ul > li,
+  & > ol > li {
+    line-height: 1.9em;
+    word-break: break-word;
+    text-wrap: pretty;
+  }
+
+  & > p > a:hover,
+  & > ul li a:hover,
+  & > ol li a:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  & > table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  & > img,
+  & > video {
+    width: 100%;
+    margin: var(--ds-size-2) 0;
+    border-radius: var(--ds-border-radius-md);
+    box-shadow: var(--ds-shadow-md);
+  }
+
+  & code:not(pre > code) {
+    padding: 2px 5px;
     font-size: 0.9em;
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
-    background: var(--ds-color-neutral-surface-tinted, #f3f4f6);
+    line-height: 1;
+    white-space: break-spaces;
+    background-color: var(--ds-color-neutral-background-tinted);
+    border: 1px solid var(--ds-color-neutral-border-subtle);
+    border-radius: var(--ds-border-radius-md);
+    box-decoration-break: clone;
+  }
+
+  & > blockquote {
+    margin: var(--ds-size-2) 0 var(--ds-size-8);
+    padding: var(--ds-size-4) var(--ds-size-6);
+    border-left: 4px solid var(--ds-color-neutral-border-strong);
+    background-color: var(--ds-color-neutral-background-tinted);
+    border-radius: 0 var(--ds-border-radius-md) var(--ds-border-radius-md) 0;
+
+    & > :first-child {
+      margin-top: 0;
+    }
+
+    & > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  & > .ds-alert {
+    margin: var(--ds-size-8) 0;
   }
 }

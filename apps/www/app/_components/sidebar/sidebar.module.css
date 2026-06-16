@@ -1,14 +1,43 @@
 .sidebar {
-  padding-block: var(--page-spacing-top, 2rem);
-  padding-inline-end: var(--ds-size-4);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: var(--header-height, 75px);
+  max-height: calc(100vh - var(--header-height, 75px));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-right: 1px solid var(--ds-color-neutral-border-subtle);
+  padding-top: var(--ds-size-7);
+  padding-inline-end: var(--ds-size-5);
+  scrollbar-color: var(--ds-color-neutral-border-subtle) transparent;
+  /* Counter the link padding so text aligns with the content while the active
+     pill can still extend to the left edge. */
+  margin-left: calc(var(--ds-size-4) * -1);
+
+  > nav {
+    margin-bottom: var(--header-height, 75px);
+  }
 
   @media screen and (max-width: 958px) {
-    padding-block: var(--ds-size-4);
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--ds-color-neutral-border-subtle);
+    margin-left: 0;
+    padding-inline-end: 0;
+    padding-bottom: var(--ds-size-5);
+
+    > nav {
+      margin-bottom: 0;
+    }
   }
 }
 
 .title {
-  margin-bottom: var(--ds-size-4);
+  font-weight: 600;
+  margin-bottom: var(--ds-size-5);
+  padding-inline: var(--ds-size-4);
 }
 
 .group {
@@ -16,7 +45,9 @@
 }
 
 .groupTitle {
+  font-weight: var(--ds-font-weight-semibold, 600);
   margin-bottom: var(--ds-size-2);
+  padding-inline: var(--ds-size-4);
   color: var(--ds-color-neutral-text-subtle);
 }
 
@@ -26,13 +57,45 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--ds-size-1);
+  gap: 4px;
 }
 
 .sidebar li {
   margin: 0;
 }
 
-.active {
-  font-weight: 600;
+.link {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  padding: var(--ds-size-1) var(--ds-size-4);
+  line-height: 1.3em;
+  border-radius: var(--ds-border-radius-md);
+  text-wrap: balance;
+
+  &:hover {
+    background-color: var(--ds-color-neutral-surface-tinted);
+  }
+
+  &:focus-visible {
+    outline-offset: calc(-1 * var(--ds-border-width-focus));
+  }
+
+  &[aria-current='page'] {
+    font-weight: 500;
+    background-color: var(--ds-color-neutral-background-tinted);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 4px;
+      background-color: var(--ds-color-neutral-border-strong);
+      border-top-left-radius: var(--ds-border-radius-sm);
+      border-bottom-left-radius: var(--ds-border-radius-sm);
+    }
+  }
 }

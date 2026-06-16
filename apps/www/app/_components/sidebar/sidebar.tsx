@@ -31,13 +31,7 @@ export const Sidebar = ({ title, groups, hideGroupTitle }: SidebarProps) => {
               {links.map((link) => (
                 <li key={link.url}>
                   <Link data-size='sm' asChild>
-                    <NavLink
-                      to={link.url}
-                      end
-                      className={({ isActive }) =>
-                        cl(isActive && classes.active)
-                      }
-                    >
+                    <NavLink to={link.url} end className={classes.link}>
                       {link.title}
                     </NavLink>
                   </Link>
