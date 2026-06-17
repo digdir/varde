@@ -2,6 +2,9 @@
   "name": "www",
   "private": true,
   "type": "module",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",

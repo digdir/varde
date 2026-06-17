@@ -1,0 +1,64 @@
+name: Deploy www
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/www/**'
+      - 'design-tokens-build/**'
+      - 'Dockerfile'
+      - '.dockerignore'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/deploy-www.yml'
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+concurrency:
+  group: deploy-www-prod
+  cancel-in-progress: true
+
+env:
+  RESOURCE_GROUP: rg-varde-prod
+  ACR_NAME: vardeacr
+  APP_NAME: www-prod
+  IMAGE: vardeacr.azurecr.io/www:${{ github.sha }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - name: az login (oidc)
+        uses: azure/login@v3
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: acr login (for docker push)
+        run: az acr login --name ${{ env.ACR_NAME }}
+
+      - name: build & push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile
+          target: www
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}
+            ${{ env.ACR_NAME }}.azurecr.io/www:latest
+          build-args: |
+            PORT=8000
+            HOST=0.0.0.0
+            APP_ENV=production
+
+      - name: deploy to container app
+        run: az containerapp update -n "$APP_NAME" -g "$RESOURCE_GROUP" --image "$IMAGE"
