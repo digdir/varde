@@ -102,6 +102,9 @@ const defaultComponents = {
       <Table data-color='neutral' border zebra {...props} />
     </div>
   ),
+  img: (props: JSX.IntrinsicElements['img']) => (
+    <img className={classes.image} alt={props.alt} {...props} />
+  ),
   thead: TableHead,
   tbody: TableBody,
   tfoot: TableFoot,

@@ -61,7 +61,7 @@ export default function ProfileLayout({
   return (
     <div className='l-content-container' data-profile={profile.slug}>
       <Sidebar
-        title={profile.name}
+        profile={profile}
         groups={groups}
         hideGroupTitle={!hasCategories}
       />

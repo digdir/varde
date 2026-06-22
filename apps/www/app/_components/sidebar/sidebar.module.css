@@ -10,9 +10,6 @@
   padding-top: var(--ds-size-7);
   padding-inline-end: var(--ds-size-5);
   scrollbar-color: var(--ds-color-neutral-border-subtle) transparent;
-  /* Counter the link padding so text aligns with the content while the active
-     pill can still extend to the left edge. */
-  margin-left: calc(var(--ds-size-4) * -1);
 
   > nav {
     margin-bottom: var(--header-height, 75px);
@@ -34,10 +31,40 @@
   }
 }
 
-.title {
-  font-weight: 600;
-  margin-bottom: var(--ds-size-5);
-  padding-inline: var(--ds-size-4);
+.switcher {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--ds-size-2);
+  width: 100%;
+  margin-block-end: var(--ds-size-5);
+  font-weight: 500;
+  text-align: start;
+}
+
+.switcherName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+.switcherOption {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-2);
+}
+
+.dot {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: var(--ds-border-radius-full);
 }
 
 .group {
@@ -48,7 +75,7 @@
   font-weight: var(--ds-font-weight-semibold, 600);
   margin-bottom: var(--ds-size-2);
   padding-inline: var(--ds-size-4);
-  color: var(--ds-color-neutral-text-subtle);
+  color: var(--ds-color-neutral-text-default);
 }
 
 .sidebar ul {
@@ -84,7 +111,8 @@
 
   &[aria-current='page'] {
     font-weight: 500;
-    background-color: var(--ds-color-neutral-background-tinted);
+    background-color: var(--ds-color-accent-surface-tinted);
+    color: var(--ds-color-accent-text-default);
 
     &::before {
       content: '';
@@ -93,7 +121,7 @@
       bottom: 0;
       left: 0;
       width: 4px;
-      background-color: var(--ds-color-neutral-border-strong);
+      background-color: var(--ds-color-accent-base-default);
       border-top-left-radius: var(--ds-border-radius-sm);
       border-bottom-left-radius: var(--ds-border-radius-sm);
     }

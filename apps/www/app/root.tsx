@@ -5,12 +5,14 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from 'react-router';
+import { getProfile } from '~/_config/profiles';
+import { getThemeStylesheet } from '~/_config/themes';
 import type { Route } from './+types/root';
-// Designsystemet base styles + a theme. The theme below is the default for the
-// whole site; per-profile theming can be layered on later (see _config/profiles).
+// Designsystemet base styles. The active theme's design tokens are loaded
+// per-profile in `Layout` below (see `_config/themes`).
 import '@digdir/designsystemet-css';
-import '../../../design-tokens-build/digdir.css';
 import './app.css';
 
 export const links: Route.LinksFunction = () => [
@@ -27,6 +29,12 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  // Pick the design-token theme from the first path segment (the profile slug),
+  // so navigating between profiles swaps the whole site's theme.
+  const { pathname } = useLocation();
+  const slug = pathname.split('/').filter(Boolean)[0];
+  const themeHref = getThemeStylesheet(getProfile(slug)?.theme);
+
   return (
     <html lang='no' data-color-scheme='light' suppressHydrationWarning>
       <head>
@@ -34,6 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
         <Links />
+        <link rel='stylesheet' href={themeHref} precedence='theme' />
         {/* Apply the saved colour scheme before paint to avoid a flash. */}
       </head>
       <body>
