@@ -5,14 +5,10 @@
   "themes": {
     "digdir": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#F45F63",
-          "brand2": "#E5AA20",
-          "brand3": "#1E98F5"
-        },
+        "accent": "#0062BA",
+        "brand1": "#F45F63",
+        "brand2": "#E5AA20",
+        "brand3": "#1E98F5",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -22,55 +18,129 @@
     },
     "altinn": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#0162BA",
-          "brand2": "#3F3161",
-          "brand3": "#E02F4A"
-        },
+        "accent": "#0062BA",
+        "brand1": "#0162BA",
+        "brand2": "#3F3161",
+        "brand3": "#E02F4A",
         "neutral": "#1E2B3C"
+      },
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Inter"
       }
     },
     "uutilsynet": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#5B60D1",
-          "brand2": "#FEA769",
-          "brand3": "#5DA290"
-        },
+        "accent": "#0062BA",
+        "brand1": "#5B60D1",
+        "brand2": "#FEA769",
+        "brand3": "#5DA290",
         "neutral": "#1E2B3C"
+      },
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Inter"
       }
     },
     "portal": {
       "colors": {
-        "main": {
-          "accent": "#38628C"
-        },
-        "support": {
-          "brand1": "#D9ECFF",
-          "brand2": "#FFCA99",
-          "brand3": "#D96C79"
-        },
+        "accent": "#38628C",
+        "brand1": "#D9ECFF",
+        "brand2": "#FFCA99",
+        "brand3": "#D96C79",
         "neutral": "#203040"
+      },
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Inter"
       }
     },
-    "norge": {
+    "norge-private": {
       "colors": {
-        "main": {
-          "private": "#0c8444",
-          "business": "#17a9ff"
-        },
-        "support": {
-          "help": "#5210a5"
-        },
+        "accent": "#0c8444",
+        "brand1": "#5210a5",
+        "brand2": "#000000",
+        "brand3": "#000000",
         "neutral": "#1E2B3C"
       },
-      "borderRadius": 4
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Inter"
+      }
+    },
+    "norge-business": {
+      "colors": {
+        "accent": "#17a9ff",
+        "brand1": "#5210a5",
+        "brand2": "#000000",
+        "brand3": "#000000",
+        "neutral": "#1E2B3C"
+      },
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Inter"
+      }
+    },
+    "ki-norge": {
+      "colors": {
+        "accent": "#B42946",
+        "brand1": "#A24D83",
+        "brand2": "#89634A",
+        "brand3": "#E9B596",
+        "neutral": "#24272B"
+      },
+      "overrides": {
+        "colors": {
+          "accent": {
+            "background-tinted": {
+              "light": "#EEBBC1"
+            },
+            "background-default": {
+              "light": "#F8F3EE"
+            },
+            "surface-default": {
+              "light": "#F8F3EE"
+            }
+          },
+          "brand1": {
+            "background-tinted": {
+              "light": "#D0ADC3"
+            },
+            "background-default": {
+              "light": "#F8F3EE"
+            },
+            "surface-default": {
+              "light": "#F8F3EE"
+            }
+          },
+          "brand2": {
+            "background-tinted": {
+              "light": "#BA9F8E"
+            },
+            "background-default": {
+              "light": "#FDF9F5"
+            },
+            "surface-default": {
+              "light": "#FDF9F5"
+            }
+          },
+          "brand3": {
+            "background-tinted": {
+              "light": "#FCC9A9"
+            },
+            "background-default": {
+              "light": "#F8F3EE"
+            },
+            "surface-default": {
+              "light": "#F8F3EE"
+            }
+          }
+        }
+      },
+      "borderRadius": 4,
+      "typography": {
+        "fontFamily": "Instrument Sans"
+      }
     }
   }
 }

@@ -66,72 +66,6 @@
         "$value": "{portal.accent.16}"
       }
     },
-    "neutral": {
-      "1": {
-        "$type": "color",
-        "$value": "{portal.neutral.1}"
-      },
-      "2": {
-        "$type": "color",
-        "$value": "{portal.neutral.2}"
-      },
-      "3": {
-        "$type": "color",
-        "$value": "{portal.neutral.3}"
-      },
-      "4": {
-        "$type": "color",
-        "$value": "{portal.neutral.4}"
-      },
-      "5": {
-        "$type": "color",
-        "$value": "{portal.neutral.5}"
-      },
-      "6": {
-        "$type": "color",
-        "$value": "{portal.neutral.6}"
-      },
-      "7": {
-        "$type": "color",
-        "$value": "{portal.neutral.7}"
-      },
-      "8": {
-        "$type": "color",
-        "$value": "{portal.neutral.8}"
-      },
-      "9": {
-        "$type": "color",
-        "$value": "{portal.neutral.9}"
-      },
-      "10": {
-        "$type": "color",
-        "$value": "{portal.neutral.10}"
-      },
-      "11": {
-        "$type": "color",
-        "$value": "{portal.neutral.11}"
-      },
-      "12": {
-        "$type": "color",
-        "$value": "{portal.neutral.12}"
-      },
-      "13": {
-        "$type": "color",
-        "$value": "{portal.neutral.13}"
-      },
-      "14": {
-        "$type": "color",
-        "$value": "{portal.neutral.14}"
-      },
-      "15": {
-        "$type": "color",
-        "$value": "{portal.neutral.15}"
-      },
-      "16": {
-        "$type": "color",
-        "$value": "{portal.neutral.16}"
-      }
-    },
     "brand1": {
       "1": {
         "$type": "color",
@@ -328,6 +262,72 @@
       "16": {
         "$type": "color",
         "$value": "{portal.brand3.16}"
+      }
+    },
+    "neutral": {
+      "1": {
+        "$type": "color",
+        "$value": "{portal.neutral.1}"
+      },
+      "2": {
+        "$type": "color",
+        "$value": "{portal.neutral.2}"
+      },
+      "3": {
+        "$type": "color",
+        "$value": "{portal.neutral.3}"
+      },
+      "4": {
+        "$type": "color",
+        "$value": "{portal.neutral.4}"
+      },
+      "5": {
+        "$type": "color",
+        "$value": "{portal.neutral.5}"
+      },
+      "6": {
+        "$type": "color",
+        "$value": "{portal.neutral.6}"
+      },
+      "7": {
+        "$type": "color",
+        "$value": "{portal.neutral.7}"
+      },
+      "8": {
+        "$type": "color",
+        "$value": "{portal.neutral.8}"
+      },
+      "9": {
+        "$type": "color",
+        "$value": "{portal.neutral.9}"
+      },
+      "10": {
+        "$type": "color",
+        "$value": "{portal.neutral.10}"
+      },
+      "11": {
+        "$type": "color",
+        "$value": "{portal.neutral.11}"
+      },
+      "12": {
+        "$type": "color",
+        "$value": "{portal.neutral.12}"
+      },
+      "13": {
+        "$type": "color",
+        "$value": "{portal.neutral.13}"
+      },
+      "14": {
+        "$type": "color",
+        "$value": "{portal.neutral.14}"
+      },
+      "15": {
+        "$type": "color",
+        "$value": "{portal.neutral.15}"
+      },
+      "16": {
+        "$type": "color",
+        "$value": "{portal.neutral.16}"
       }
     },
     "info": {

@@ -8,14 +8,13 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@digdir/designsystemet':
-        specifier: ^1.15.0
-        version: 1.15.0(tslib@2.8.1)
     devDependencies:
       '@biomejs/biome':
         specifier: 2.4.16
         version: 2.4.16
+      '@digdir/designsystemet':
+        specifier: 0.0.0-feat-remove-color-categories-20260616084032
+        version: 0.0.0-feat-remove-color-categories-20260616084032(@types/node@22.19.21)(tslib@2.8.1)
 
   apps/www:
     dependencies:
@@ -302,14 +301,17 @@ packages:
       react: '>=18.3.1 || ^19.0.0'
       react-dom: '>=18.3.1 || ^19.0.0'
 
+  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-Sk1s8PnxDRO0t+iGakU4lm3aQV/ynUqGPzVuHeVBYFV8dm8fqKLIhOQVaqYtZt0GwT/RsKKQIuAs6Cul7yvvkQ==}
+
   '@digdir/designsystemet-types@1.15.0':
     resolution: {integrity: sha512-TBZlldpl0RBcFkrCMjRZFDwsI6A8btIbNpP2LnNElsKThoL1ZFSUutra+NwibV28lBRgSMi2gf46yY08GaoBsg==}
 
   '@digdir/designsystemet-web@1.15.0':
     resolution: {integrity: sha512-WsDhMS08sw7FnP/5BmvdP+Tbj6e4I1CdboZ8fPzU6WVAkV95JIcTWP1uFGtunNsMAyM/kYSSIUUqdMfG/wBiBw==}
 
-  '@digdir/designsystemet@1.15.0':
-    resolution: {integrity: sha512-d8FCleuO86QJLichrV/pwBJFF19A8MMGYpuGOJ8GjaM1MIpAiqp0jZev9H7CVhiZjdnLfq5Q8bpLR81+LdEwWw==}
+  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032':
+    resolution: {integrity: sha512-U7FgAjbwz+RYjgbD9iyQkD0xeU+bgw70fZuY29gJ8RlCHRDzIZ1o8fmXjBHHQPCDFZoS60LCsPGZRxH0P0fJPA==}
     engines: {node: '>=20.20.2'}
     hasBin: true
 
@@ -506,6 +508,41 @@ packages:
 
   '@floating-ui/utils@0.2.11':
     resolution: {integrity: sha512-RiB/yIh78pcIxl6lLMG0CgBXAZ2Y0eVHqMPYugu+9U0AeT6YBeiJpf7lbdJNIugFP5SIjwNRgo4DhR1Qxi26Gg==}
+
+  '@inquirer/ansi@2.0.7':
+    resolution: {integrity: sha512-3eTuUO1vH2cZm2ZKHeQxnOqlTi9EfZDGgIe3BL3I4u+rJHocr9Fz86M4fjYABPvFnQG/gGK551HqDiIcETwU6Q==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+
+  '@inquirer/confirm@6.1.1':
+    resolution: {integrity: sha512-eb8DBZcz/2qHWQda4rk2JiQk5h9QV/cVHi1yjt0f69WFZMRFn0sJTye3EAP8icut8UDMjQPsaH5KbcOogefrFQ==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
+  '@inquirer/core@11.2.1':
+    resolution: {integrity: sha512-Qd6GJT1yVyrZZCfN8W2qKF5ApmqryXRhRKCuip8h01x2w/esJQ2XIYc6f9abMIHgKQdBfFTSOdbHRLAhuM09UA==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+
+  '@inquirer/figures@2.0.7':
+    resolution: {integrity: sha512-aJ8TBPOGB6f/2qziPfElISTCEd5XOYTFckA2SGjhNmiKzfK/u4ot3v0DUzGVdUnKjN10EqnnEPck36BkyfLnJw==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+
+  '@inquirer/type@4.0.7':
+    resolution: {integrity: sha512-t28inv14nMQ1PhKpsJPY+kEs/c00qzeCOS2gTNRyTjG5d6qsVA2fItxW4hkvGZ5lvanGLdtCzVIx5dwdRpN1+g==}
+    engines: {node: '>=23.5.0 || ^22.13.0 || ^20.17.0'}
+    peerDependencies:
+      '@types/node': '>=18'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
 
   '@jridgewell/gen-mapping@0.3.13':
     resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
@@ -1199,6 +1236,10 @@ packages:
   chroma-js@3.2.0:
     resolution: {integrity: sha512-os/OippSlX1RlWWr+QDPcGUZs0uoqr32urfxESG9U93lhUfbnlyckte84Q8P1UQY/qth983AS1JONKmLS4T0nw==}
 
+  cli-width@4.1.0:
+    resolution: {integrity: sha512-ouuZd4/dm2Sw5Gmqy6bGyNNNe1qt9RpmxveLSO7KcgsTnU7RXfsw+/bukWGo1abgBiMAic068rclZsO4IWmmxQ==}
+    engines: {node: '>= 12'}
+
   clsx@2.1.1:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
@@ -1439,6 +1480,15 @@ packages:
   fast-glob@3.3.3:
     resolution: {integrity: sha512-7MptL8U0cqcFdzIzwOTHoilX9x5BrNqye7Z/LuC7kCMRio1EMSyqRK3BEAUD7sXRq4iT4AzTVuZdhgQ2TCvYLg==}
     engines: {node: '>=8.6.0'}
+
+  fast-string-truncated-width@3.0.3:
+    resolution: {integrity: sha512-0jjjIEL6+0jag3l2XWWizO64/aZVtpiGE3t0Zgqxv0DPuxiMjvB3M24fCyhZUO4KomJQPj3LTSUnDP3GpdwC0g==}
+
+  fast-string-width@3.0.2:
+    resolution: {integrity: sha512-gX8LrtNEI5hq8DVUfRQMbr5lpaS4nMIWV+7XEbXk2b8kiQIizgnlr12B4dA3ZEx3308ze0O4Q1R+cHts8kyUJg==}
+
+  fast-wrap-ansi@0.2.2:
+    resolution: {integrity: sha512-7F2Fl+TjRSenLqlU3UjSH0iyqopqoZIu7eZVpEirP2g1GtWa2G/ecEmBdgz31+Mxr+ELclgg6sokpSFIQiZ02Q==}
 
   fastq@1.20.1:
     resolution: {integrity: sha512-GGToxJ/w1x32s/D2EKND7kTil4n8OVk/9mycTc4VDza13lOvpUZTGX3mFSCtV9ksdGBVzvsyAVLM6mHFThxXxw==}
@@ -2010,6 +2060,10 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
+  mute-stream@3.0.0:
+    resolution: {integrity: sha512-dkEJPVvun4FryqBmZ5KhDo0K9iDXAwn08tMLDinNdRBNPcYEDiWYysLcc6k3mjTMlbP9KyylvRpd4wFtwrT9rw==}
+    engines: {node: ^20.17.0 || >=22.9.0}
+
   nanoid@3.3.12:
     resolution: {integrity: sha512-ZB9RH/39qpq5Vu6Y+NmUaFhQR6pp+M2Xt76XBnEwDaGcVAqhlvxrl3B2bKS5D3NH3QR76v3aSrKaF/Kiy7lEtQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
@@ -2309,6 +2363,10 @@ packages:
   side-channel@1.1.1:
     resolution: {integrity: sha512-6x6dK6zJdpTzF4sQeNYxwtvBzf6Eg4GtlesS94HOvTudUeyK2WXAaIfmDgsyslYrRBeFIlsi54AYsFGUuhmvrQ==}
     engines: {node: '>= 0.4'}
+
+  signal-exit@4.1.0:
+    resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
+    engines: {node: '>=14'}
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
@@ -2875,6 +2933,8 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
+  '@digdir/designsystemet-types@0.0.0-feat-remove-color-categories-20260616084032': {}
+
   '@digdir/designsystemet-types@1.15.0': {}
 
   '@digdir/designsystemet-web@1.15.0':
@@ -2885,10 +2945,11 @@ snapshots:
       '@u-elements/u-details': 1.0.0
       '@u-elements/u-tabs': 1.0.3
 
-  '@digdir/designsystemet@1.15.0(tslib@2.8.1)':
+  '@digdir/designsystemet@0.0.0-feat-remove-color-categories-20260616084032(@types/node@22.19.21)(tslib@2.8.1)':
     dependencies:
       '@commander-js/extra-typings': 14.0.0(commander@14.0.3)
-      '@digdir/designsystemet-types': 1.15.0
+      '@digdir/designsystemet-types': 0.0.0-feat-remove-color-categories-20260616084032
+      '@inquirer/confirm': 6.1.1(@types/node@22.19.21)
       '@tokens-studio/sd-transforms': 2.0.3(style-dictionary@5.4.4(tslib@2.8.1))
       chroma-js: 3.2.0
       colorjs.io: 0.6.1
@@ -2903,6 +2964,7 @@ snapshots:
       zod: 4.4.3
       zod-validation-error: 5.0.0(zod@4.4.3)
     transitivePeerDependencies:
+      - '@types/node'
       - tslib
 
   '@emnapi/core@1.10.0':
@@ -3035,6 +3097,33 @@ snapshots:
       tabbable: 6.4.0
 
   '@floating-ui/utils@0.2.11': {}
+
+  '@inquirer/ansi@2.0.7': {}
+
+  '@inquirer/confirm@6.1.1(@types/node@22.19.21)':
+    dependencies:
+      '@inquirer/core': 11.2.1(@types/node@22.19.21)
+      '@inquirer/type': 4.0.7(@types/node@22.19.21)
+    optionalDependencies:
+      '@types/node': 22.19.21
+
+  '@inquirer/core@11.2.1(@types/node@22.19.21)':
+    dependencies:
+      '@inquirer/ansi': 2.0.7
+      '@inquirer/figures': 2.0.7
+      '@inquirer/type': 4.0.7(@types/node@22.19.21)
+      cli-width: 4.1.0
+      fast-wrap-ansi: 0.2.2
+      mute-stream: 3.0.0
+      signal-exit: 4.1.0
+    optionalDependencies:
+      '@types/node': 22.19.21
+
+  '@inquirer/figures@2.0.7': {}
+
+  '@inquirer/type@4.0.7(@types/node@22.19.21)':
+    optionalDependencies:
+      '@types/node': 22.19.21
 
   '@jridgewell/gen-mapping@0.3.13':
     dependencies:
@@ -3683,6 +3772,8 @@ snapshots:
 
   chroma-js@3.2.0: {}
 
+  cli-width@4.1.0: {}
+
   clsx@2.1.1: {}
 
   collapse-white-space@2.1.0: {}
@@ -3944,6 +4035,16 @@ snapshots:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.8
+
+  fast-string-truncated-width@3.0.3: {}
+
+  fast-string-width@3.0.2:
+    dependencies:
+      fast-string-truncated-width: 3.0.3
+
+  fast-wrap-ansi@0.2.2:
+    dependencies:
+      fast-string-width: 3.0.2
 
   fastq@1.20.1:
     dependencies:
@@ -4797,6 +4898,8 @@ snapshots:
 
   ms@2.1.3: {}
 
+  mute-stream@3.0.0: {}
+
   nanoid@3.3.12: {}
 
   negotiator@0.6.3: {}
@@ -5208,6 +5311,8 @@ snapshots:
       side-channel-list: 1.0.1
       side-channel-map: 1.0.1
       side-channel-weakmap: 1.0.2
+
+  signal-exit@4.1.0: {}
 
   source-map-js@1.2.1: {}
 
