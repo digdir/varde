@@ -5,14 +5,10 @@
   "themes": {
     "digdir": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#F45F63",
-          "brand2": "#E5AA20",
-          "brand3": "#1E98F5"
-        },
+        "accent": "#0062BA",
+        "brand1": "#F45F63",
+        "brand2": "#E5AA20",
+        "brand3": "#1E98F5",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -22,14 +18,10 @@
     },
     "altinn": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#0162BA",
-          "brand2": "#3F3161",
-          "brand3": "#E02F4A"
-        },
+        "accent": "#0062BA",
+        "brand1": "#0162BA",
+        "brand2": "#3F3161",
+        "brand3": "#E02F4A",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -39,14 +31,10 @@
     },
     "uutilsynet": {
       "colors": {
-        "main": {
-          "accent": "#0062BA"
-        },
-        "support": {
-          "brand1": "#5B60D1",
-          "brand2": "#FEA769",
-          "brand3": "#5DA290"
-        },
+        "accent": "#0062BA",
+        "brand1": "#5B60D1",
+        "brand2": "#FEA769",
+        "brand3": "#5DA290",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -56,14 +44,10 @@
     },
     "portal": {
       "colors": {
-        "main": {
-          "accent": "#38628C"
-        },
-        "support": {
-          "brand1": "#D9ECFF",
-          "brand2": "#FFCA99",
-          "brand3": "#D96C79"
-        },
+        "accent": "#38628C",
+        "brand1": "#D9ECFF",
+        "brand2": "#FFCA99",
+        "brand3": "#D96C79",
         "neutral": "#203040"
       },
       "borderRadius": 4,
@@ -73,14 +57,10 @@
     },
     "norge-private": {
       "colors": {
-        "main": {
-          "accent": "#0c8444"
-        },
-        "support": {
-          "brand1": "#5210a5",
-          "brand2": "#000000",
-          "brand3": "#000000"
-        },
+        "accent": "#0c8444",
+        "brand1": "#5210a5",
+        "brand2": "#000000",
+        "brand3": "#000000",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -90,14 +70,10 @@
     },
     "norge-business": {
       "colors": {
-        "main": {
-          "accent": "#17a9ff"
-        },
-        "support": {
-          "brand1": "#5210a5",
-          "brand2": "#000000",
-          "brand3": "#000000"
-        },
+        "accent": "#17a9ff",
+        "brand1": "#5210a5",
+        "brand2": "#000000",
+        "brand3": "#000000",
         "neutral": "#1E2B3C"
       },
       "borderRadius": 4,
@@ -107,14 +83,10 @@
     },
     "ki-norge": {
       "colors": {
-        "main": {
-          "accent": "#B42946"
-        },
-        "support": {
-          "brand1": "#A24D83",
-          "brand2": "#89634A",
-          "brand3": "#E9B596"
-        },
+        "accent": "#B42946",
+        "brand1": "#A24D83",
+        "brand2": "#89634A",
+        "brand3": "#E9B596",
         "neutral": "#24272B"
       },
       "overrides": {
@@ -172,7 +144,3 @@
     }
   }
 }
-
-
-    
- 

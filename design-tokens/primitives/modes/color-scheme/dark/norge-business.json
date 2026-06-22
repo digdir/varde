@@ -1,666 +1,614 @@
 {
-  "color": {
+  "norge-business": {
     "accent": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.accent.1}"
+        "$value": "#0d1922"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.accent.2}"
+        "$value": "#11212d"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.accent.3}"
+        "$value": "#162a38"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.accent.4}"
+        "$value": "#193041"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.accent.5}"
+        "$value": "#1e384b"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.accent.6}"
+        "$value": "#25465f"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.accent.7}"
+        "$value": "#2c5471"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.accent.8}"
+        "$value": "#4787b6"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.accent.9}"
+        "$value": "#66afe5"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.accent.10}"
+        "$value": "#66afe5"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.accent.11}"
+        "$value": "#dfeefa"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.accent.12}"
+        "$value": "#0b537e"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.accent.13}"
+        "$value": "#094162"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.accent.14}"
+        "$value": "#062e45"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.accent.15}"
+        "$value": "#e6edf2"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.accent.16}"
+        "$value": "#ffffff"
       }
     },
     "brand1": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.brand1.1}"
+        "$value": "#1c1133"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.brand1.2}"
+        "$value": "#251743"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.brand1.3}"
+        "$value": "#2f1d54"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.brand1.4}"
+        "$value": "#352160"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.brand1.5}"
+        "$value": "#3e2670"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.brand1.6}"
+        "$value": "#4d318a"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.brand1.7}"
+        "$value": "#5b4093"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.brand1.8}"
+        "$value": "#8a78b2"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.brand1.9}"
+        "$value": "#afa2ca"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.brand1.10}"
+        "$value": "#afa2ca"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.brand1.11}"
+        "$value": "#eeebf4"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.brand1.12}"
+        "$value": "#baa0db"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.brand1.13}"
+        "$value": "#a887d2"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.brand1.14}"
+        "$value": "#966ec9"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.brand1.15}"
+        "$value": "#1d1923"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.brand1.16}"
+        "$value": "#000000"
       }
     },
     "brand2": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.brand2.1}"
+        "$value": "#181818"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.brand2.2}"
+        "$value": "#1f1f1f"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.brand2.3}"
+        "$value": "#282828"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.brand2.4}"
+        "$value": "#2e2e2e"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.brand2.5}"
+        "$value": "#353535"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.brand2.6}"
+        "$value": "#434343"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.brand2.7}"
+        "$value": "#505050"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.brand2.8}"
+        "$value": "#818181"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.brand2.9}"
+        "$value": "#a8a8a8"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.brand2.10}"
+        "$value": "#a8a8a8"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.brand2.11}"
+        "$value": "#ececec"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.brand2.12}"
+        "$value": "#ababab"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.brand2.13}"
+        "$value": "#969696"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.brand2.14}"
+        "$value": "#818181"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.brand2.15}"
+        "$value": "#1b1b1b"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.brand2.16}"
+        "$value": "#000000"
       }
     },
     "brand3": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.brand3.1}"
+        "$value": "#181818"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.brand3.2}"
+        "$value": "#1f1f1f"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.brand3.3}"
+        "$value": "#282828"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.brand3.4}"
+        "$value": "#2e2e2e"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.brand3.5}"
+        "$value": "#353535"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.brand3.6}"
+        "$value": "#434343"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.brand3.7}"
+        "$value": "#505050"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.brand3.8}"
+        "$value": "#818181"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.brand3.9}"
+        "$value": "#a8a8a8"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.brand3.10}"
+        "$value": "#a8a8a8"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.brand3.11}"
+        "$value": "#ececec"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.brand3.12}"
+        "$value": "#ababab"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.brand3.13}"
+        "$value": "#969696"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.brand3.14}"
+        "$value": "#818181"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.brand3.15}"
+        "$value": "#1b1b1b"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.brand3.16}"
+        "$value": "#000000"
       }
     },
     "neutral": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.neutral.1}"
+        "$value": "#13181f"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.neutral.2}"
+        "$value": "#192029"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.neutral.3}"
+        "$value": "#202834"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.neutral.4}"
+        "$value": "#262e3a"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.neutral.5}"
+        "$value": "#2e3641"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.neutral.6}"
+        "$value": "#3c444e"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.neutral.7}"
+        "$value": "#49515a"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.neutral.8}"
+        "$value": "#7c8289"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.neutral.9}"
+        "$value": "#a4a8ad"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.neutral.10}"
+        "$value": "#a4a8ad"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.neutral.11}"
+        "$value": "#ebeced"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.neutral.12}"
+        "$value": "#a6acb2"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.neutral.13}"
+        "$value": "#90979f"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.neutral.14}"
+        "$value": "#7a828c"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.neutral.15}"
+        "$value": "#1b1c1d"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.neutral.16}"
+        "$value": "#000000"
       }
     },
     "info": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.info.1}"
+        "$value": "#0d1925"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.info.2}"
+        "$value": "#112130"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.info.3}"
+        "$value": "#15293d"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.info.4}"
+        "$value": "#182f46"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.info.5}"
+        "$value": "#1c3751"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.info.6}"
+        "$value": "#234566"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.info.7}"
+        "$value": "#2a537a"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.info.8}"
+        "$value": "#5585b4"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.info.9}"
+        "$value": "#8aabcb"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.info.10}"
+        "$value": "#8aabcb"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.info.11}"
+        "$value": "#e6edf4"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.info.12}"
+        "$value": "#2d85c9"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.info.13}"
+        "$value": "#519ad2"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.info.14}"
+        "$value": "#77b0dc"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.info.15}"
+        "$value": "#050e15"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.info.16}"
+        "$value": "#000000"
       }
     },
     "success": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.success.1}"
+        "$value": "#0d1b0d"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.success.2}"
+        "$value": "#112411"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.success.3}"
+        "$value": "#152d15"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.success.4}"
+        "$value": "#183418"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.success.5}"
+        "$value": "#1c3c1c"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.success.6}"
+        "$value": "#244c24"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.success.7}"
+        "$value": "#2b5a2b"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.success.8}"
+        "$value": "#528f52"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.success.9}"
+        "$value": "#89b289"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.success.10}"
+        "$value": "#89b289"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.success.11}"
+        "$value": "#e6efe6"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.success.12}"
+        "$value": "#138d24"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.success.13}"
+        "$value": "#3ca14b"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.success.14}"
+        "$value": "#66b571"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.success.15}"
+        "$value": "#010501"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.success.16}"
+        "$value": "#000000"
       }
     },
     "warning": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.warning.1}"
+        "$value": "#1e160d"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.warning.2}"
+        "$value": "#281e11"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.warning.3}"
+        "$value": "#322616"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.warning.4}"
+        "$value": "#3a2b19"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.warning.5}"
+        "$value": "#43321d"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.warning.6}"
+        "$value": "#543f24"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.warning.7}"
+        "$value": "#654b2b"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.warning.8}"
+        "$value": "#a37a46"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.warning.9}"
+        "$value": "#d39e5b"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.warning.10}"
+        "$value": "#d39e5b"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.warning.11}"
+        "$value": "#f7ebdb"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.warning.12}"
+        "$value": "#60400b"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.warning.13}"
+        "$value": "#7a510e"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.warning.14}"
+        "$value": "#946211"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.warning.15}"
+        "$value": "#e6e2d9"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.warning.16}"
+        "$value": "#ffffff"
       }
     },
     "danger": {
       "1": {
         "$type": "color",
-        "$value": "{digdir.danger.1}"
+        "$value": "#2a100e"
       },
       "2": {
         "$type": "color",
-        "$value": "{digdir.danger.2}"
+        "$value": "#371512"
       },
       "3": {
         "$type": "color",
-        "$value": "{digdir.danger.3}"
+        "$value": "#451b17"
       },
       "4": {
         "$type": "color",
-        "$value": "{digdir.danger.4}"
+        "$value": "#4f1f1b"
       },
       "5": {
         "$type": "color",
-        "$value": "{digdir.danger.5}"
+        "$value": "#5c241f"
       },
       "6": {
         "$type": "color",
-        "$value": "{digdir.danger.6}"
+        "$value": "#722d27"
       },
       "7": {
         "$type": "color",
-        "$value": "{digdir.danger.7}"
+        "$value": "#88352e"
       },
       "8": {
         "$type": "color",
-        "$value": "{digdir.danger.8}"
+        "$value": "#bc6b64"
       },
       "9": {
         "$type": "color",
-        "$value": "{digdir.danger.9}"
+        "$value": "#d19a96"
       },
       "10": {
         "$type": "color",
-        "$value": "{digdir.danger.10}"
+        "$value": "#d19a96"
       },
       "11": {
         "$type": "color",
-        "$value": "{digdir.danger.11}"
+        "$value": "#f5eae9"
       },
       "12": {
         "$type": "color",
-        "$value": "{digdir.danger.12}"
+        "$value": "#d76e6e"
       },
       "13": {
         "$type": "color",
-        "$value": "{digdir.danger.13}"
+        "$value": "#df8b8b"
       },
       "14": {
         "$type": "color",
-        "$value": "{digdir.danger.14}"
+        "$value": "#e7a8a8"
       },
       "15": {
         "$type": "color",
-        "$value": "{digdir.danger.15}"
+        "$value": "#271414"
       },
       "16": {
         "$type": "color",
-        "$value": "{digdir.danger.16}"
+        "$value": "#000000"
       }
     },
     "link": {
       "visited": {
         "$type": "color",
-        "$value": "{digdir.link.visited}"
+        "$value": "#b49acd"
       }
     },
     "focus": {
-      "inner-color": {
+      "inner": {
         "$type": "color",
-        "$value": "{digdir.focus.inner}"
+        "$value": "#13181f"
       },
-      "outer-color": {
+      "outer": {
         "$type": "color",
-        "$value": "{digdir.focus.outer}"
+        "$value": "#ebeced"
       }
-    }
-  },
-  "font-family": {
-    "$type": "fontFamilies",
-    "$value": "{digdir.font-family}"
-  },
-  "font-weight": {
-    "medium": {
-      "$type": "fontWeights",
-      "$value": "{digdir.font-weight.medium}"
-    },
-    "semibold": {
-      "$type": "fontWeights",
-      "$value": "{digdir.font-weight.semibold}"
-    },
-    "regular": {
-      "$type": "fontWeights",
-      "$value": "{digdir.font-weight.regular}"
-    }
-  },
-  "border-radius": {
-    "1": {
-      "$type": "dimension",
-      "$value": "min({border-radius.base}*0.5,{border-radius.scale})"
-    },
-    "2": {
-      "$type": "dimension",
-      "$value": "min({border-radius.base},{border-radius.scale}*2)"
-    },
-    "3": {
-      "$type": "dimension",
-      "$value": "min({border-radius.base}*2,{border-radius.scale}*5)"
-    },
-    "4": {
-      "$type": "dimension",
-      "$value": "min({border-radius.base}*3,{border-radius.scale}*7)"
-    },
-    "5": {
-      "$type": "dimension",
-      "$value": "{border-radius.base}"
-    },
-    "6": {
-      "$type": "dimension",
-      "$value": "9999"
-    },
-    "base": {
-      "$type": "dimension",
-      "$value": "4"
-    },
-    "scale": {
-      "$type": "dimension",
-      "$value": "4"
     }
   }
 }
