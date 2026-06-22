@@ -16,4 +16,4 @@ jobs:
           persist-credentials: false
       - uses: ./.github/actions/gh-setup
       - name: Run Biome
-        run: biome ci .
+        run: pnpm biome ci .
