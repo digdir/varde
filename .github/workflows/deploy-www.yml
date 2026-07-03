@@ -13,7 +13,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: read
 
 concurrency:
@@ -21,28 +20,25 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  RESOURCE_GROUP: rg-varde-prod
-  ACR_NAME: vardeacr
-  APP_NAME: www-prod
-  IMAGE: vardeacr.azurecr.io/www:${{ github.sha }}
+  REGISTRY: vardeacr.azurecr.io
 
+# Pushing the :latest tag triggers the ACR webhook `vardewwwprodcd`, which makes
+# the App Service web app `varde-www-prod` pull the new image and restart.
+# No Azure login needed — the ACR token below only has push rights to the www repo.
 jobs:
-  deploy:
+  build-push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
         with:
           persist-credentials: false
 
-      - name: az login (oidc)
-        uses: azure/login@v3
+      - name: acr login
+        uses: docker/login-action@v3
         with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: acr login (for docker push)
-        run: az acr login --name ${{ env.ACR_NAME }}
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
 
       - name: build & push image
         uses: docker/build-push-action@v6
@@ -53,12 +49,9 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ${{ env.IMAGE }}
-            ${{ env.ACR_NAME }}.azurecr.io/www:latest
+            ${{ env.REGISTRY }}/www:${{ github.sha }}
+            ${{ env.REGISTRY }}/www:latest
           build-args: |
             PORT=8000
             HOST=0.0.0.0
             APP_ENV=production
-
-      - name: deploy to container app
-        run: az containerapp update -n "$APP_NAME" -g "$RESOURCE_GROUP" --image "$IMAGE"
