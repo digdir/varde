@@ -60,7 +60,7 @@ export const Sidebar = ({ profile, groups, hideGroupTitle }: SidebarProps) => {
         </Dropdown>
       </Dropdown.TriggerContext>
 
-      <nav aria-label={profile.name} data-color='brand1'>
+      <nav aria-label={profile.name}>
         {Object.entries(groups).map(([category, links]) => (
           <div key={category} className={classes.group}>
             {!hideGroupTitle && category && (

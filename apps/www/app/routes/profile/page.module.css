@@ -18,6 +18,12 @@
   gap: var(--ds-size-3);
 }
 
+/* Kicker above the h1, coloured by the profile's brand colour. */
+.category {
+  color: var(--ds-color-brand1-text-subtle);
+  font-weight: var(--ds-font-weight-semibold);
+}
+
 .ingress {
   color: var(--ds-color-neutral-text-subtle);
 }
