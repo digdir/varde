@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div className={classes.page}>
       <div className={classes.intro}>
-        <Heading level={1} data-size='xl'>
+        <Heading level={1} data-size='lg'>
           Velg identitet
         </Heading>
         <Paragraph data-size='lg' className={classes.lead}>

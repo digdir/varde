@@ -45,7 +45,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel='stylesheet' href={themeHref} precedence='theme' />
         {/* Apply the saved colour scheme before paint to avoid a flash. */}
       </head>
-      <body>
+      <body lang='no'>
+        <div className='dev-warning'>Denne nettsiden er under utvikling.</div>
         {children}
         <ScrollRestoration />
         <Scripts />

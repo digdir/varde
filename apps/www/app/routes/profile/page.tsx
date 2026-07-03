@@ -48,6 +48,9 @@ export default function Page({
   return (
     <div className={classes.page}>
       <header className={classes.header}>
+        <Paragraph data-size='sm' className={classes.category}>
+          {frontmatter.category}
+        </Paragraph>
         <Heading level={1} data-size='lg'>
           {frontmatter.title}
         </Heading>
