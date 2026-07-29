@@ -1,7 +1,9 @@
-import { Link, Paragraph } from '@digdir/designsystemet-react';
+import { Button, Divider, Link, Paragraph } from '@digdir/designsystemet-react';
+import { PencilLineIcon } from '@navikt/aksel-icons';
 import cl from 'clsx/lite';
 import type { HTMLAttributes } from 'react';
 import { useEffect, useState } from 'react';
+import { useRouteLoaderData } from 'react-router';
 import type { TableOfContentsItem } from '~/_utils/extract-toc';
 import classes from './toc.module.css';
 
@@ -20,6 +22,10 @@ export const TableOfContents = ({
   const [activeItem, setActiveItem] = useState<string>('');
 
   const filteredItems = items.filter((item) => item.level <= level);
+
+  const { profile, frontmatter } = useRouteLoaderData('profile-page');
+
+  console.log({ profile });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -78,6 +84,20 @@ export const TableOfContents = ({
           </ol>
         </>
       )}
+      <Divider />
+      <div className={classes.feedback} data-color='brand1'>
+        <Paragraph>Har du inspill?</Paragraph>
+        <Paragraph>Gi oss tilbakemelding på Github.</Paragraph>
+        <Button asChild variant='secondary'>
+          <Link
+            href={`https://github.com/digdir/varde/issues/new?title=Tilbakemelding%20på%20${profile?.name}%20-%20${frontmatter.title}`}
+            target='_blank'
+          >
+            <PencilLineIcon aria-hidden='true' />
+            Send innspill
+          </Link>
+        </Button>
+      </div>
       {children}
     </aside>
   );

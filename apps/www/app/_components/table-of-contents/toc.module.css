@@ -62,4 +62,15 @@
       }
     }
   }
+
+  & .feedback {
+    background-color: var(--ds-color-surface-tinted);
+    padding: var(--ds-size-4);
+    border-radius: var(--ds-border-radius-lg);
+    margin-top: var(--ds-size-4);
+
+    & a {
+      margin-top: var(--ds-size-4);
+    }
+  }
 }

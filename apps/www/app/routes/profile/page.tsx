@@ -31,6 +31,7 @@ export async function loader({ params }: Route.LoaderArgs) {
     code: result.code,
     frontmatter: result.frontmatter,
     toc: result.toc,
+    profile,
   };
 }
 
