@@ -7,11 +7,5 @@ export default {
   // Statically pre-render the profile chooser and every MDX page at build time.
   // (Ignored by `react-router dev`, which always renders on demand.)
   prerender: () => generatePrerenderPaths(),
-  future: {
-    v8_middleware: true,
-    v8_passThroughRequests: true,
-    v8_splitRouteModules: true,
-    v8_trailingSlashAwareDataRequests: true,
-    v8_viteEnvironmentApi: true,
-  },
+  splitRouteModules: true,
 } satisfies Config;
