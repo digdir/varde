@@ -8,4 +8,6 @@ injectWorkspacePackages: true
 minimumReleaseAge: 4320 # Matches renovate
 minimumReleaseAgeExclude:
   - "@digdir/*"
+  # Renovate security update: react-router@8.3.0
+  - react-router@8.3.0
 useNodeVersion: "24.16.0"
