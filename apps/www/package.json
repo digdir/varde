@@ -12,16 +12,16 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@digdir/designsystemet-css": "^1.15.0",
-    "@digdir/designsystemet-react": "^1.15.0",
-    "@navikt/aksel-icons": "^8.12.1",
+    "@digdir/designsystemet-css": "^1.18.0",
+    "@digdir/designsystemet-react": "^1.18.0",
+    "@navikt/aksel-icons": "^8.16.1",
     "@react-router/node": "7.16.0",
     "@react-router/serve": "7.16.0",
     "clsx": "^2.1.1",
-    "isbot": "^5.1.36",
+    "isbot": "^5.2.1",
     "mdx-bundler": "^10.1.1",
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "react-router": "7.16.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
@@ -31,9 +31,9 @@
     "@react-router/dev": "7.16.0",
     "@types/hast": "^3.0.4",
     "@types/node": "^22",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",
     "typescript": "^5.9.3",
-    "vite": "^8.0.3"
+    "vite": "^8.2.0"
   }
 }
