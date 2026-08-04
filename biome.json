@@ -32,7 +32,7 @@
     "enabled": true,
     "includes": ["**/*"],
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "a11y": {
         "noNoninteractiveElementToInteractiveRole": "off",
         "useValidAnchor": "off",
@@ -42,7 +42,8 @@
         "useMediaCaption": "off",
         "useKeyWithClickEvents": "off",
         "noNoninteractiveTabindex": "off",
-        "useAriaPropsForRole": "off"
+        "useAriaPropsForRole": "off",
+        "noSvgWithoutTitle": "off"
       },
       "correctness": {
         "useUniqueElementIds": "off",
