@@ -86,7 +86,7 @@ body {
   }
 
   & > :where(div, figure, table, img, video, pre, iframe) {
-    max-width: var(--long-content-width);
+    max-width: var(--short-content-width);
   }
 
   & > p {
