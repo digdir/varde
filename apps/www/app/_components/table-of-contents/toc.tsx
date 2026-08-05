@@ -25,8 +25,6 @@ export const TableOfContents = ({
 
   const { profile, frontmatter } = useRouteLoaderData('profile-page');
 
-  console.log({ profile });
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {

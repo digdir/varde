@@ -13,7 +13,9 @@ import classes from './page.module.css';
 
 export async function loader({ params }: Route.LoaderArgs) {
   const profile = getProfile(params.profile);
-  const file = params['*'];
+  // Prerendering requests pages with a trailing slash (`/digdir/typografi/`),
+  // which would otherwise resolve to `typografi/.mdx`.
+  const file = params['*']?.replace(/\/+$/, '');
 
   if (!profile || !file) {
     throw new Response('Not Found', { status: 404, statusText: 'Not Found' });

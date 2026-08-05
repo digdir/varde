@@ -4,7 +4,7 @@
     {
       "name": "www",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["--filter", "www", "dev", "--", "--port", "4699"],
+      "runtimeArgs": ["--filter", "www", "dev", "--port", "4699"],
       "port": 4699,
       "autoPort": false
     }
