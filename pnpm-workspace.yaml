@@ -8,4 +8,4 @@ injectWorkspacePackages: true
 minimumReleaseAge: 4320 # Matches renovate
 minimumReleaseAgeExclude:
   - "@digdir/*"
-useNodeVersion: "24.16.0"
+useNodeVersion: "24.19.0"
