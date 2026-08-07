@@ -20,6 +20,13 @@ function mdxFullReload() {
 
 export default defineConfig({
   plugins: [reactRouter(), mdxFullReload()],
+  // React Router prerenders by fetching pages from a `vite preview` server at
+  // build time. Without an explicit host, the server may bind only the IPv6
+  // loopback (::1) while the prerender request connects to 127.0.0.1, which
+  // fails with ECONNREFUSED inside Docker builds.
+  preview: {
+    host: '127.0.0.1',
+  },
   resolve: {
     alias: [{ find: /^~\//, replacement: `${appDir}/` }],
   },

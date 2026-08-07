@@ -29,6 +29,7 @@ import {
 import { getMDXComponent } from 'mdx-bundler/dist/client';
 import { type ComponentType, type JSX, useMemo } from 'react';
 import { Link as RRLink } from 'react-router';
+import ExpandableImage from '../expandable-image/expandable-image';
 import classes from './mdx-components.module.css';
 
 /** Use a client-side router link for internal paths, a plain anchor otherwise. */
@@ -102,9 +103,7 @@ const defaultComponents = {
       <Table data-color='neutral' border zebra {...props} />
     </div>
   ),
-  img: (props: JSX.IntrinsicElements['img']) => (
-    <img className={classes.image} alt={props.alt} {...props} />
-  ),
+  img: (props: JSX.IntrinsicElements['img']) => <ExpandableImage {...props} />,
   thead: TableHead,
   tbody: TableBody,
   tfoot: TableFoot,

@@ -2,6 +2,7 @@ import type { Root } from 'hast';
 import { bundleMDX } from 'mdx-bundler';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
+import rehypeUnwrapImages from 'rehype-unwrap-images';
 import remarkGfm from 'remark-gfm';
 import type { TableOfContentsItem, VFile } from './extract-toc';
 import { extractToc } from './extract-toc';
@@ -30,6 +31,9 @@ export const generateFromMdx = async (
       options.remarkPlugins = [...(options.remarkPlugins ?? []), remarkGfm];
       options.rehypePlugins = [
         ...(options.rehypePlugins ?? []),
+        // `<figure>` (from ExpandableImage) is invalid inside `<p>`, which
+        // breaks hydration – drop the paragraph around image-only paragraphs.
+        rehypeUnwrapImages,
         rehypeSlug,
         [rehypeAutolinkHeadings, { behavior: 'append' }],
         () => (tree: Root, file: VFile) => {
