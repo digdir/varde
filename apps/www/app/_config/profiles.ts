@@ -33,25 +33,9 @@ export const profiles: Profile[] = [
     theme: 'digdir',
   },
   {
-    slug: 'norgeno',
-    name: 'Norge.no',
-    description:
-      'Designdokumentasjon for Norge.no og de felles innbyggertjenestene.',
-    color: '#0C8444',
-    theme: 'norge',
-  },
-  {
-    slug: 'dodsfall-og-arv',
-    name: 'Dødsfall og arv',
-    description:
-      'Mønstre og veiledning for tjenester knyttet til dødsfall og arv.',
-    color: '#1E88E5',
-    theme: 'altinn',
-  },
-  {
     slug: 'tilsynet',
-    name: 'Tilsynet',
-    description: 'Profil og komponenter for tilsynstjenester.',
+    name: 'uutilsynet',
+    description: 'Profil og komponenter for uutilsynet.',
     color: '#5B60D1',
     theme: 'uutilsynet',
   },
