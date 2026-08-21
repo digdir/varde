@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  max-width: var(--media-max-width);
+  max-width: var(--short-content-width);
   margin: var(--ds-size-8) 0;
   flex-wrap: wrap;
   gap: var(--ds-size-4);
