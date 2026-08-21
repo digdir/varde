@@ -12,8 +12,8 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@digdir/designsystemet-css": "^1.18.0",
-    "@digdir/designsystemet-react": "^1.18.0",
+    "@digdir/designsystemet-css": "^1.20.0",
+    "@digdir/designsystemet-react": "^1.20.0",
     "@navikt/aksel-icons": "^8.16.1",
     "@react-router/node": "8.3.0",
     "@react-router/serve": "8.3.0",
