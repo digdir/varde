@@ -33,7 +33,7 @@ export const profiles: Profile[] = [
     theme: 'digdir',
   },
   {
-    slug: 'tilsynet',
+    slug: 'uutilsynet',
     name: 'uutilsynet',
     description: 'Profil og komponenter for uutilsynet.',
     color: '#5B60D1',

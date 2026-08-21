@@ -49,62 +49,12 @@
     "group": "Theme"
   },
   {
-    "id": "d3730c55fdd71fc1258d316b86fc6bf89da07f1f",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:7",
-    "name": "altinn",
-    "selectedTokenSets": {
-      "themes/altinn": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
     "id": "9821e91b123ef00b2187f982457d2241713cc848",
     "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:8",
+    "$figmaModeId": "40960:7",
     "name": "uutilsynet",
     "selectedTokenSets": {
       "themes/uutilsynet": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
-    "id": "23f3fd77a464cbe250150f60d785f08978d07e40",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:9",
-    "name": "portal",
-    "selectedTokenSets": {
-      "themes/portal": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
-    "id": "bcd2127557525815ec953b53a20da952695060b5",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:10",
-    "name": "norge-private",
-    "selectedTokenSets": {
-      "themes/norge-private": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
-    "id": "f243d91d169bda138e418fd8ed91f54c7c5f0565",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:11",
-    "name": "norge-business",
-    "selectedTokenSets": {
-      "themes/norge-business": "enabled"
-    },
-    "group": "Theme"
-  },
-  {
-    "id": "897ecb6d632772a702e1b2fb7f078aada5c237a2",
-    "$figmaCollectionId": "VariableCollectionId:36528:61712",
-    "$figmaModeId": "40960:12",
-    "name": "ki-norge",
-    "selectedTokenSets": {
-      "themes/ki-norge": "enabled"
     },
     "group": "Theme"
   },
@@ -115,12 +65,7 @@
     "name": "Primary",
     "selectedTokenSets": {
       "primitives/modes/typography/primary/digdir": "enabled",
-      "primitives/modes/typography/primary/altinn": "enabled",
-      "primitives/modes/typography/primary/uutilsynet": "enabled",
-      "primitives/modes/typography/primary/portal": "enabled",
-      "primitives/modes/typography/primary/norge-private": "enabled",
-      "primitives/modes/typography/primary/norge-business": "enabled",
-      "primitives/modes/typography/primary/ki-norge": "enabled"
+      "primitives/modes/typography/primary/uutilsynet": "enabled"
     },
     "group": "Typography"
   },
@@ -131,12 +76,7 @@
     "name": "Secondary",
     "selectedTokenSets": {
       "primitives/modes/typography/secondary/digdir": "enabled",
-      "primitives/modes/typography/secondary/altinn": "enabled",
-      "primitives/modes/typography/secondary/uutilsynet": "enabled",
-      "primitives/modes/typography/secondary/portal": "enabled",
-      "primitives/modes/typography/secondary/norge-private": "enabled",
-      "primitives/modes/typography/secondary/norge-business": "enabled",
-      "primitives/modes/typography/secondary/ki-norge": "enabled"
+      "primitives/modes/typography/secondary/uutilsynet": "enabled"
     },
     "group": "Typography"
   },
@@ -144,12 +84,7 @@
     "name": "Dark",
     "selectedTokenSets": {
       "primitives/modes/color-scheme/dark/digdir": "enabled",
-      "primitives/modes/color-scheme/dark/altinn": "enabled",
-      "primitives/modes/color-scheme/dark/uutilsynet": "enabled",
-      "primitives/modes/color-scheme/dark/portal": "enabled",
-      "primitives/modes/color-scheme/dark/norge-private": "enabled",
-      "primitives/modes/color-scheme/dark/norge-business": "enabled",
-      "primitives/modes/color-scheme/dark/ki-norge": "enabled"
+      "primitives/modes/color-scheme/dark/uutilsynet": "enabled"
     },
     "id": "9ebd8aed52afbffc17e2666e8b4653a53498b257",
     "$figmaCollectionId": "VariableCollectionId:34811:5472",
@@ -160,12 +95,7 @@
     "name": "Light",
     "selectedTokenSets": {
       "primitives/modes/color-scheme/light/digdir": "enabled",
-      "primitives/modes/color-scheme/light/altinn": "enabled",
-      "primitives/modes/color-scheme/light/uutilsynet": "enabled",
-      "primitives/modes/color-scheme/light/portal": "enabled",
-      "primitives/modes/color-scheme/light/norge-private": "enabled",
-      "primitives/modes/color-scheme/light/norge-business": "enabled",
-      "primitives/modes/color-scheme/light/ki-norge": "enabled"
+      "primitives/modes/color-scheme/light/uutilsynet": "enabled"
     },
     "id": "0daa3ca0b427b9349da7e7dc00101b5668972926",
     "$figmaCollectionId": "VariableCollectionId:34811:5472",
