@@ -1,31 +1,89 @@
 ---
 title: Farger
 sidebar_title: Farger
-description: Fargepaletten for Digdir-profilen.
-category: Styling
-order: 1
+description: Digdir skal være et varmt og inkluderende direktorat. Dette gjenspeiles også i identitetsfargene. Fargene brukes også for å skille mellom de ulike enhetene.
+category: Identitet
+order: 50
 published: true
 ---
 
-Digdir-profilen bruker en egen fargepalett bygget med Designsystemet sine
-fargetokens.
+Fargene er et viktig element for å understreke vår visuelle identitet.
+De gir rom for god visuell variasjon og skaper gjenkjennelse.
 
-## Hovedfarger
+Det er utviklet en egen fargepalett for Digdir.
+Fargepaletten er bygget opp av emblem og profilfarger i tillegg til en farge for tekst.
+Det er viktig å benytte fargene korrekt for å sikre en korrekt universell utforming.
 
-| Token  | Verdi   | Beskrivelse  |
-| ------ | ------- | ------------ |
-| accent | #0062BA | Hovedfarge   |
-| brand1 | #F45F63 | Støttefarge  |
-| brand2 | #E5AA20 | Støttefarge  |
-| brand3 | #1E98F5 | Støttefarge  |
+![Plassholderbilde](/images/placeholder.svg)
 
-## Bruk i CSS
+## Emblemfarger
 
-Fargene er tilgjengelige som CSS-variabler:
+Emblemfargene skal som hovedregel brukes på emblemene, med unntak av blåsvart som også brukes i tekst og grafikk.
+Fargene er en del av hierarkiet i merkearkitekturen og bidrar til å skille mellom Direktoratet, Fellesløsninger og andre merkevarer.
+Derfor skal mørk rød og mørk blå ikke brukes som generelle profilfarger.
+Når fargene brukes i de definerte rollene sine, beholder de funksjonen som nivåmarkører og gjør merkehierarkiet tydeligere.
 
-```css
-.my-element {
-  background: var(--ds-color-accent-base-default);
-  color: var(--ds-color-accent-base-contrast-default);
-}
-```
+> Tobias legg inn snacks kode her for å vise farga
+
+## Profilfarger
+
+Profilfargene er sentrale i Digdirs visuelle identitet.
+De brukes sammen med hvit og blåsvart for å gi liv og variasjon i illustrasjoner, grafikk og andre visuelle flater.
+Paletten består av tre faste farger som kan brukes hver for seg eller kombineres med hverandre.
+For å sikre en helhetlig og gjenkjennelig fargebruk over tid, skal det ikke brukes andre farger enn profilfargene, hvit og blåsvart.
+
+> Tobias legg inn snacks kode her for å vise farga
+
+## Fargenyanser
+
+Fargenyansene er lysere varianter av profilfargene, og kan brukes når det er behov for mer variasjon eller tydeligere skiller i grafisk materiell.
+De er særlig nyttige i illustrasjoner, statistikk, PowerPoint-presentasjoner og andre flater der lysere fargefelt kan gjøre innholdet enklere å lese og forstå.
+
+Nyansene er prosentvarianter av profilfargene, valgt ut i faste trinn fra 20 % til 100 %. 
+De gjør det mulig å skape variasjon innenfor den eksisterende paletten, uten å tilføre nye farger.
+For at fargebruken skal holde seg enkel og helhetlig, bør nyansene brukes bevisst og med måte.
+
+> her vil eg (Tobias) gjerne snakke litt om teksten, fordi WEB er heilt gløymt her.
+
+> Tobias legg inn snacks kode her for å vise farga
+
+## Tekstfarge
+
+Blåsvart brukes som alternativ til ren svart i profilen.
+Fargen gir god kontrast mot lyse flater, men oppleves mykere og mer harmonisk sammenlignet med helt svart.
+
+## Last ned fargebibliotek for skjerm og trykk
+
+Jobber du i Adobe-programmer, kan du laste ned fargebibliotekene for skjerm og trykk.
+Velg bibliotek ut fra hva du skal lage: skjerm når materiellet skal brukes digitalt, og trykk når det skal produseres fysisk.
+
+> Her trenge me ikkje at dei lasta ned...
+
+## Riktig fargeverdi til riktig bruk
+
+### hvorfor farger kan se ulike ut
+
+Før du velger fargeverdi, bør du vite hvor fargen skal brukes.
+Farger gjengis ulikt på skjerm, i trykk og på fysiske flater, og ulike bruksområder krever derfor ulike fargesystemer.
+
+På skjerm vises farger med lys, ved å blande rødt, grønt og blått lys (RGB).
+Dette er en additiv fargemodell, der fargene blir lysere jo mer lys som legges til.
+I trykk brukes en subtraktiv fargemodell, der farger bygges opp med trykkfargene cyan, magenta, gult og sort (CMYK).
+
+Derfor er det viktig å bruke riktig fargeverdi til riktig bruksområde.
+Profilfargene har egne verdier i ulike fargesystemer, slik at de gjengis så likt og riktig som mulig – enten de brukes digitalt, i trykk eller i fysisk produksjon.
+
+## Hvilken fargeangivelse skal du bruke?
+
+| **Bruksområde**                             | **Anbefalt fargesystem** | **Forklaring**                                                                                                                            |
+|---------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| Nettsider, portaler og digitale grensesnitt | HEX                  | Brukes i nettsider og digitale grensesnitt der farger angis som kode, for eksempel i web/CSS.                                         |
+| Skjermbasert materiale                      | RGB                  | Brukes til skjermbasert materiell, som presentasjoner, illustrasjoner og digitale dokumenter.                                         |
+| Trykksaker                                  | CMYK                 | Brukes til materiell som skal skrives ut eller trykkes i vanlig firefargetrykk, for eksempel brosjyrer, plakater og rapporter.        |
+| Presis trykkfarge eller spesialfarge        | PMS C / PMS U        | Brukes når trykkfargen må angis ekstra presist, eller ved spesial- og profilfarger. C er for bestrøket papir, U for ubestrøket papir. |
+| Fysisk produksjon                           | RAL                  | Brukes til fysisk produksjon, for eksempel maling, folie, skilt og interiørdetaljer.                                                  |
+
+## Kontrast
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat …
