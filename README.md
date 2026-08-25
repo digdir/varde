@@ -1,4 +1,4 @@
-> ⚠️ **WARNING** ⚠️  
+> [!WARNING]
 > Varde er fortsatt under utvikling
 
 # Varde
