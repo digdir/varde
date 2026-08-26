@@ -45,6 +45,9 @@ const digdir_hex = '#C2132C';
 /** Closes a group – the blank line the format calls for. */
 const gap = 'margin:0 0 20px;';
 
+/* Split phone number into XX XX XX XX */
+const formatPhone = (phone: string) => phone.replace(/(\d{2})(?=\d)/g, '$1 ');
+
 const buildLanguageBlock = (
   language: Language,
   { name, role, phone, office }: SignatureData,
@@ -52,7 +55,7 @@ const buildLanguageBlock = (
   <p style="${line}${gap}">${escapeHtml(language.greeting)}</p>
   <p style="${line}"><strong>${escapeHtml(or(name, 'Navn Navnesen'))}</strong></p>
   <p style="${line}${gap}"><em style="font-style:italic;">${escapeHtml(or(role, 'stilling'))}</em></p>
-  <p style="${line}${gap}">${escapeHtml(language.phoneLabel)}: ${escapeHtml(or(phone, 'XXX XX XXX'))}</p>
+  <p style="${line}${gap}">${escapeHtml(language.phoneLabel)}: ${escapeHtml(or(formatPhone(phone), 'XXX XX XXX'))}</p>
   <p style="${line}${gap}">${escapeHtml(office.address)}</p>
 </div>`;
 
@@ -81,7 +84,7 @@ export const buildSignatureText = (input: SignatureData): string =>
         or(input.name, 'Navn Navnesen'),
         or(input.role, 'stilling'),
         '',
-        `${language.phoneLabel}: ${or(input.phone, 'XXX XX XXX')}`,
+        `${language.phoneLabel}: ${or(formatPhone(input.phone), 'XXX XX XXX')}`,
         '',
         input.office.address,
       ].join('\n'),

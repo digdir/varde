@@ -36,7 +36,7 @@ export const offices: Office[] = [
   {
     id: 'oslo',
     label: 'Oslo',
-    address: 'Grev Wedels plass 9, 0151 Oslo, NO',
+    address: 'Lørenfaret 1 C, 0585 Oslo, NO',
   },
   {
     id: 'bronnoysund',
