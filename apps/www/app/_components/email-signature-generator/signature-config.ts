@@ -1,10 +1,3 @@
-/**
- * Data that drives the e-mail signature generator.
- *
- * Everything a signature can say lives here – the component only reads from
- * these lists, so adding an office or a language is a one-object change.
- */
-
 export type LanguageCode = 'nb' | 'nn' | 'en';
 export type OfficeId = 'leikanger' | 'oslo' | 'bronnoysund';
 

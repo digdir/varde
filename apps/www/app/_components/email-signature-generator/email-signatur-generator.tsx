@@ -28,11 +28,6 @@ import {
 
 type CopyState = 'idle' | 'copied' | 'error';
 
-/**
- * Copy both flavours in one go, so the receiving client can pick the rich one
- * and fall back to plain text. `ClipboardItem` is the only API that carries
- * `text/html`; older browsers get the `execCommand` route below.
- */
 const copySignature = async (html: string, text: string) => {
   if (typeof ClipboardItem !== 'undefined' && navigator.clipboard?.write) {
     try {
@@ -43,15 +38,9 @@ const copySignature = async (html: string, text: string) => {
         }),
       ]);
       return;
-    } catch {
-      // Having the API is no guarantee of being allowed to use it – Firefox and
-      // managed-browser policies both refuse `clipboard-write` for pages they
-      // are happy to run. Fall through rather than give up.
-    }
+    } catch {}
   }
 
-  // Fallback: select a detached copy of the markup and let the browser convert
-  // the selection to rich text itself.
   const holder = document.createElement('div');
   holder.setAttribute('contenteditable', 'true');
   holder.innerHTML = html;
@@ -103,8 +92,6 @@ export const EmailSignatureGenerator = () => {
     [name, role, phone, office, selectedLanguages],
   );
 
-  // Root-relative for the preview; the copy swaps in an absolute URL, which is
-  // the only kind a mail client can resolve.
   const previewHtml = useMemo(
     () => buildSignatureHtml({ ...input, logoSrc: LOGO_PATH }),
     [input],
@@ -132,19 +119,12 @@ export const EmailSignatureGenerator = () => {
     }
   };
 
-  // Let the "Kopiert!" confirmation fade back to the default label.
   useEffect(() => {
     if (copyState !== 'copied') return;
     const timer = window.setTimeout(() => setCopyState('idle'), 2500);
     return () => window.clearTimeout(timer);
   }, [copyState]);
 
-  // Render nothing until mounted. `ds-field` / `ds-fieldset` hand out ids from a
-  // module-level counter on the server but from `window.dsUseId` in the browser
-  // (see @digdir/designsystemet-web `useId`), so the two can never agree and
-  // every SSR-ed Field logs a hydration mismatch. Nothing is lost by skipping
-  // the server pass: this is a clipboard tool, and the prerendered markup would
-  // only ever be an empty form.
   if (!mounted) {
     return <div className={classes.container} aria-hidden='true' />;
   }

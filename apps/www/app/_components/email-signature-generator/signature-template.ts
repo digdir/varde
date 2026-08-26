@@ -55,7 +55,7 @@ const buildLanguageBlock = (
   <p style="${line}${gap}">${escapeHtml(language.greeting)}</p>
   <p style="${line}"><strong>${escapeHtml(or(name, 'Navn Navnesen'))}</strong></p>
   <p style="${line}${gap}"><em style="font-style:italic;">${escapeHtml(or(role, 'stilling'))}</em></p>
-  <p style="${line}${gap}">${escapeHtml(language.phoneLabel)}: ${escapeHtml(or(formatPhone(phone), 'XXX XX XXX'))}</p>
+  <p style="${line}${gap}">${escapeHtml(language.phoneLabel)}: ${escapeHtml(or(formatPhone(phone), 'XX XX XX XX'))}</p>
   <p style="${line}${gap}">${escapeHtml(office.address)}</p>
 </div>`;
 
@@ -84,7 +84,7 @@ export const buildSignatureText = (input: SignatureData): string =>
         or(input.name, 'Navn Navnesen'),
         or(input.role, 'stilling'),
         '',
-        `${language.phoneLabel}: ${or(formatPhone(input.phone), 'XXX XX XXX')}`,
+        `${language.phoneLabel}: ${or(formatPhone(input.phone), 'XX XX XX XX')}`,
         '',
         input.office.address,
       ].join('\n'),
