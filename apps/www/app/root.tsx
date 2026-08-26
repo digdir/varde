@@ -45,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
         <Links />
-        <link rel='stylesheet' href={themeHref} precedence='theme' />
+        <link rel='stylesheet' href={themeHref} />
         {/* Apply the saved colour scheme before paint to avoid a flash. */}
       </head>
       <body lang='no'>

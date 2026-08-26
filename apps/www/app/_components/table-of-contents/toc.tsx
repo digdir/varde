@@ -83,7 +83,7 @@ export const TableOfContents = ({
         </>
       )}
       <Divider />
-      <div className={classes.feedback} data-color='brand1'>
+      <div className={classes.feedback} data-color={profile?.mainColor}>
         <Paragraph>Har du inspill?</Paragraph>
         <Paragraph>Gi oss tilbakemelding på Github.</Paragraph>
         <Button asChild variant='secondary'>

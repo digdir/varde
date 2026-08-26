@@ -1,7 +1,8 @@
 import { Dropdown, Heading, Link } from '@digdir/designsystemet-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import cl from 'clsx/lite';
-import { NavLink, Link as RRLink } from 'react-router';
+import { useEffect, useState } from 'react';
+import { NavLink, Link as RRLink, useLocation } from 'react-router';
 import { type Profile, profiles } from '~/_config/profiles';
 import classes from './sidebar.module.css';
 
@@ -17,6 +18,11 @@ export type SidebarProps = {
 };
 
 export const Sidebar = ({ profile, groups, hideGroupTitle }: SidebarProps) => {
+  const [switcherOpen, setSwitcherOpen] = useState(false);
+  const { pathname } = useLocation();
+
+  useEffect(() => setSwitcherOpen(false), [pathname]);
+
   return (
     <aside className={cl(classes.sidebar, 'l-sidebar-left')}>
       <Dropdown.TriggerContext>
@@ -37,7 +43,12 @@ export const Sidebar = ({ profile, groups, hideGroupTitle }: SidebarProps) => {
             aria-hidden
           />
         </Dropdown.Trigger>
-        <Dropdown>
+        <Dropdown
+          open={switcherOpen}
+          onOpen={() => setSwitcherOpen(true)}
+          onClose={() => setSwitcherOpen(false)}
+          placement='bottom-start'
+        >
           <Dropdown.List>
             {profiles.map((item) => (
               <Dropdown.Item key={item.slug}>
@@ -45,6 +56,7 @@ export const Sidebar = ({ profile, groups, hideGroupTitle }: SidebarProps) => {
                   <RRLink
                     to={`/${item.slug}`}
                     className={classes.switcherOption}
+                    onClick={() => setSwitcherOpen(false)}
                   >
                     <span
                       className={classes.dot}
@@ -60,7 +72,7 @@ export const Sidebar = ({ profile, groups, hideGroupTitle }: SidebarProps) => {
         </Dropdown>
       </Dropdown.TriggerContext>
 
-      <nav aria-label={profile.name}>
+      <nav aria-label={profile.name} data-color={profile.mainColor}>
         {Object.entries(groups).map(([category, links]) => (
           <div key={category} className={classes.group}>
             {!hideGroupTitle && category && (

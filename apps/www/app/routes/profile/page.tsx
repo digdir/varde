@@ -46,12 +46,12 @@ export const meta = ({ data }: Route.MetaArgs) => {
 };
 
 export default function Page({
-  loaderData: { code, frontmatter, toc },
+  loaderData: { code, frontmatter, toc, profile },
 }: Route.ComponentProps) {
   return (
     <div className={classes.page}>
       <header className={classes.header}>
-        <Paragraph data-size='sm' className={classes.category}>
+        <Paragraph className={classes.category} data-color={profile.mainColor}>
           {frontmatter.category}
         </Paragraph>
         <Heading level={1} data-size='lg'>

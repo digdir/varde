@@ -17,6 +17,14 @@ export type Profile = {
   /** Brand colour used to tint the landing-page card and its illustration. */
   color: string;
   /**
+   * The theme's *main* colour, given as a Designsystemet `data-color` value.
+   * Setting `data-color={mainColor}` on a subtree lets it use the unnamed
+   * `--ds-color-*` variables instead of hard-coding a colour name like
+   * `--ds-color-brand1-*`, so each profile can name its main colour whatever it
+   * likes. `neutral` is the only colour every theme is guaranteed to have.
+   */
+  mainColor: string;
+  /**
    * Designsystemet theme this identity maps to. A matching
    * `design-tokens-build/<theme>.css` should exist (run `pnpm tokens`).
    */
@@ -30,6 +38,7 @@ export const profiles: Profile[] = [
     description:
       'Profilbibliotek og dokumentasjon for Digitaliseringsdirektoratet sine tjenester.',
     color: '#F45F63',
+    mainColor: 'brand1',
     theme: 'digdir',
   },
   {
@@ -37,6 +46,7 @@ export const profiles: Profile[] = [
     name: 'uutilsynet',
     description: 'Profil og komponenter for uutilsynet.',
     color: '#5B60D1',
+    mainColor: 'brand1',
     theme: 'uutilsynet',
   },
 ];

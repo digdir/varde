@@ -109,11 +109,10 @@
     outline-offset: calc(-1 * var(--ds-border-width-focus));
   }
 
-  /* The active item picks up the profile's brand colour (brand1 in every theme). */
   &[aria-current='page'] {
     font-weight: 500;
-    background-color: var(--ds-color-brand1-surface-tinted);
-    color: var(--ds-color-brand1-text-default);
+    background-color: var(--ds-color-surface-tinted);
+    color: var(--ds-color-text-default);
 
     &::before {
       content: '';
@@ -122,7 +121,7 @@
       bottom: 0;
       left: 0;
       width: 4px;
-      background-color: var(--ds-color-brand1-base-default);
+      background-color: var(--ds-color-base-default);
       border-top-left-radius: var(--ds-border-radius-sm);
       border-bottom-left-radius: var(--ds-border-radius-sm);
     }
