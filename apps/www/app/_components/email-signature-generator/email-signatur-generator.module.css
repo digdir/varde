@@ -1,0 +1,72 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--ds-size-8);
+  align-items: start;
+  max-width: var(--long-content-width);
+  margin-block: var(--ds-size-8);
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-6);
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+  padding: var(--ds-size-6);
+  border: 1px solid var(--ds-color-neutral-border-subtle);
+  border-radius: var(--ds-border-radius-lg);
+  background-color: var(--ds-color-neutral-background-tinted);
+
+  /*
+   * Keep the preview – and the copy button with it – in view while the form is
+   * filled in. Picking all three languages makes the signature taller than the
+   * viewport, so the card is capped and the signature itself scrolls; without
+   * the cap the button would sit below the fold exactly when it is needed.
+   */
+  @media (min-width: 901px) {
+    position: sticky;
+    top: calc(var(--header-height) + var(--ds-size-4));
+    max-height: calc(100dvh - var(--header-height) - var(--ds-size-8));
+  }
+}
+
+/*
+ * The signature carries its own inline styling, so it must render on a white
+ * ground in both colour schemes – it is a picture of the finished e-mail, not
+ * part of the surrounding page.
+ */
+.signature {
+  padding: var(--ds-size-5);
+  background-color: #fff;
+  border-radius: var(--ds-border-radius-md);
+  overflow: auto;
+  /* Let the flex item shrink below its content height so the cap above bites. */
+  min-height: 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+  align-items: start;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
