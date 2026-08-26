@@ -143,7 +143,6 @@ export const EmailSignatureGenerator = () => {
         />
         <Textfield
           label='Rolle'
-          description='Stillingstittelen din, slik den står i personalsystemet.'
           value={role}
           autoComplete='organization-title'
           onChange={(event) => setRole(event.target.value)}

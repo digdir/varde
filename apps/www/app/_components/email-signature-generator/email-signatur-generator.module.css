@@ -1,9 +1,9 @@
 .container {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   gap: var(--ds-size-8);
   align-items: start;
-  max-width: var(--long-content-width);
+  max-width: 100%;
   margin-block: var(--ds-size-8);
 
   @media (max-width: 900px) {
