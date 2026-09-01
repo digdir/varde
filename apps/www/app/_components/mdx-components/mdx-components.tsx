@@ -29,6 +29,7 @@ import {
 import { getMDXComponent } from 'mdx-bundler/dist/client';
 import { type ComponentType, type JSX, useMemo } from 'react';
 import { Link as RRLink } from 'react-router';
+import { DownloadLink } from '../download-link/download-link';
 import { EmailSignatureGenerator } from '../email-signature-generator/email-signatur-generator';
 import ExpandableImage from '../expandable-image/expandable-image';
 import classes from './mdx-components.module.css';
@@ -61,6 +62,7 @@ const defaultComponents = {
   DetailsContent,
   DetailsSummary,
   Divider,
+  DownloadLink,
   EmailSignatureGenerator,
   h1: (props: HeadingProps) => (
     <Heading className={classes.heading} level={1} data-size='xl' {...props} />
