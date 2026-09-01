@@ -64,7 +64,7 @@ export const DownloadLink = ({
 
   return (
     <a className={cl(classes.link, 'ds-focus', className)} href={href} download>
-      <span className="ds-sr-only">Last ned</span>
+      <span className='ds-sr-only'>Last ned</span>
       <span className={classes.fileIcon}>
         <FileIcon aria-hidden />
       </span>
