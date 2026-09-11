@@ -9,6 +9,8 @@ apps/storybook/debug-storybook.log
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
+.DS_Store
+
 # User-specific files
 *.rsuser
 *.suo
@@ -236,6 +238,8 @@ PublishScripts/
 **/[Pp]ackages/*
 # except build/, which is used as an MSBuild target.
 !**/[Pp]ackages/build/
+# …and our pnpm workspace packages (`packages/*`), which are not NuGet packages.
+!/packages/*
 # Uncomment if necessary however generally it will be regenerated when needed
 #!**/[Pp]ackages/repositories.config
 # NuGet v3's project.json files produces more ignorable files

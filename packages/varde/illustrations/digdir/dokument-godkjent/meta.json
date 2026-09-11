@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Dokument godkjent",
+  "description": "Et dokument med et godkjent-merke. Brukes om søknader, skjema og vedtak som er ferdig behandlet.",
+  "tags": ["dokument", "godkjent", "skjema", "søknad"]
+}

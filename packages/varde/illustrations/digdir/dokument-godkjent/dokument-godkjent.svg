@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150" fill="none">
+  <rect x="20" y="50" width="100" height="100" rx="8" fill="#E5AA20" />
+  <path
+    d="M60 12H120L146 38V128C146 132.418 142.418 136 138 136H60C55.582 136 52 132.418 52 128V20C52 15.582 55.582 12 60 12Z"
+    fill="#FFFFFF"
+  />
+  <path d="M120 12V38H146" fill="#EDCFC5" />
+  <path
+    d="M120 12V38H146L120 12Z"
+    stroke="#1E2B3C"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <path
+    d="M60 12H120L146 38V128C146 132.418 142.418 136 138 136H60C55.582 136 52 132.418 52 128V20C52 15.582 55.582 12 60 12Z"
+    stroke="#1E2B3C"
+    stroke-width="4"
+    stroke-linejoin="round"
+  />
+  <rect x="68" y="58" width="60" height="6" rx="3" fill="#EDCFC5" />
+  <rect x="68" y="74" width="44" height="6" rx="3" fill="#EDCFC5" />
+  <rect x="68" y="90" width="52" height="6" rx="3" fill="#EDCFC5" />
+  <circle cx="146" cy="112" r="28" fill="#1E98F5" />
+  <path
+    d="M132 112L142 122L160 102"
+    stroke="#FFFFFF"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>

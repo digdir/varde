@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'apps/www/**'
+      - 'packages/**'
       - 'design-tokens-build/**'
       - 'Dockerfile'
       - '.dockerignore'

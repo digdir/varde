@@ -14,6 +14,7 @@
   "dependencies": {
     "@digdir/designsystemet-css": "^1.21.0",
     "@digdir/designsystemet-react": "^1.21.0",
+    "@digdir/varde": "workspace:*",
     "@navikt/aksel-icons": "^8.16.1",
     "@react-router/node": "8.3.1",
     "@react-router/serve": "8.3.1",

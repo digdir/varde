@@ -1,0 +1,3 @@
+# Build output – regenerate with `pnpm build`
+dist
+generated

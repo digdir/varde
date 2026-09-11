@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Telefon med varsel",
+  "description": "En mobiltelefon med et varsel på skjermen. Brukes om digitale tjenester, meldinger og varsler.",
+  "tags": ["teknologi", "telefon", "varsel", "digital"]
+}

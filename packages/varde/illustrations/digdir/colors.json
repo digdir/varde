@@ -1,0 +1,8 @@
+{
+  "white": { "light": "#FFFFFF", "dark": "#FFFFFF" },
+  "figure": { "light": "#1E2B3C", "dark": "#384A5E" },
+  "skin": { "light": "#EDCFC5", "dark": "#F9E8E8" },
+  "brand1": { "light": "#F45F63", "dark": "#F45F63" },
+  "brand2": { "light": "#E5AA20", "dark": "#E5AA20" },
+  "brand3": { "light": "#1E98F5", "dark": "#1E98F5" }
+}

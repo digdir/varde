@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Skjema med lupe",
+  "description": "Et nettskjema som undersøkes med en lupe. Brukes om tilsyn, kontroll og testing av universell utforming.",
+  "tags": ["tilsyn", "skjema", "kontroll", "lupe"]
+}

@@ -13,6 +13,8 @@ import type { Route } from './+types/root';
 // Designsystemet base styles. The active theme's design tokens are loaded
 // per-profile in `Layout` below (see `_config/themes`).
 import '@digdir/designsystemet-css';
+// Colour variables for the illustration library (all profiles; tiny).
+import '@digdir/varde/illustrations.css';
 import './app.css';
 
 export const links: Route.LinksFunction = () => [

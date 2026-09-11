@@ -1,0 +1,44 @@
+---
+title: Illustrasjoner
+sidebar_title: Illustrasjoner
+description: Illustrasjonene gir Digdir et vennlig og gjenkjennelig uttrykk. Her finner du hele biblioteket, klart til å kopiere eller laste ned – i lys og mørk modus.
+category: Identitet
+order: 70
+published: true
+---
+
+## Slik bruker du illustrasjonene
+
+Illustrasjonene er laget for digitale flater og fungerer både i lys og mørk modus.
+Bruk dem som blikkfang på forsider, i introduksjoner og for å bryte opp lange tekster.
+Ikke endre farger, proporsjoner eller elementer i illustrasjonene.
+
+Klikk på en illustrasjon for å se detaljer, kopiere SVG-koden eller laste den ned.
+
+<IllustrationLibrary />
+
+## Bruk i kode
+
+Illustrasjonene er tilgjengelige som React-komponenter og som rene SVG-strenger i pakken `@digdir/varde`.
+
+```bash
+npm install @digdir/varde
+```
+
+```tsx
+import { TelefonMedVarsel } from '@digdir/varde/illustrations/digdir/react';
+
+<TelefonMedVarsel aria-hidden />
+```
+
+For at illustrasjonene skal følge mørk modus, må du også laste inn stilarket:
+
+```ts
+import '@digdir/varde/illustrations/digdir.css';
+```
+
+Illustrasjonene er dekorative. Legg på `aria-hidden` når de ikke gir informasjon, eller gi dem en `title` når de gjør det.
+
+## Trenger du en ny illustrasjon?
+
+Nye illustrasjoner skal følge formspråket og fargene i profilen. Ta kontakt med KOM før du bestiller eller lager nye illustrasjoner.

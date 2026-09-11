@@ -1,0 +1,73 @@
+{
+  "name": "@digdir/varde",
+  "version": "0.0.1",
+  "description": "Illustrations (and later icons and components) for Digdir's visual profiles, with light/dark mode support.",
+  "type": "module",
+  "license": "ISC",
+  "author": "digdir",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felleslosninger/varde",
+    "directory": "packages/varde"
+  },
+  "keywords": [
+    "svg",
+    "illustrations",
+    "dark-mode",
+    "react",
+    "digdir"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "exports": {
+    "./illustrations": {
+      "types": "./dist/illustrations/index.d.ts",
+      "default": "./dist/illustrations/index.js"
+    },
+    "./illustrations.css": "./dist/illustrations/index.css",
+    "./illustrations/*/react": {
+      "types": "./dist/illustrations/*/react/index.d.ts",
+      "default": "./dist/illustrations/*/react/index.js"
+    },
+    "./illustrations/*/svg": {
+      "types": "./dist/illustrations/*/svg.d.ts",
+      "default": "./dist/illustrations/*/svg.js"
+    },
+    "./illustrations/*/meta": {
+      "types": "./dist/illustrations/*/meta.d.ts",
+      "default": "./dist/illustrations/*/meta.js"
+    },
+    "./illustrations/*.css": "./dist/illustrations/*.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "pnpm clean && node scripts/build-illustrations.ts && tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist generated",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "react": "^19.2.8",
+    "svgo": "^4.0.1",
+    "typescript": "^5.9.3"
+  }
+}

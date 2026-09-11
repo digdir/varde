@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/felleslosninger/varde/packages/varde/illustrations/meta.schema.json",
+  "title": "Illustration metadata",
+  "description": "Metadata for one illustration. Lives in `meta.json` next to the illustration's `.svg` file.",
+  "type": "object",
+  "required": ["title", "tags"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "title": {
+      "type": "string",
+      "description": "Human readable name shown in the documentation."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of what the illustration shows and when to use it."
+    },
+    "tags": {
+      "type": "array",
+      "description": "Searchable tags used for filtering, e.g. \"person\", \"teknologi\".",
+      "items": { "type": "string", "minLength": 1 },
+      "uniqueItems": true
+    }
+  }
+}

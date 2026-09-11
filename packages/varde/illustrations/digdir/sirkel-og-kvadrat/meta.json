@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Sirkel og kvadrat",
+  "description": "Abstrakt komposisjon av profilens grunnformer. Brukes som dekor der det ikke finnes et konkret motiv.",
+  "tags": ["abstrakt", "former", "dekor"]
+}
