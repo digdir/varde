@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person som viser frem noe",
+  "description": "En person som viser frem noe. Passer til innhold om presentasjon, lansering og deling.",
+  "tags": ["person", "presentasjon", "deling"]
+}

@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person som ser på telefonen sin",
+  "description": "En person som ser på mobiltelefonen sin. Passer til innhold om digitale tjenester og mobilbruk.",
+  "tags": ["person", "telefon", "digital"]
+}

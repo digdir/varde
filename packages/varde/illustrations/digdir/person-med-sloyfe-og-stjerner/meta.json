@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person med sløyfe og stjerner",
+  "description": "En person med sløyfe og stjerner rundt seg. Passer til innhold om feiring, utmerkelser og milepæler.",
+  "tags": ["person", "stjerner", "feiring", "utmerkelse"]
+}

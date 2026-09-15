@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person som strekker seg",
+  "description": "En person som strekker seg. Passer til innhold om pauser, vekst og å strekke seg etter noe.",
+  "tags": ["person", "vekst", "pause"]
+}

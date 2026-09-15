@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person omringet av stjerner",
+  "description": "En person omgitt av stjerner. Passer til innhold om suksess, ros og gode resultater.",
+  "tags": ["person", "stjerner", "suksess"]
+}

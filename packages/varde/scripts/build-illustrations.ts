@@ -203,7 +203,10 @@ const processSvg = (
       { name: 'prefixIds', params: { prefix: name } },
       // Drop the root width/height so the container decides the size
       // (the viewBox is kept – svgo 4 no longer removes it by default).
-      { name: 'removeAttrs', params: { attrs: ['svg:(width|height)'] } },
+      {
+        name: 'removeAttrs',
+        params: { attrs: ['svg:(width|height)', 'data-name'] },
+      },
     ],
   }).data;
 
