@@ -8,7 +8,7 @@ import {
 } from '@digdir/designsystemet-react';
 import type { IllustrationMeta } from '@digdir/varde/illustrations';
 import cl from 'clsx/lite';
-import { Suspense, use, useId, useMemo, useState } from 'react';
+import { Suspense, use, useMemo, useState } from 'react';
 import { useParams } from 'react-router';
 import {
   getIllustrationLibrary,
@@ -76,36 +76,17 @@ const matchesQuery = (item: IllustrationMeta, query: string) => {
 const Gallery = ({ profile }: { profile: string }) => {
   const library: IllustrationLibraryData = use(getIllustrationLibrary(profile));
   const [query, setQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selected, setSelected] = useState<IllustrationMeta | null>(null);
-  const _tagsId = useId();
-
-  const _allTags = useMemo(
-    () =>
-      [...new Set(library.illustrations.flatMap((item) => item.tags))].sort(
-        (a, b) => a.localeCompare(b, 'no'),
-      ),
-    [library],
-  );
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
-    return library.illustrations.filter(
-      (item) =>
-        matchesQuery(item, normalized) &&
-        selectedTags.every((tag) => item.tags.includes(tag)),
+    return library.illustrations.filter((item) =>
+      matchesQuery(item, normalized),
     );
-  }, [library, query, selectedTags]);
-
-  const _toggleTag = (tag: string) =>
-    setSelectedTags((current) =>
-      current.includes(tag)
-        ? current.filter((value) => value !== tag)
-        : [...current, tag],
-    );
+  }, [library, query]);
 
   const total = library.illustrations.length;
-  const isFiltering = query.trim() !== '' || selectedTags.length > 0;
+  const isFiltering = query.trim() !== '';
   const countText = isFiltering
     ? `Viser ${filtered.length} av ${total} illustrasjoner`
     : `${total} illustrasjoner`;
