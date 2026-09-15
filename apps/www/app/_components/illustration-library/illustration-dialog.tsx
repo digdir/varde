@@ -1,17 +1,24 @@
 import {
   Button,
   Dialog,
+  Dropdown,
   Heading,
   Paragraph,
   Tag,
+  ValidationMessage,
 } from '@digdir/designsystemet-react';
 import type { IllustrationMeta } from '@digdir/varde/illustrations';
 import { CheckmarkIcon, DownloadIcon, FilesIcon } from '@navikt/aksel-icons';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   applyColorScheme,
   type IllustrationLibrary,
 } from '~/_config/illustrations';
+import {
+  type DownloadFormat,
+  downloadFormats,
+  downloadIllustration,
+} from './download-illustration';
 import classes from './illustration-library.module.css';
 
 type Scheme = 'light' | 'dark';
@@ -21,8 +28,46 @@ const schemeLabels: Record<Scheme, string> = {
   dark: 'Mørk modus',
 };
 
-const svgDataUri = (svg: string) =>
-  `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+/** "Last ned" button that opens a format picker (SVG, PNG, WebP). */
+const DownloadMenu = ({
+  onSelect,
+}: {
+  onSelect: (format: DownloadFormat) => void;
+}) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const select = (format: DownloadFormat) => {
+    // Picking a format is a one-shot action – close the menu (focus returns
+    // to the trigger) before starting the download.
+    try {
+      menuRef.current?.hidePopover();
+    } catch {
+      // Already closed.
+    }
+    onSelect(format);
+  };
+
+  return (
+    <Dropdown.TriggerContext>
+      <Dropdown.Trigger variant='tertiary' data-size='sm'>
+        <DownloadIcon aria-hidden />
+        Last ned
+      </Dropdown.Trigger>
+      <Dropdown ref={menuRef} data-size='sm' placement='bottom-start'>
+        <Dropdown.Heading>Velg format</Dropdown.Heading>
+        <Dropdown.List>
+          {downloadFormats.map(({ format, label }) => (
+            <Dropdown.Item key={format}>
+              <Dropdown.Button onClick={() => select(format)}>
+                {label}
+              </Dropdown.Button>
+            </Dropdown.Item>
+          ))}
+        </Dropdown.List>
+      </Dropdown>
+    </Dropdown.TriggerContext>
+  );
+};
 
 interface IllustrationDialogProps {
   item: IllustrationMeta | null;
@@ -40,9 +85,13 @@ export const IllustrationDialog = ({
   onClose,
 }: IllustrationDialogProps) => {
   const [copied, setCopied] = useState<string | null>(null);
+  const [downloadError, setDownloadError] = useState<string | null>(null);
 
-  // Reset the "copied" state whenever another illustration is opened.
-  useEffect(() => setCopied(null), [item]);
+  // Reset transient state whenever another illustration is opened.
+  useEffect(() => {
+    setCopied(null);
+    setDownloadError(null);
+  }, [item]);
 
   useEffect(() => {
     if (!copied) return;
@@ -74,6 +123,23 @@ export const IllustrationDialog = ({
       setCopied(key);
     } catch {
       setCopied(null);
+    }
+  };
+
+  const download = async (scheme: Scheme, format: DownloadFormat) => {
+    if (!item) return;
+    setDownloadError(null);
+    try {
+      await downloadIllustration({
+        svg: variants[scheme],
+        viewBox: item.viewBox,
+        fileName: `${item.name}-${scheme}`,
+        format,
+      });
+    } catch (error) {
+      setDownloadError(
+        error instanceof Error ? error.message : 'Nedlastingen feilet.',
+      );
     }
   };
 
@@ -148,18 +214,17 @@ export const IllustrationDialog = ({
                     )}
                     {copied === scheme ? 'Kopiert' : 'Kopier SVG'}
                   </Button>
-                  <Button variant='tertiary' data-size='sm' asChild>
-                    <a
-                      href={svgDataUri(variants[scheme])}
-                      download={`${item.name}-${scheme}.svg`}
-                    >
-                      <DownloadIcon aria-hidden />
-                      Last ned
-                    </a>
-                  </Button>
+                  <DownloadMenu
+                    onSelect={(format) => download(scheme, format)}
+                  />
                 </div>
               </section>
             ))}
+            {downloadError && (
+              <ValidationMessage className={classes.downloadError}>
+                {downloadError}
+              </ValidationMessage>
+            )}
           </Dialog.Block>
 
           <Dialog.Block>
