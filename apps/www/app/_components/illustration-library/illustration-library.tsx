@@ -1,6 +1,5 @@
 import {
   Alert,
-  Chip,
   Field,
   Label,
   Paragraph,
@@ -79,9 +78,9 @@ const Gallery = ({ profile }: { profile: string }) => {
   const [query, setQuery] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [selected, setSelected] = useState<IllustrationMeta | null>(null);
-  const tagsId = useId();
+  const _tagsId = useId();
 
-  const allTags = useMemo(
+  const _allTags = useMemo(
     () =>
       [...new Set(library.illustrations.flatMap((item) => item.tags))].sort(
         (a, b) => a.localeCompare(b, 'no'),
@@ -98,7 +97,7 @@ const Gallery = ({ profile }: { profile: string }) => {
     );
   }, [library, query, selectedTags]);
 
-  const toggleTag = (tag: string) =>
+  const _toggleTag = (tag: string) =>
     setSelectedTags((current) =>
       current.includes(tag)
         ? current.filter((value) => value !== tag)
@@ -121,32 +120,11 @@ const Gallery = ({ profile }: { profile: string }) => {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder='Tittel eller emne'
+              autoComplete='off'
             />
             <Search.Clear onClick={() => setQuery('')} />
           </Search>
         </Field>
-
-        {allTags.length > 0 && (
-          <fieldset className={classes.tags}>
-            <Label asChild>
-              <legend id={tagsId}>Filtrer på emne</legend>
-            </Label>
-            <div className={classes.chips}>
-              {allTags.map((tag) => (
-                <Chip.Checkbox
-                  key={tag}
-                  name='tags'
-                  value={tag}
-                  data-size='sm'
-                  checked={selectedTags.includes(tag)}
-                  onChange={() => toggleTag(tag)}
-                >
-                  {tag}
-                </Chip.Checkbox>
-              ))}
-            </div>
-          </fieldset>
-        )}
       </div>
 
       <Paragraph
