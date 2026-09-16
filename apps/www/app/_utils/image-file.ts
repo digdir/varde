@@ -5,11 +5,11 @@
  */
 export const readImageFile = async (file: File, maxSide = 2000) => {
   if (!file.type.startsWith('image/')) {
-    throw new Error('Filen må være et bilde (PNG, JPEG eller WebP).');
+    throw new Error('Filen må være et bilde i PNG, JPEG eller WebP.');
   }
 
   const bitmap = await createImageBitmap(file).catch(() => {
-    throw new Error('Kunne ikke lese bildet.');
+    throw new Error('Bildet kunne ikke leses. Prøv en annen fil.');
   });
   const scale = Math.min(1, maxSide / Math.max(bitmap.width, bitmap.height));
   const width = Math.round(bitmap.width * scale);

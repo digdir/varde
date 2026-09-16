@@ -106,11 +106,7 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
     parsed.fields.map((field) => field.defaultValue),
   );
   const [scale, setScale] = useState<Scale>(1);
-  const [busy, setBusy] = useState<'download' | 'copy' | null>(null);
-  const [status, setStatus] = useState<{
-    type: 'success' | 'error';
-    message: string;
-  } | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
 
   // Widths of the template's own texts, measured from the first render (which
   // shows the defaults) so `[center]`/`[right]` fields anchor where the
@@ -131,9 +127,6 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
     [parsed, values, widths],
   );
   const size = { width: parsed.width * scale, height: parsed.height * scale };
-  const isDefault = values.every(
-    (value, index) => value === parsed.fields[index].defaultValue,
-  );
 
   const setValue = (index: number, value: string) =>
     setValues((current) =>
@@ -141,8 +134,7 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
     );
 
   const run = async (action: 'download' | 'copy') => {
-    setBusy(action);
-    setStatus(null);
+    setExportError(null);
     try {
       const exportSvg = await embedInterFont(svg);
       if (action === 'download') {
@@ -151,26 +143,20 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
           mime: 'image/png',
         });
         saveBlob(blob, `${name}.png`);
-        setStatus({ type: 'success', message: 'Bildet er lastet ned.' });
       } else {
         await copySvgAsImage(exportSvg, size);
-        setStatus({
-          type: 'success',
-          message: 'Bildet er kopiert til utklippstavlen.',
-        });
       }
     } catch (error) {
-      setStatus({
-        type: 'error',
-        message: error instanceof Error ? error.message : 'Noe gikk galt.',
-      });
-    } finally {
-      setBusy(null);
+      setExportError(
+        error instanceof Error
+          ? error.message
+          : 'Bildet kunne ikke lages. Prøv igjen.',
+      );
     }
   };
 
   return (
-    <div className={classes.container}>
+    <div className={classes.container} data-color='neutral'>
       <form
         className={classes.form}
         onSubmit={(event) => {
@@ -185,7 +171,6 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
               label={field.label}
               value={values[index]}
               onChange={(value) => setValue(index, value)}
-              onError={(message) => setStatus({ type: 'error', message })}
             />
           ) : (
             <Textfield
@@ -203,7 +188,6 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
             type='button'
             variant='tertiary'
             data-size='sm'
-            disabled={isDefault}
             onClick={() =>
               setValues(parsed.fields.map((field) => field.defaultValue))
             }
@@ -223,7 +207,7 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
           // biome-ignore lint/security/noDangerouslySetInnerHtml: template SVGs are part of this repo; user text is XML-escaped
           dangerouslySetInnerHTML={{ __html: svg }}
         />
-        <div className={classes.actions}>
+        <div className={classes.actions} data-color='accent'>
           <Field className={classes.size}>
             <Label>Størrelse</Label>
             <Select
@@ -240,13 +224,7 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
               ))}
             </Select>
           </Field>
-          <Button
-            type='button'
-            data-size='sm'
-            loading={busy === 'download'}
-            disabled={busy !== null}
-            onClick={() => run('download')}
-          >
+          <Button type='button' data-size='sm' onClick={() => run('download')}>
             <DownloadIcon aria-hidden />
             Last ned PNG
           </Button>
@@ -254,8 +232,6 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
             type='button'
             variant='secondary'
             data-size='sm'
-            loading={busy === 'copy'}
-            disabled={busy !== null}
             onClick={() => run('copy')}
           >
             <FilesIcon aria-hidden />
@@ -263,13 +239,10 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
           </Button>
         </div>
         <div aria-live='polite'>
-          {status?.type === 'error' && (
-            <ValidationMessage>{status.message}</ValidationMessage>
-          )}
-          {status?.type === 'success' && (
-            <Paragraph data-size='sm' className={classes.hint}>
-              {status.message}
-            </Paragraph>
+          {exportError && (
+            <Alert data-size='sm' data-color='danger'>
+              {exportError}
+            </Alert>
           )}
         </div>
       </div>
@@ -280,37 +253,45 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
 const sizeLabel = (parsed: ParsedTemplate, factor: Scale) =>
   `${Math.round(parsed.width * factor)} × ${Math.round(parsed.height * factor)} px`;
 
-/** Upload for an `[image]` shape: Designsystemet drop zone plus the chosen file. */
+/**
+ * Upload for an `[image]` shape: Designsystemet drop zone plus the chosen
+ * file. A file that can't be used is reported right under the field, with
+ * `aria-invalid` on the input, per Designsystemet's error pattern.
+ */
 const ImageField = ({
   label,
   value,
   onChange,
-  onError,
 }: {
   label: string;
   value: string;
   onChange: (dataUrl: string) => void;
-  onError: (message: string) => void;
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const inputId = useId();
   const [fileName, setFileName] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const pick = async (file: File | undefined) => {
     if (!file) return;
     try {
       onChange(await readImageFile(file));
       setFileName(file.name);
-    } catch (error) {
-      onError(
-        error instanceof Error ? error.message : 'Kunne ikke lese bildet.',
+      setError(null);
+    } catch (cause) {
+      setError(
+        cause instanceof Error
+          ? cause.message
+          : 'Bildet kunne ikke leses. Prøv en annen fil.',
       );
+      if (inputRef.current) inputRef.current.value = '';
     }
   };
 
   const clear = () => {
     onChange('');
     setFileName(null);
+    setError(null);
     if (inputRef.current) inputRef.current.value = '';
   };
 
@@ -331,9 +312,13 @@ const ImageField = ({
           id={inputId}
           type='file'
           accept='image/*'
+          aria-invalid={error ? true : undefined}
           onChange={(event) => pick(event.target.files?.[0])}
         />
       </FileUpload>
+      <div aria-live='polite'>
+        {error && <ValidationMessage>{error}</ValidationMessage>}
+      </div>
       {value && (
         <div className={classes.imageChosen}>
           <img src={value} alt='' className={classes.imageThumbnail} />
