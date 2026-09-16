@@ -256,9 +256,7 @@ const sizeLabel = (parsed: ParsedTemplate, factor: Scale) =>
 const sanitizeImageSrc = (candidate: string): string | null => {
   const trimmed = candidate.trim();
   if (
-    /^data:image\/(?:png|jpe?g|webp|gif);base64,[a-zA-Z0-9+/=]+$/i.test(
-      trimmed,
-    )
+    /^data:image\/(?:png|jpe?g|webp|gif);base64,[a-zA-Z0-9+/=]+$/i.test(trimmed)
   ) {
     return trimmed;
   }
@@ -336,8 +334,14 @@ const ImageField = ({
         return (
           safeImageSrc && (
             <div className={classes.imageChosen}>
-              <img src={safeImageSrc} alt='' className={classes.imageThumbnail} />
-              <Paragraph className={classes.imageFileName}>{fileName}</Paragraph>
+              <img
+                src={safeImageSrc}
+                alt=''
+                className={classes.imageThumbnail}
+              />
+              <Paragraph className={classes.imageFileName}>
+                {fileName}
+              </Paragraph>
               <Button type='button' variant='tertiary' onClick={clear}>
                 <TrashIcon aria-hidden />
                 Fjern
