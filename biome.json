@@ -16,12 +16,13 @@
       "!.github",
       "!.changeset",
       "!**/design-tokens/*",
-      "!**/design-tokens-build/*"
+      "!**/design-tokens-build/*",
+      "!**/*.svg"
     ]
   },
   "formatter": {
     "enabled": true,
-    "includes": ["**/*"],
+    "includes": ["**/*", "!**/*.svg"],
     "formatWithErrors": true,
     "indentStyle": "space",
     "indentWidth": 2,
@@ -30,7 +31,7 @@
   },
   "linter": {
     "enabled": true,
-    "includes": ["**/*"],
+    "includes": ["**/*", "!**/*.svg"],
     "rules": {
       "preset": "recommended",
       "a11y": {
