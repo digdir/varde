@@ -28,4 +28,4 @@ COPY --from=www-build /prod/www /srv/app
 WORKDIR /srv/app
 ENV NODE_ENV=production HOST=0.0.0.0 PORT=8000
 EXPOSE 8000
-CMD ["node", "server.js"]
+CMD ["./node_modules/.bin/react-router-serve", "./build/server/index.js"]
