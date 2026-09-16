@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 910.905 1147.532">
+  <rect width="910.905" height="1147.532" fill="#1e2b3c"/>
+  <path d="M516.595,1613.633c82.394,56.656,182.196,89.822,289.747,89.822,282.772,0,512.005-229.233,512.005-512.004s-229.234-512.006-512.006-512.006c-132.486,0-253.224,50.322-344.134,132.895l-50.129-158.707-819.52,258.859,249.57,790.111,281.669-88.97h392.798,0Z" fill="#fff" fill-rule="evenodd"/>
+  <circle id="Bilde_image_" data-name="Bilde [image]" cx="455.453" cy="313.265" r="260.501" fill="#fc5663"/>
+  <text id="navn_center_" data-name="navn [center]" transform="translate(368.757 931.275)" font-family="Inter-Bold, Inter" font-size="72" font-variation-settings="&apos;opsz&apos; 14, &apos;wght&apos; 700" font-weight="700"><tspan x="0" y="0">n</tspan><tspan x="44.824" y="0" letter-spacing="-.017em">a</tspan><tspan x="85.395" y="0">vn</tspan></text>
+  <text id="firma_center_" data-name="firma [center]" transform="translate(382.7084 1018.0916)" font-family="InterItalic-LightItalic, Inter" font-size="60" font-style="italic" font-variation-settings="&apos;opsz&apos; 14, &apos;wght&apos; 300" font-weight="300"><tspan x="0" y="0">fi</tspan><tspan x="34.746" y="0" letter-spacing=".01em">r</tspan><tspan x="56.953" y="0">ma</tspan></text>
+</svg>
