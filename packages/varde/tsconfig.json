@@ -13,5 +13,5 @@
     "erasableSyntaxOnly": true,
     "resolveJsonModule": true
   },
-  "include": ["scripts/**/*"]
+  "include": ["scripts/**/*", "src/**/*"]
 }

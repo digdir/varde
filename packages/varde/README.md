@@ -86,8 +86,8 @@ illustrations/
 4. Run `pnpm build`.
 
 To add a new profile, create `illustrations/<profile>/colors.json` and at least
-one illustration folder, then register a loader in the docs app
-(`apps/www/app/_config/illustrations.ts`).
+one illustration folder. The build picks it up and adds it to
+`illustrationProfiles` and `illustrationLoaders` in `@digdir/varde/illustrations`.
 
 ### Recolourable parts (colour slots)
 

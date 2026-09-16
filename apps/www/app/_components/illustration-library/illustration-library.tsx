@@ -6,9 +6,12 @@ import {
   Search,
   Spinner,
 } from '@digdir/designsystemet-react';
-import type { IllustrationMeta } from '@digdir/varde/illustrations';
+import type {
+  IllustrationMeta,
+  IllustrationProfile,
+} from '@digdir/varde/illustrations';
 import cl from 'clsx/lite';
-import { Suspense, use, useMemo, useState } from 'react';
+import { Suspense, use, useState } from 'react';
 import { useParams } from 'react-router';
 import {
   getIllustrationLibrary,
@@ -60,7 +63,6 @@ export const IllustrationLibrary = ({
 };
 
 const matchesQuery = (item: IllustrationMeta, query: string) => {
-  if (!query) return true;
   const haystack = [
     item.title,
     item.name,
@@ -73,40 +75,35 @@ const matchesQuery = (item: IllustrationMeta, query: string) => {
   return haystack.includes(query);
 };
 
-const Gallery = ({ profile }: { profile: string }) => {
+const Gallery = ({ profile }: { profile: IllustrationProfile }) => {
   const library: IllustrationLibraryData = use(getIllustrationLibrary(profile));
   const [query, setQuery] = useState('');
   const [selected, setSelected] = useState<IllustrationMeta | null>(null);
 
-  const filtered = useMemo(() => {
-    const normalized = query.trim().toLowerCase();
-    return library.illustrations.filter((item) =>
-      matchesQuery(item, normalized),
-    );
-  }, [library, query]);
+  const normalized = query.trim().toLowerCase();
+  const filtered = normalized
+    ? library.illustrations.filter((item) => matchesQuery(item, normalized))
+    : library.illustrations;
 
   const total = library.illustrations.length;
-  const isFiltering = query.trim() !== '';
-  const countText = isFiltering
+  const countText = normalized
     ? `Viser ${filtered.length} av ${total} illustrasjoner`
     : `${total} illustrasjoner`;
 
   return (
     <>
-      <div className={classes.controls}>
-        <Field className={classes.search}>
-          <Label>Søk i illustrasjoner</Label>
-          <Search>
-            <Search.Input
-              value={query}
-              onChange={(event) => setQuery(event.target.value)}
-              placeholder='Tittel eller emne'
-              autoComplete='off'
-            />
-            <Search.Clear onClick={() => setQuery('')} />
-          </Search>
-        </Field>
-      </div>
+      <Field className={classes.search}>
+        <Label>Søk i illustrasjoner</Label>
+        <Search>
+          <Search.Input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder='Tittel eller emne'
+            autoComplete='off'
+          />
+          <Search.Clear onClick={() => setQuery('')} />
+        </Search>
+      </Field>
 
       <Paragraph
         data-size='sm'
@@ -119,8 +116,7 @@ const Gallery = ({ profile }: { profile: string }) => {
 
       {filtered.length === 0 ? (
         <Paragraph className={classes.empty}>
-          Ingen illustrasjoner passer til søket. Prøv et annet ord, eller fjern
-          filtrene.
+          Ingen illustrasjoner passer til søket. Prøv et annet ord.
         </Paragraph>
       ) : (
         <ul className={classes.grid} aria-label='Illustrasjoner'>

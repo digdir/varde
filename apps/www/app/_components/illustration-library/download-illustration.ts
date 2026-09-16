@@ -3,28 +3,25 @@
  * via a canvas. Rasters are rendered with a transparent background and their
  * longest side at `RASTER_MAX_SIDE` pixels.
  */
-export type DownloadFormat = 'svg' | 'png' | 'webp';
+const formats = {
+  svg: { label: 'SVG', mime: 'image/svg+xml' },
+  png: { label: 'PNG', mime: 'image/png' },
+  webp: { label: 'WebP', mime: 'image/webp' },
+} as const;
 
-export const downloadFormats: { format: DownloadFormat; label: string }[] = [
-  { format: 'svg', label: 'SVG' },
-  { format: 'png', label: 'PNG' },
-  { format: 'webp', label: 'WebP' },
-];
+export type DownloadFormat = keyof typeof formats;
+
+export const downloadFormats = (Object.keys(formats) as DownloadFormat[]).map(
+  (format) => ({ format, label: formats[format].label }),
+);
 
 const RASTER_MAX_SIDE = 2048;
-
-const mimeTypes: Record<DownloadFormat, string> = {
-  svg: 'image/svg+xml',
-  png: 'image/png',
-  webp: 'image/webp',
-};
 
 const saveBlob = (blob: Blob, fileName: string) => {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
   link.download = fileName;
-  link.rel = 'noopener';
   document.body.appendChild(link);
   link.click();
   link.remove();
@@ -38,8 +35,9 @@ const rasterSize = (viewBox?: string) => {
     .trim()
     .split(/[\s,]+/)
     .map(Number);
-  if (!width || !height)
+  if (!width || !height) {
     return { width: RASTER_MAX_SIDE, height: RASTER_MAX_SIDE };
+  }
   const scale = RASTER_MAX_SIDE / Math.max(width, height);
   return {
     width: Math.round(width * scale),
@@ -49,7 +47,9 @@ const rasterSize = (viewBox?: string) => {
 
 const loadImage = (svg: string) =>
   new Promise<HTMLImageElement>((resolve, reject) => {
-    const url = URL.createObjectURL(new Blob([svg], { type: mimeTypes.svg }));
+    const url = URL.createObjectURL(
+      new Blob([svg], { type: formats.svg.mime }),
+    );
     const image = new Image();
     image.onload = () => {
       URL.revokeObjectURL(url);
@@ -65,7 +65,7 @@ const loadImage = (svg: string) =>
 const rasterize = async (
   svg: string,
   viewBox: string | undefined,
-  format: 'png' | 'webp',
+  format: Exclude<DownloadFormat, 'svg'>,
 ): Promise<Blob> => {
   const { width, height } = rasterSize(viewBox);
   // The generated SVGs have no width/height; browsers need them to size the
@@ -83,13 +83,14 @@ const rasterize = async (
   if (!context) throw new Error('Kunne ikke opprette bildet.');
   context.drawImage(image, 0, 0, width, height);
 
+  const { mime } = formats[format];
   const blob = await new Promise<Blob | null>((resolve) =>
-    canvas.toBlob(resolve, mimeTypes[format]),
+    canvas.toBlob(resolve, mime),
   );
   // Browsers without an encoder for the format silently fall back to PNG.
-  if (!blob || blob.type !== mimeTypes[format]) {
+  if (!blob || blob.type !== mime) {
     throw new Error(
-      `Nettleseren din kan ikke lage ${format.toUpperCase()}-bilder. Prøv SVG eller PNG.`,
+      `Nettleseren din kan ikke lage ${formats[format].label}-bilder. Prøv SVG eller PNG.`,
     );
   }
   return blob;
@@ -109,7 +110,7 @@ export const downloadIllustration = async ({
 }) => {
   const blob =
     format === 'svg'
-      ? new Blob([svg], { type: mimeTypes.svg })
+      ? new Blob([svg], { type: formats.svg.mime })
       : await rasterize(svg, viewBox, format);
   saveBlob(blob, `${fileName}.${format}`);
 };
