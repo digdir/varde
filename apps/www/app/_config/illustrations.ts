@@ -72,17 +72,37 @@ export const getIllustrationLibrary = (
   return promise;
 };
 
-/** Resolve the `var(--…, fallback)` colours in an SVG to plain hex values. */
+/**
+ * Resolve the `var(--…, fallback)` colours in an SVG to plain hex values for
+ * one colour scheme. `slotValues` maps a slot's CSS variable to the palette
+ * colour name chosen for it; slots without a choice keep their drawn colour
+ * (the nested fallback).
+ */
 export const applyColorScheme = (
   svg: string,
   colors: IllustrationColor[],
   scheme: 'light' | 'dark',
+  slotValues: Record<string, string> = {},
 ) => {
-  const byVariable = new Map(
+  const values = new Map(
     colors.map((color) => [color.variable, color[scheme]]),
   );
-  return svg.replace(
-    /var\((--[\w-]+)(?:,\s*[^)]*)?\)/g,
-    (match, variable: string) => byVariable.get(variable) ?? match,
-  );
+  for (const [variable, colorName] of Object.entries(slotValues)) {
+    const color = colors.find((candidate) => candidate.name === colorName);
+    if (color) values.set(variable, color[scheme]);
+  }
+
+  // Resolve innermost `var()` first (fallbacks may themselves be `var()`s).
+  const innermost = /var\((--[\w-]+)(?:,\s*([^()]*))?\)/g;
+  let result = svg;
+  let previous: string;
+  do {
+    previous = result;
+    result = result.replace(
+      innermost,
+      (match, variable: string, fallback?: string) =>
+        values.get(variable) ?? fallback?.trim() ?? match,
+    );
+  } while (result !== previous);
+  return result;
 };

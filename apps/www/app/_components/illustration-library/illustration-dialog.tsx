@@ -2,8 +2,11 @@ import {
   Button,
   Dialog,
   Dropdown,
+  Field,
   Heading,
+  Label,
   Paragraph,
+  Select,
   Tag,
   ValidationMessage,
 } from '@digdir/designsystemet-react';
@@ -86,11 +89,18 @@ export const IllustrationDialog = ({
 }: IllustrationDialogProps) => {
   const [copied, setCopied] = useState<string | null>(null);
   const [downloadError, setDownloadError] = useState<string | null>(null);
+  /** Chosen palette colour per slot, keyed by the slot's CSS variable. */
+  const [slotValues, setSlotValues] = useState<Record<string, string>>({});
 
   // Reset transient state whenever another illustration is opened.
   useEffect(() => {
     setCopied(null);
     setDownloadError(null);
+    setSlotValues(
+      Object.fromEntries(
+        (item?.slots ?? []).map((slot) => [slot.variable, slot.default]),
+      ),
+    );
   }, [item]);
 
   useEffect(() => {
@@ -103,19 +113,28 @@ export const IllustrationDialog = ({
 
   const variants = useMemo(
     () => ({
-      light: applyColorScheme(svg, library.colors, 'light'),
-      dark: applyColorScheme(svg, library.colors, 'dark'),
+      light: applyColorScheme(svg, library.colors, 'light', slotValues),
+      dark: applyColorScheme(svg, library.colors, 'dark', slotValues),
     }),
-    [svg, library.colors],
+    [svg, library.colors, slotValues],
   );
+
+  // Slots set to something other than the drawn colour become props.
+  const slotProps = (item?.slots ?? [])
+    .filter((slot) => slotValues[slot.variable] !== slot.default)
+    .map((slot) => ` ${slot.prop}="${slotValues[slot.variable]}"`)
+    .join('');
 
   const reactSnippet = item
     ? [
         `import { ${item.componentName} } from '@digdir/varde/illustrations/${library.profile}/react';`,
         '',
-        `<${item.componentName} aria-hidden />`,
+        `<${item.componentName}${slotProps} aria-hidden />`,
       ].join('\n')
     : '';
+
+  const colorLabel = (name: string) =>
+    library.colors.find((color) => color.name === name)?.label ?? name;
 
   const copy = async (text: string, key: string) => {
     try {
@@ -178,6 +197,33 @@ export const IllustrationDialog = ({
               </ul>
             )}
           </Dialog.Block>
+
+          {item.slots.length > 0 && (
+            <Dialog.Block className={classes.slots}>
+              {item.slots.map((slot) => (
+                <Field key={slot.name} className={classes.slot}>
+                  <Label>Farge på {slot.label.toLowerCase()}</Label>
+                  <Select
+                    data-size='sm'
+                    value={slotValues[slot.variable] ?? slot.default}
+                    onChange={(event) =>
+                      setSlotValues((current) => ({
+                        ...current,
+                        [slot.variable]: event.target.value,
+                      }))
+                    }
+                  >
+                    {slot.colors.map((color) => (
+                      <Select.Option key={color} value={color}>
+                        {colorLabel(color)}
+                        {color === slot.default ? ' (standard)' : ''}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Field>
+              ))}
+            </Dialog.Block>
+          )}
 
           <Dialog.Block className={classes.previews}>
             {(['light', 'dark'] as const).map((scheme) => (

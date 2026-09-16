@@ -132,6 +132,17 @@
   gap: var(--ds-size-2);
 }
 
+.slots {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-size-4);
+}
+
+.slot {
+  flex: 1 1 14rem;
+  max-width: 20rem;
+}
+
 .previews {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

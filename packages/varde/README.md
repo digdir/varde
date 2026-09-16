@@ -89,6 +89,49 @@ To add a new profile, create `illustrations/<profile>/colors.json` and at least
 one illustration folder, then register a loader in the docs app
 (`apps/www/app/_config/illustrations.ts`).
 
+### Recolourable parts (colour slots)
+
+Some illustrations have a part that may be shown in more than one brand
+colour. Designers mark this in Illustrator by adding the allowed palette
+colours in square brackets to the **layer name**:
+
+```
+Former [brand1,brand2,brand3]   may be shown in any of the three
+Former [brand1,brand2]          only these two
+Former                          fixed – no brackets, never recoloured
+```
+
+The build reads the marker from the exported `data-name` attribute, which
+Illustrator only writes with *File → Export → Export As → SVG* and
+*Object IDs: Layer Names* (the `id` has the brackets flattened and is ignored).
+Rules:
+
+- Colour names are the keys in `colors.json`. Unknown names fail the build.
+- The colour the part is drawn in is the default. If it is missing from the
+  list the build adds it and warns.
+- Layers with the same name share one slot and must list the same colours.
+  A marker on a group applies to every shape in it drawn in the slot's colour.
+- The slot name comes from the text before the brackets: `Former` becomes the
+  React prop `former` and the CSS variable
+  `--varde-illustration-<profile>-<illustration>-former`.
+
+Using a slot:
+
+```tsx
+<PersonerSomHolderFigurer former="brand1" aria-hidden />
+```
+
+```css
+/* SVG strings: set the slot variable to a palette variable */
+.hero svg {
+  --varde-illustration-digdir-personer-som-holder-figurer-former:
+    var(--varde-illustration-digdir-brand3);
+}
+```
+
+`meta.ts` lists every slot (`slots[]`) with its variable, default and allowed
+colours, which is what the documentation site uses for its colour dropdowns.
+
 ### `colors.json`
 
 Each entry maps a colour name to its light and dark value. Any `fill`/`stroke`
@@ -97,10 +140,12 @@ variable:
 
 ```json
 {
-  "figure": { "light": "#1E2B3C", "dark": "#384A5E" },
-  "brand1": { "light": "#F45F63", "dark": "#F45F63" }
+  "figure": { "label": "Mørk blå", "light": "#1E2B3C", "dark": "#384A5E" },
+  "brand1": { "label": "Rød", "light": "#F45F63", "dark": "#F45F63" }
 }
 ```
+
+`label` is optional and is what the documentation shows in colour dropdowns.
 
 ## Development
 
