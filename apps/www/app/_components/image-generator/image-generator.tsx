@@ -253,6 +253,17 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
 const sizeLabel = (parsed: ParsedTemplate, factor: Scale) =>
   `${Math.round(parsed.width * factor)} × ${Math.round(parsed.height * factor)} px`;
 
+const sanitizeImageSrc = (candidate: string): string | null => {
+  const trimmed = candidate.trim();
+  if (/^data:image\/[a-zA-Z0-9.+-]+;base64,[a-zA-Z0-9+/=]+$/.test(trimmed)) {
+    return trimmed;
+  }
+  if (trimmed.startsWith('blob:')) {
+    return trimmed;
+  }
+  return null;
+};
+
 /**
  * Upload for an `[image]` shape: Designsystemet drop zone plus the chosen
  * file. A file that can't be used is reported right under the field, with
@@ -319,16 +330,21 @@ const ImageField = ({
       <div aria-live='polite'>
         {error && <ValidationMessage>{error}</ValidationMessage>}
       </div>
-      {value && (
-        <div className={classes.imageChosen}>
-          <img src={value} alt='' className={classes.imageThumbnail} />
-          <Paragraph className={classes.imageFileName}>{fileName}</Paragraph>
-          <Button type='button' variant='tertiary' onClick={clear}>
-            <TrashIcon aria-hidden />
-            Fjern
-          </Button>
-        </div>
-      )}
+      {(() => {
+        const safeImageSrc = sanitizeImageSrc(value);
+        return (
+          safeImageSrc && (
+            <div className={classes.imageChosen}>
+              <img src={safeImageSrc} alt='' className={classes.imageThumbnail} />
+              <Paragraph className={classes.imageFileName}>{fileName}</Paragraph>
+              <Button type='button' variant='tertiary' onClick={clear}>
+                <TrashIcon aria-hidden />
+                Fjern
+              </Button>
+            </div>
+          )
+        );
+      })()}
     </Field>
   );
 };
