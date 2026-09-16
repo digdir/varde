@@ -30,6 +30,7 @@ export const loader = async ({ params }: Route.LoaderArgs) => {
     const { frontmatter } = await generateFromMdx(fileContent);
 
     if (frontmatter.published === false) continue;
+    if (frontmatter.sidebar === false) continue;
 
     const slug = file.relativePath.replace(/\.mdx$/, '').replace(/\\/g, '/');
     const title = frontmatter.sidebar_title || frontmatter.title || slug;

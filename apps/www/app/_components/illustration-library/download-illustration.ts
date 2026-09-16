@@ -1,7 +1,8 @@
 /**
- * Browser-side download of an illustration as SVG, or rasterised to PNG/WebP
- * via a canvas. Rasters are rendered with a transparent background and their
- * longest side at `RASTER_MAX_SIDE` pixels.
+ * Browser-side export of an illustration: download as SVG, or rasterised to
+ * PNG/WebP via a canvas, and copy as a PNG image for apps like PowerPoint that
+ * paste SVG markup as text. Rasters are rendered with a transparent background
+ * and their longest side at `RASTER_MAX_SIDE` pixels.
  */
 const formats = {
   svg: { label: 'SVG', mime: 'image/svg+xml' },
@@ -94,6 +95,23 @@ const rasterize = async (
     );
   }
   return blob;
+};
+
+/**
+ * Put the illustration on the clipboard as a PNG image. Office apps paste this
+ * as a picture, whereas SVG markup on the clipboard is pasted as text.
+ */
+export const copyIllustrationImage = async (svg: string, viewBox?: string) => {
+  if (typeof ClipboardItem === 'undefined' || !navigator.clipboard?.write) {
+    throw new Error(
+      'Nettleseren din kan ikke kopiere bilder. Last ned PNG i stedet.',
+    );
+  }
+  // Pass the pending blob rather than awaiting it first: Safari only allows
+  // clipboard writes while the click is still "current".
+  await navigator.clipboard.write([
+    new ClipboardItem({ 'image/png': rasterize(svg, viewBox, 'png') }),
+  ]);
 };
 
 export const downloadIllustration = async ({

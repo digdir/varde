@@ -165,7 +165,7 @@
   padding: var(--ds-size-3) var(--ds-size-4) var(--ds-size-4);
 }
 
-.downloadError {
+.exportError {
   grid-column: 1 / -1;
 }
 

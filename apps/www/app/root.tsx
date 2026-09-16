@@ -41,7 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const themeHref = getThemeStylesheet(getProfile(slug)?.theme);
 
   return (
-    <html lang='no' data-color-scheme='light' suppressHydrationWarning>
+    <html lang='no' data-color-scheme='auto' suppressHydrationWarning>
       <head>
         <meta charSet='utf-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />

@@ -15,10 +15,11 @@ import {
   type IllustrationMeta,
   resolveColorScheme,
 } from '@digdir/varde/illustrations';
-import { DownloadIcon } from '@navikt/aksel-icons';
-import { useMemo, useRef, useState } from 'react';
+import { CheckmarkIcon, DownloadIcon, FilesIcon } from '@navikt/aksel-icons';
+import { type ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { CopyButton } from '../copy-button/copy-button';
 import {
+  copyIllustrationImage,
   type DownloadFormat,
   downloadFormats,
   downloadIllustration,
@@ -38,7 +39,8 @@ interface IllustrationDialogProps {
 
 /**
  * Details for one illustration: colour choices for its slots, light/dark
- * previews with copy and download, plus the React import snippet.
+ * previews with copy (SVG markup or PNG image) and download, plus the React
+ * import snippet.
  */
 export const IllustrationDialog = ({
   item,
@@ -48,9 +50,6 @@ export const IllustrationDialog = ({
   <Dialog
     open={item !== null}
     onClose={onClose}
-    onToggle={(event) => {
-      if (event.newState === 'closed') onClose();
-    }}
     closedby='any'
     closeButton='Lukk'
     className={classes.dialog}
@@ -67,7 +66,15 @@ const DialogContent = ({
   item: IllustrationMeta;
   library: IllustrationLibrary;
 }) => {
-  const [downloadError, setDownloadError] = useState<string | null>(null);
+  const [exportError, setExportError] = useState<string | null>(null);
+  /** Which preview was just copied, for the "Kopiert" feedback. */
+  const [copied, setCopied] = useState<ColorScheme | null>(null);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(null), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
   /** Chosen palette colour per slot, keyed by the slot's CSS variable. */
   const [slotValues, setSlotValues] = useState(() =>
     Object.fromEntries(item.slots.map((slot) => [slot.variable, slot.default])),
@@ -96,8 +103,25 @@ const DialogContent = ({
   const colorLabel = (name: string) =>
     library.colors.find((color) => color.name === name)?.label ?? name;
 
+  const copy = async (scheme: ColorScheme, format: CopyFormat) => {
+    setExportError(null);
+    try {
+      if (format === 'image') {
+        await copyIllustrationImage(variants[scheme], item.viewBox);
+      } else {
+        await navigator.clipboard.writeText(variants[scheme]);
+      }
+      setCopied(scheme);
+    } catch (error) {
+      setCopied(null);
+      setExportError(
+        error instanceof Error ? error.message : 'Kopieringen feilet.',
+      );
+    }
+  };
+
   const download = async (scheme: ColorScheme, format: DownloadFormat) => {
-    setDownloadError(null);
+    setExportError(null);
     try {
       await downloadIllustration({
         svg: variants[scheme],
@@ -106,7 +130,7 @@ const DialogContent = ({
         format,
       });
     } catch (error) {
-      setDownloadError(
+      setExportError(
         error instanceof Error ? error.message : 'Nedlastingen feilet.',
       );
     }
@@ -163,6 +187,10 @@ const DialogContent = ({
         </Dialog.Block>
       )}
 
+      <span className='ds-sr-only' aria-live='polite' aria-atomic='true'>
+        {copied ? 'Kopiert til utklippstavlen' : ''}
+      </span>
+
       <Dialog.Block className={classes.previews}>
         {schemes.map(({ scheme, label }) => (
           <section
@@ -182,20 +210,17 @@ const DialogContent = ({
               dangerouslySetInnerHTML={{ __html: variants[scheme] }}
             />
             <div className={classes.previewActions}>
-              <CopyButton
-                text={variants[scheme]}
-                variant='secondary'
-                data-size='sm'
-              >
-                Kopier SVG
-              </CopyButton>
+              <CopyMenu
+                onSelect={(format) => copy(scheme, format)}
+                copied={copied === scheme}
+              />
               <DownloadMenu onSelect={(format) => download(scheme, format)} />
             </div>
           </section>
         ))}
-        {downloadError && (
-          <ValidationMessage className={classes.downloadError}>
-            {downloadError}
+        {exportError && (
+          <ValidationMessage className={classes.exportError}>
+            {exportError}
           </ValidationMessage>
         )}
       </Dialog.Block>
@@ -217,17 +242,81 @@ const DialogContent = ({
   );
 };
 
-/** "Last ned" button that opens a format picker (SVG, PNG, WebP). */
+type CopyFormat = 'svg' | 'image';
+
+const copyFormats: { format: CopyFormat; label: string }[] = [
+  { format: 'svg', label: 'SVG-kode' },
+  { format: 'image', label: 'Bilde (PNG)' },
+];
+
+/** "Kopier" menu: SVG markup (Illustrator, code) or a PNG image (Office apps). */
+const CopyMenu = ({
+  onSelect,
+  copied,
+}: {
+  onSelect: (format: CopyFormat) => void;
+  copied: boolean;
+}) => (
+  <ActionMenu
+    trigger={
+      copied ? (
+        <>
+          <CheckmarkIcon aria-hidden />
+          Kopiert
+        </>
+      ) : (
+        <>
+          <FilesIcon aria-hidden />
+          Kopier
+        </>
+      )
+    }
+    variant='secondary'
+    heading='Kopier som'
+    items={copyFormats}
+    onSelect={onSelect}
+  />
+);
+
+/** "Last ned" menu: SVG, PNG or WebP file. */
 const DownloadMenu = ({
   onSelect,
 }: {
   onSelect: (format: DownloadFormat) => void;
+}) => (
+  <ActionMenu
+    trigger={
+      <>
+        <DownloadIcon aria-hidden />
+        Last ned
+      </>
+    }
+    variant='tertiary'
+    heading='Velg format'
+    items={downloadFormats}
+    onSelect={onSelect}
+  />
+);
+
+/** Small button that opens a one-shot list of actions. */
+const ActionMenu = <T extends string>({
+  trigger,
+  variant,
+  heading,
+  items,
+  onSelect,
+}: {
+  trigger: ReactNode;
+  variant: 'secondary' | 'tertiary';
+  heading: string;
+  items: { format: T; label: string }[];
+  onSelect: (format: T) => void;
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const select = (format: DownloadFormat) => {
-    // Picking a format is a one-shot action – close the menu (focus returns
-    // to the trigger) before starting the download.
+  const select = (format: T) => {
+    // Picking an item is a one-shot action – close the menu (focus returns to
+    // the trigger) before running it.
     try {
       menuRef.current?.hidePopover();
     } catch {
@@ -238,14 +327,13 @@ const DownloadMenu = ({
 
   return (
     <Dropdown.TriggerContext>
-      <Dropdown.Trigger variant='tertiary' data-size='sm'>
-        <DownloadIcon aria-hidden />
-        Last ned
+      <Dropdown.Trigger variant={variant} data-size='sm'>
+        {trigger}
       </Dropdown.Trigger>
       <Dropdown ref={menuRef} data-size='sm' placement='bottom-start'>
-        <Dropdown.Heading>Velg format</Dropdown.Heading>
+        <Dropdown.Heading>{heading}</Dropdown.Heading>
         <Dropdown.List>
-          {downloadFormats.map(({ format, label }) => (
+          {items.map(({ format, label }) => (
             <Dropdown.Item key={format}>
               <Dropdown.Button onClick={() => select(format)}>
                 {label}

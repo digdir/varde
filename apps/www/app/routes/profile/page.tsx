@@ -37,11 +37,11 @@ export async function loader({ params }: Route.LoaderArgs) {
   };
 }
 
-export const meta = ({ data }: Route.MetaArgs) => {
-  if (!data) return [{ title: 'Varde' }];
+export const meta = ({ loaderData }: Route.MetaArgs) => {
+  if (!loaderData) return [{ title: 'Varde' }];
   return generateMetadata({
-    title: data.frontmatter.title ?? 'Varde',
-    description: data.frontmatter.description,
+    title: loaderData.frontmatter.title ?? 'Varde',
+    description: loaderData.frontmatter.description,
   });
 };
 
