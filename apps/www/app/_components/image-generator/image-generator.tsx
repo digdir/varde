@@ -255,10 +255,11 @@ const sizeLabel = (parsed: ParsedTemplate, factor: Scale) =>
 
 const sanitizeImageSrc = (candidate: string): string | null => {
   const trimmed = candidate.trim();
-  if (/^data:image\/[a-zA-Z0-9.+-]+;base64,[a-zA-Z0-9+/=]+$/.test(trimmed)) {
-    return trimmed;
-  }
-  if (trimmed.startsWith('blob:')) {
+  if (
+    /^data:image\/(?:png|jpe?g|webp|gif);base64,[a-zA-Z0-9+/=]+$/i.test(
+      trimmed,
+    )
+  ) {
     return trimmed;
   }
   return null;
