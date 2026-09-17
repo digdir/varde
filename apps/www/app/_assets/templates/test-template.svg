@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#1e2b3c"/>
+  <path d="M2039.309,620.473c56.656-82.394,89.822-182.196,89.822-289.747,0-282.772-229.233-512.005-512.004-512.005S1105.121,47.955,1105.121,330.727c0,132.486,50.322,253.224,132.895,344.134l-158.707,50.129,258.859,819.52,790.111-249.57-88.97-281.669v-392.798Z" fill="#fff" fill-rule="evenodd"/>
+  <text id="Bunntekst" transform="translate(69.948 681.616)" fill="#fff" font-family="Inter-Regular, Inter" font-size="72" font-variation-settings="&apos;opsz&apos; 14, &apos;wght&apos; 400"><tspan x="0" y="0" letter-spacing="-.078em">T</tspan><tspan x="40.852" y="0">ekst 3</tspan></text>
+  <text id="Midttekst" transform="translate(74.5 495.852)" fill="#fff" font-family="Inter-Bold, Inter" font-size="72" font-variation-settings="&apos;opsz&apos; 14, &apos;wght&apos; 700" font-weight="700"><tspan x="0" y="0" letter-spacing="-.078em">T</tspan><tspan x="42.434" y="0">ekst 2</tspan></text>
+  <text id="Topptekst" transform="translate(69.948 398.383)" fill="#fff" font-family="Inter-Regular, Inter" font-size="72" font-variation-settings="&apos;opsz&apos; 14, &apos;wght&apos; 400"><tspan x="0" y="0" letter-spacing="-.078em">T</tspan><tspan x="40.852" y="0">ekst 1</tspan></text>
+</svg>

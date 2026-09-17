@@ -1,0 +1,139 @@
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--ds-size-8);
+  align-items: start;
+  max-width: 100%;
+  margin-block: var(--ds-size-8);
+
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.loading {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-5);
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+
+  @media (min-width: 901px) {
+    position: sticky;
+    top: calc(var(--header-height) + var(--ds-size-4));
+  }
+}
+
+/* Checkerboard so transparent areas of a template are visible. */
+.canvas {
+  border: 1px solid var(--ds-color-neutral-border-subtle);
+  border-radius: var(--ds-border-radius-md);
+  overflow: clip;
+  background-color: var(--ds-color-neutral-background-tinted);
+  background-image:
+    linear-gradient(
+      45deg,
+      var(--ds-color-neutral-surface-hover) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      -45deg,
+      var(--ds-color-neutral-surface-hover) 25%,
+      transparent 25%
+    ),
+    linear-gradient(
+      45deg,
+      transparent 75%,
+      var(--ds-color-neutral-surface-hover) 75%
+    ),
+    linear-gradient(
+      -45deg,
+      transparent 75%,
+      var(--ds-color-neutral-surface-hover) 75%
+    );
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    0 10px,
+    10px -10px,
+    -10px 0;
+
+  & svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--ds-size-3);
+}
+
+.size {
+  width: auto;
+  min-width: 12rem;
+}
+
+.generator {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-6);
+  max-width: 100%;
+  margin-block: var(--ds-size-8);
+
+  & > .container {
+    margin-block: 0;
+  }
+}
+
+.templatePicker {
+  max-width: 24rem;
+}
+
+.imageField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+}
+
+.dropZone {
+  --dsc-file-upload-padding: var(--ds-size-5) var(--ds-size-4);
+}
+
+.imageChosen {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-3);
+  padding: var(--ds-size-2);
+  border: 1px solid var(--ds-color-neutral-border-subtle);
+  border-radius: var(--ds-border-radius-md);
+}
+
+.imageThumbnail {
+  flex-shrink: 0;
+  width: var(--ds-size-14);
+  height: var(--ds-size-14);
+  border-radius: var(--ds-border-radius-sm);
+  object-fit: cover;
+}
+
+.imageFileName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

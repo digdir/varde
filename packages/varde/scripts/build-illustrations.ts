@@ -615,6 +615,12 @@ const buildProfile = async (profile: string) => {
     '  }',
     '}',
     '',
+    '@media (prefers-color-scheme: light) {',
+    `  [data-color-scheme='auto'] {`,
+    declarations('light').replace(/^/gm, '  '),
+    '  }',
+    '}',
+    '',
   ].join('\n');
   fs.writeFileSync(path.join(distDir, `${profile}.css`), css);
 
