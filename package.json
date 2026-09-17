@@ -19,7 +19,7 @@
   "type": "module",
   "packageManager": "pnpm@12.4.1",
   "devDependencies": {
-    "@biomejs/biome": "2.5.12",
-    "@digdir/designsystemet": "1.21.0"
+    "@biomejs/biome": "2.5.13",
+    "@digdir/designsystemet": "1.21.1"
   }
 }
