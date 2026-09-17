@@ -7,6 +7,7 @@ import {
   Label,
   Paragraph,
   Select,
+  Spinner,
   Textfield,
   ValidationMessage,
 } from '@digdir/designsystemet-react';
@@ -64,6 +65,23 @@ export const ImageGenerator = ({
   useEffect(() => setMounted(true), []);
 
   const source = imageTemplates[templateId];
+
+  // Template markup is loaded on demand (exports can be megabytes).
+  const [svg, setSvg] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState(false);
+  useEffect(() => {
+    let cancelled = false;
+    setSvg(null);
+    setLoadError(false);
+    source?.load().then(
+      (markup) => !cancelled && setSvg(markup),
+      () => !cancelled && setLoadError(true),
+    );
+    return () => {
+      cancelled = true;
+    };
+  }, [source]);
+
   if (!source) {
     return (
       <Alert data-color='warning' className={className}>
@@ -94,8 +112,18 @@ export const ImageGenerator = ({
           </Select>
         </Field>
       )}
-      {/* Keyed so all state starts fresh when the template changes. */}
-      <Editor key={templateId} name={source.name} svg={source.svg} />
+      {loadError ? (
+        <Alert data-color='danger'>
+          Malen «{source.name}» kunne ikke lastes. Prøv igjen senere.
+        </Alert>
+      ) : svg === null ? (
+        <div className={classes.loading}>
+          <Spinner aria-label='Laster malen' />
+        </div>
+      ) : (
+        // Keyed so all state starts fresh when the template changes.
+        <Editor key={templateId} name={source.name} svg={svg} />
+      )}
     </div>
   );
 };
@@ -167,14 +195,14 @@ const Editor = ({ name, svg: templateSvg }: { name: string; svg: string }) => {
         {parsed.fields.map((field, index) =>
           field.kind === 'image' ? (
             <ImageField
-              key={field.label}
+              key={index}
               label={field.label}
               value={values[index]}
               onChange={(value) => setValue(index, value)}
             />
           ) : (
             <Textfield
-              key={field.label}
+              key={index}
               multiline
               label={field.label}
               rows={Math.max(field.rows, 1)}

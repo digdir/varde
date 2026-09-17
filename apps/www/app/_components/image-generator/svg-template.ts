@@ -17,7 +17,11 @@
  *   shape's bounding box, so any shape works without measuring it.
  *
  * Field labels come from the layer name (`data-name`, falling back to `id`).
- * Fields are listed top-to-bottom, regardless of drawing order.
+ * Illustrator writes the name on the object itself, or on a wrapping `<g>`
+ * when the object is alone in its own layer – in that case the group's name
+ * (and any marker in it) is inherited by the single text/shape inside.
+ * Fields are listed top-to-bottom, then left-to-right, regardless of drawing
+ * order.
  */
 export type TextAlign = 'start' | 'middle' | 'end';
 
@@ -98,17 +102,88 @@ const escapeXml = (text: string) =>
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
 
-/** Vertical position used to order fields for editing. */
-const verticalPosition = (attributes: string) => {
+/** Position used to order fields for editing (rows, then columns). */
+const positionOf = (attributes: string) => {
   const translate = attribute(attributes, 'transform')?.match(
-    /translate\(\s*[-\d.]+[\s,]+([-\d.]+)/,
+    /translate\(\s*([-\d.]+)[\s,]+([-\d.]+)/,
   );
-  return Number(
-    translate?.[1] ??
-      attribute(attributes, 'cy') ??
-      attribute(attributes, 'y') ??
-      0,
-  );
+  return {
+    x: Number(
+      translate?.[1] ??
+        attribute(attributes, 'cx') ??
+        attribute(attributes, 'x') ??
+        0,
+    ),
+    y: Number(
+      translate?.[2] ??
+        attribute(attributes, 'cy') ??
+        attribute(attributes, 'y') ??
+        0,
+    ),
+  };
+};
+
+const SHAPES = 'circle|rect|ellipse|path|polygon|polyline';
+
+/**
+ * For every `<text>` and shape, the `data-name` of the nearest ancestor `<g>`
+ * that has one – but only when that group contains exactly one element of
+ * that kind, so a layer name applies to the object it wraps and nothing else.
+ * Keyed by the element's offset in `svg`.
+ */
+const inheritedNames = (svg: string) => {
+  type Group = { name?: string; texts: number; shapes: number };
+  const groups: Group[] = [];
+  const owners = new Map<number, Group>();
+  const result = new Map<number, string>();
+
+  const tag = new RegExp(`<(/?)(g|text|${SHAPES})\\b([^>]*?)(/?)>`, 'g');
+  let match = tag.exec(svg);
+  while (match) {
+    const [, closing, name, attributes, selfClosing] = match;
+    if (name === 'g') {
+      if (closing) groups.pop();
+      else if (!selfClosing) {
+        groups.push({
+          name: attribute(attributes, 'data-name'),
+          texts: 0,
+          shapes: 0,
+        });
+      }
+    } else if (!closing) {
+      const named = [...groups].reverse().find((group) => group.name);
+      if (named) {
+        if (name === 'text') named.texts += 1;
+        else named.shapes += 1;
+        owners.set(match.index, named);
+      }
+      if (name === 'text') {
+        // Skip the body so tspans etc. are not tokenised.
+        tag.lastIndex = svg.indexOf('</text>', match.index) + 1;
+      }
+    }
+    match = tag.exec(svg);
+  }
+
+  for (const [offset, group] of owners) {
+    const isText = svg.startsWith('<text', offset);
+    const sole = isText ? group.texts === 1 : group.shapes === 1;
+    if (sole && group.name) result.set(offset, group.name);
+  }
+  return result;
+};
+
+/** Make duplicate labels unique: "Navn", "Navn" → "Navn 1", "Navn 2". */
+const uniqueLabels = (labels: string[]) => {
+  const counts = new Map<string, number>();
+  for (const label of labels) counts.set(label, (counts.get(label) ?? 0) + 1);
+  const seen = new Map<string, number>();
+  return labels.map((label) => {
+    if ((counts.get(label) ?? 0) < 2) return label;
+    const n = (seen.get(label) ?? 0) + 1;
+    seen.set(label, n);
+    return `${label} ${n}`;
+  });
 };
 
 /** Collapse a `<text>` body into lines: one per distinct tspan `y`. */
@@ -139,52 +214,69 @@ export const parseTemplate = (svg: string): ParsedTemplate => {
     .split(/[\s,]+/)
     .map(Number);
 
-  // Collected in document order; `fields` is later sorted top-to-bottom.
-  const entries: { field: TemplateField; node: Node; position: number }[] = [];
+  // Collected in document order; `fields` is later sorted by position.
+  const entries: {
+    field: TemplateField;
+    node: Node;
+    position: { x: number; y: number };
+  }[] = [];
   const placeholder = () => `<!--field:${entries.length - 1}-->`;
 
-  let skeleton = svg.replace(/<\?xml[^>]*\?>\s*/, '');
+  const body = svg.replace(/<\?xml[^>]*\?>\s*/, '');
+  const inherited = inheritedNames(body);
 
-  skeleton = skeleton.replace(
-    /<text\b([^>]*)>([\s\S]*?)<\/text>/g,
-    (_, attributes: string, body: string) => {
-      const lines = linesOf(body);
-      const fontSize = Number(attribute(attributes, 'font-size') ?? 16);
+  const skeleton = body.replace(
+    new RegExp(
+      `<text\\b([^>]*)>([\\s\\S]*?)</text>|<(${SHAPES})\\b([^>]*?)/>`,
+      'g',
+    ),
+    (
+      original: string,
+      textAttributes: string | undefined,
+      textBody: string | undefined,
+      shapeTag: string | undefined,
+      shapeAttributes: string | undefined,
+      offset: number,
+    ) => {
+      if (textAttributes !== undefined && textBody !== undefined) {
+        const lines = linesOf(textBody);
+        const fontSize = Number(attribute(textAttributes, 'font-size') ?? 16);
+        const layerName =
+          attribute(textAttributes, 'data-name') ??
+          inherited.get(offset) ??
+          attribute(textAttributes, 'id') ??
+          `Tekst ${entries.length + 1}`;
+        const marker = layerName.match(ALIGN_MARKER);
+        entries.push({
+          field: {
+            kind: 'text',
+            label: layerName.replace(ALIGN_MARKER, '').trim() || layerName,
+            defaultValue: lines.map((line) => line.text).join('\n'),
+            rows: lines.length,
+            align: marker ? alignments[marker[1].toLowerCase()] : 'start',
+          },
+          node: {
+            kind: 'text',
+            attributes: stripAttributes(textAttributes, [
+              'id',
+              'data-name',
+              'xml:space',
+            ]),
+            x: lines[0].x,
+            y: lines[0].y,
+            lineHeight:
+              lines.length > 1 ? lines[1].y - lines[0].y : fontSize * 1.2,
+          },
+          position: positionOf(textAttributes),
+        });
+        return placeholder();
+      }
+
+      if (shapeTag === undefined || shapeAttributes === undefined) {
+        return original;
+      }
       const layerName =
-        attribute(attributes, 'data-name') ??
-        attribute(attributes, 'id') ??
-        `Tekst ${entries.length + 1}`;
-      const marker = layerName.match(ALIGN_MARKER);
-      entries.push({
-        field: {
-          kind: 'text',
-          label: layerName.replace(ALIGN_MARKER, '').trim() || layerName,
-          defaultValue: lines.map((line) => line.text).join('\n'),
-          rows: lines.length,
-          align: marker ? alignments[marker[1].toLowerCase()] : 'start',
-        },
-        node: {
-          kind: 'text',
-          attributes: stripAttributes(attributes, [
-            'id',
-            'data-name',
-            'xml:space',
-          ]),
-          x: lines[0].x,
-          y: lines[0].y,
-          lineHeight:
-            lines.length > 1 ? lines[1].y - lines[0].y : fontSize * 1.2,
-        },
-        position: verticalPosition(attributes),
-      });
-      return placeholder();
-    },
-  );
-
-  skeleton = skeleton.replace(
-    /<(circle|rect|ellipse|path|polygon|polyline)\b([^>]*?)\/>/g,
-    (original, tag: string, attributes: string) => {
-      const layerName = attribute(attributes, 'data-name') ?? '';
+        attribute(shapeAttributes, 'data-name') ?? inherited.get(offset) ?? '';
       if (!IMAGE_MARKER.test(layerName)) return original;
       entries.push({
         field: {
@@ -194,22 +286,35 @@ export const parseTemplate = (svg: string): ParsedTemplate => {
         },
         node: {
           kind: 'image',
-          tag,
-          attributes: stripAttributes(attributes, ['id', 'data-name', 'fill']),
+          tag: shapeTag,
+          attributes: stripAttributes(shapeAttributes, [
+            'id',
+            'data-name',
+            'fill',
+          ]),
           original,
         },
-        position: verticalPosition(attributes),
+        position: positionOf(shapeAttributes),
       });
       return placeholder();
     },
   );
 
-  // Editing order: top to bottom. `order[fieldIndex]` is the node index.
+  // Editing order: rows top to bottom, then left to right (a few px of
+  // baseline jitter counts as the same row). `order[fieldIndex]` is the
+  // node index.
+  const ROW_TOLERANCE = 8;
   const order = entries
-    .map((entry, index) => ({ index, position: entry.position }))
-    .sort((a, b) => a.position - b.position)
+    .map((entry, index) => ({ index, ...entry.position }))
+    .sort((a, b) =>
+      Math.abs(a.y - b.y) > ROW_TOLERANCE ? a.y - b.y : a.x - b.x,
+    )
     .map(({ index }) => index);
-  const fields = order.map((index) => entries[index].field);
+  const labels = uniqueLabels(order.map((index) => entries[index].field.label));
+  const fields = order.map((index, fieldIndex) => ({
+    ...entries[index].field,
+    label: labels[fieldIndex],
+  }));
 
   const render = (values: string[], widths?: (number | undefined)[]) => {
     const fieldIndexOf = new Map(

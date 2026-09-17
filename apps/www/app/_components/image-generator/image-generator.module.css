@@ -11,6 +11,12 @@
   }
 }
 
+.loading {
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+}
+
 .form {
   display: flex;
   flex-direction: column;
