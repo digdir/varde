@@ -53,7 +53,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "peerDependencies": {
-    "react": ">=18.3.1"
+    "react": ">=19.3.0"
   },
   "peerDependenciesMeta": {
     "react": {
