@@ -35,6 +35,10 @@ export const imageTemplates = {
     name: 'Presentasjon av to innledere',
     load: raw(() => import('./presentasjon-av-to-innledere.svg?raw')),
   },
+  'presentasjon-av-to-innledere-to': {
+    name: 'Min min nye mal',
+    load: raw(() => import('./presentasjon-av-to-innledere.svg?raw')),
+  },
 } satisfies Record<string, ImageTemplate>;
 
 export type ImageTemplateId = keyof typeof imageTemplates;
