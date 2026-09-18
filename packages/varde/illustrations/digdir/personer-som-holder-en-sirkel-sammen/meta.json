@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Personer som holder en sirkel sammen",
+  "description": "To personer står på hver sin side av en stor sirkel og holder den sammen. Passer til innhold om samarbeid, felles ansvar og utvikling av løsninger sammen.",
+  "tags": ["personer", "samarbeid", "felles ansvar", "utvikling"]
+}
