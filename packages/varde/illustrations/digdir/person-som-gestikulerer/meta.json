@@ -2,5 +2,13 @@
   "$schema": "../../meta.schema.json",
   "title": "Person som gestikulerer",
   "description": "En person som gestikulerer med begge armene fremover, som om hen forklarer eller presenterer noe. Passer til innhold om veiledninger, opplæring, presentasjoner, samtaler og samarbeid.",
-  "tags": ["person", "forklare", "presentere", "veiledning", "opplæring", "samarbeid", "samtale"]
+  "tags": [
+    "person",
+    "forklare",
+    "presentere",
+    "veiledning",
+    "opplæring",
+    "samarbeid",
+    "samtale"
+  ]
 }
