@@ -1,6 +1,6 @@
 {
   "$schema": "../../meta.schema.json",
   "title": "Person med jojo",
-  "description": "En person leker med en jojo. Passer til innhold om læring, lek og prøving.",
+  "description": "En person leker med en jojo. Passer til innhold om læring og lek.",
   "tags": ["person", "lek", "jojo"]
 }

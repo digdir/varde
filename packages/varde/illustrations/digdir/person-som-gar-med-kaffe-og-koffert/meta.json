@@ -1,0 +1,14 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person som går med kaffe og koffert",
+  "description": "En person som går med kaffe og koffert. Passer til innhold om bevegelse, fremdrift og utvikling.",
+  "tags": [
+    "person",
+    "gå",
+    "bevegelse",
+    "fremdrift",
+    "utvikling",
+    "kaffe",
+    "koffert"
+  ]
+}

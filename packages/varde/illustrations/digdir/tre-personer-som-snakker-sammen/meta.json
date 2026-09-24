@@ -1,0 +1,6 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Tre personer som snakker sammen",
+  "description": "Tre personer sitter sammen og snakker med hverandre. Passer til innhold om samarbeid, kommunikasjon og felles ansvar.",
+  "tags": ["person", "samarbeid", "kommunikasjon", "felles ansvar"]
+}
