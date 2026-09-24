@@ -136,9 +136,6 @@ const DialogContent = ({
     }
   };
 
-  console.log('slotValues', slotValues);
-  console.log('item slots', item.slots);
-
   return (
     <>
       <Dialog.Block>
