@@ -1,0 +1,14 @@
+{
+  "$schema": "../../meta.schema.json",
+  "title": "Person som forklarer",
+  "description": "En person som forklarer med begge hendene. Passer til innhold om presentasjoner, opplæring og veiledning.",
+  "tags": [
+    "person",
+    "forklare",
+    "gestikulere",
+    "presentere",
+    "opplæring",
+    "veiledning",
+    "snakke"
+  ]
+}

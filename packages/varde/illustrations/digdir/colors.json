@@ -2,7 +2,10 @@
   "white": { "label": "Hvit", "light": "#FFFFFF", "dark": "#FFFFFF" },
   "figure": { "label": "Mørk blå", "light": "#1E2B3C", "dark": "#384A5E" },
   "skin": { "label": "Hud", "light": "#FCDFE1", "dark": "#FCDFE1" },
-  "brand1": { "label": "Rød", "light": "#F45F63", "dark": "#F45F63" },
+  "brand1": { "label": "Rød", "light": "#F05F63", "dark": "#F05F63" },
   "brand2": { "label": "Gul", "light": "#E5AA20", "dark": "#E5AA20" },
-  "brand3": { "label": "Blå", "light": "#1E98F5", "dark": "#1E98F5" }
+  "brand3": { "label": "Blå", "light": "#1E98F5", "dark": "#1E98F5" },
+  "subbrand1": { "label": "Lys rød", "light": "#FCDFE1", "dark": "#FCDFE1" },
+  "subbrand2": { "label": "Lys gul", "light": "#F9EED2", "dark": "#F9EED2" },
+  "subbrand3": { "label": "Lys blå", "light": "#D1EAFE", "dark": "#D1EAFE" }
 }
